@@ -1,22 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Zamira Grippi" />
     <title>Introduccion al JavaScript</title>
 </head>
-<body>
 
-    <h1>Que etiqueta se usa en html para meter codigo javascript</h1>
-    <!--Hacer que los p sean botones y revelen la respuesta al clickear-->
-    <button id="respuesta1">La etiqueta script</button>
-    <h1>¿Qué ventajas tiene incrustar el código JavaScript en un archivo externo?</h1>
-    <p>Mejores funcionalides, mejor depuracion</p>
-    <h1>¿Qué ventajas tiene incrustar el código JavaScript en un archivo externo?</h1>
-    <p>Mejores funcionalides, mejor depuracion</p>
-    <h1>¿Qué extensión suelen tener los archivos que contienen código JavaScript?</h1>
-    <p>La extension .js</p>
-    <!--Para unir un archivo aparte de js-->
-    <script type="text/javascript" src="./js/codigo.js"></script>
+<body>
+    <h1>Zamira Grippi 2 DAW</h1>
+    <h2>Crea un archivo "02-02-JSTiposdeDatos.htm" comentalo de las dos maneras posibles</h2>
+    <script>
+        /**
+         * Comentario
+         * */
+        //Comentario
+    </script>
+    <h2>¿Qué etiqueta se utiliza para insertar código JavaScript en HTML?</h2>
+    <p>Se utiliza script</p>
+    <h2>¿Qué ventajas tiene incrustar el código JavaScript en un archivo externo?</h2>
+    <p>Es mejor para leer y para depurar, ya que no esta todo en un mismo archivo</p>
+    <h2>¿Qué extensión suelen tener los archivos que contienen código JavaScript?</h2>
+    <p>Tienen .js</p>
+    <h2>¿Cómo se referencia un archivo .js en HTML?</h2>
+    <p>Se referencia con: '&lt;script type="text/javascript" src="dirrecion" /&gt; '</p>
+    <h2>¿Qué debe hacer si el archivo JavaScript se encuentra en otro directorio?</h2>
+    <p>Escribir la ruta hacia ese directorio, si esta dentro del mismo se puede usar ./carpeta/codigo</p>
+    <h2>¿Qué etiqueta se usa para mostrar un mensaje si el navegador no soporta JavaScript?</h2>
+    <p>&lt; noscript &gt;</p>
+    <h2>¿Qué diferencia hay al insertar JavaScript en XHTML?</h2>
+    <p>La diferencia principal al insertar JavaScript en XHTML radica en la necesidad de encerrar el código JavaScript
+    entre etiquetas &lt;![CDATA[...]&gt; para evitar problemas con los caracteres especiales < y &, algo que no es
+    necesario en HTML convencional.</p>
+    <h2>¿Qué es la ofuscación de código y por qué se utiliza?</h2>
+    <p>Es hacer que un codigo no sea legible por humanos, se usa para evitar que te copien el codigo</p>
+    <h2>Cómo se llama el lenguaje que se menciona en el texto?</h2>
+    <p>javascript</p>
+    <h2>¿Qué nombre le dio Microsoft a JavaScript?</h2>
+    <p>Jscript</p>
+    <h2>¿Por qué Microsoft usó el nombre Jscript?</h2>
+    <p>Porque desarollo su propio lenguaje, y lo hizo asi por razones de marketing</p>
+    <h2>¿Qué problema surgió con la versión de JScript de Microsoft?</h2>
+    <p>Problemas de incompatibilidad entre buscadores debido a la existencia de diferentes versiones de lenguaje
+    </p>
+    <h2>¿Qué es el DOM y por qué fue diseñado?</h2>
+    <p>Una interfaz de programación:
+    El DOM es una interfaz estándar que define cómo los programas pueden interactuar con un documento web.
+    Fue disenado con el objetivo de permitir a los desarrolladores acceder y manipular cada parte de un
+    documento web con javascript.</p>
+    <h2>¿Qué navegadores incorporaron el DOM desde su primera versión?</h2>
+    <p>Los navegadores Netscape Navigator e Internet Explorer.</p>
+    <h2>¿Qué estándar regula el lenguaje JavaScript desde 1997?</h2>
+    <p>ECMAScript.</p>
+    <h2>18. ¿Qué documento detalla las especificaciones del estándar ECMA?</h2>
+    <p>El ECMA-262</p>
+    <h2>¿Qué relación tiene JavaScript con Java?</h2>
+    <p>No tienen relacion tecnica,solo se llaman igual por marketing, ya que antes javascript se llamaba
+    livescript </p>
+    <h2>¿Quién desarrolló originalmente JavaScript y con qué nombre?</h2>
+    <p>JavaScript fue desarrollado originalmente por Brendan Eich para Netscape con el nombre de Mocha, con el
+    nombre de LiveScript</p>
+    <h2>que caracteres y nombres están prohibidos como nombre de variables ?</h2>
+    <p>Los nombres de variable están prohibidos si son palabras reservadas del lenguaje de programación,
+    empiezan por un número o contienen caracteres especiales como espacios, signos de puntuación, o acentos.</p>
+    <script>
+        alert('Hola Mundo!')
+        var cadena = "hola"; var numero = 23; var numeroFl =23.4; var boolean = true;
+    </script>
+    <table>
+        <tr>
+            <td>Cadena</td>
+            <td>"Hola"</td>
+        </tr>
+        <tr>
+            <td>Numero</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>Null</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>var hoy = new Date()</td>
+        </tr>
+        <tr>
+            <td>Arrays</td>
+            <td>let array = [1,2,3]</td>
+        </tr>
+        <tr>
+            <td>Fuction</td>
+            <td>fuction mensaje(cadena){
+                codigo...}</td>
+        </tr>
+    </table>
+    <h2>TypeOf</h2>
+    <script>
+        var cadena = "hola";
+        var numero = 5;
+        var booleano = false;
+        var objecto = null;
+        var arreglos = [1,2,3];
+        document.writeln(typeof(cadena));
+        document.write("<br/>");
+        document.writeln(typeof(numero));
+        document.write("<br/>");
+        document.writeln(typeof(booleano));
+        document.write("<br/>");
+        document.writeln(typeof(objecto));
+        document.write("<br/>");
+        document.writeln(typeof(arreglos));
+    </script>
+    <h2>Tabla</h2>
+    <table>
+        <tr>
+            <td>
+                4+4
+            </td>
+            <td>
+                <script>
+                    var suma = 4 + 4;
+                    document.write(suma);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                "4" + 4
+            </td>
+            <td>
+                <script>
+                    var suma = "4" + 4;
+                    document.write(suma);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                a+c
+            </td>
+            <td>
+               <script>
+                    var suma = a + c;
+                    document.write(suma);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.9e3+1
+            </td>
+            <td>
+                <script>
+                    var suma = 2.9e3+1;
+                    document.write(suma);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.9e3 + b
+            </td>
+            <td>
+                <script>
+                    var suma = 2.9e3 + b;
+                    document.write(suma);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               
+            </td>
+            <td>
+                <script>
+                    var suma = 2.9e3 + a ;
+                    document.write(suma);
+                </script>
+            </td>
+        </tr>
+    </table>
+<h2>Conversion de valores</h2>
+    <script>
+        var num1 = 2.9e3;
+        document.write("Float: "+parseFloat(num1));
+        document.write("int: "+parseInt(num1));
+        document.write("<br/>")
+        var num2 = 30.1e-3;
+        document.write("Float: "+parseFloat(num2));
+        document.write("int: "+parseInt(num2));
+        document.write("<br/>")
+        var num3 = 0.000000004;
+        document.write("Float: "+parseFloat(num3));
+        document.write("int: "+parseInt(num3));
+        document.write("<br/>")
+        var num4 = 0.6;
+        document.write("Float: "+parseFloat(num4));
+        document.write("int: "+parseInt(num4));
+         document.write("<br/>")
+        var num5 = 3000000;
+        document.write("Float: "+parseFloat(num5));
+        document.write("int: "+parseInt(num5));
+         document.write("<br/>")
+        var num6 = 301231000;
+        document.write("Float: "+parseFloat(num6));
+        document.write("int: "+parseInt(num6));
+
+        document.writeln("<br/>");
+        document.writeln("<h2>Largo de una cadena</h2>");
+        var cadena = "123456";
+        document.writeln(cadena.length);
+
+        document.writeln("<br/>");
+        document.writeln("<h2>variables con const</h2>");
+        const PALABRA = "AAA";
+        alert(PALABRA);
+        //Lo comento porque al fallar no ejecuta el resto del codigo
+        //PALABRA = "BBB";
+        //Al intentar cambiarla no la imprime
+        //alert(PALABRA);
+        document.writeln("<br/>");
+        document.writeln("<h2>Variables dentro de IF</h2>");
+        var verdad = false;
+        if (verdad == true) {
+            var v1 = "Variable IF 1";
+            var v2 = "Variable IF 2";
+            alert(v1);
+            alert(v2);
+        } else {
+            alert("Cambia el valor de verdad, para ver lo de if");
+        }
+
+         document.writeln("<br/>");
+        document.writeln("<h2>Variables dentro de IF 2</h2>");
+        var verdad2 = false;
+        if (verdad2 == true) {
+            let v1 = "Variable IF 1";
+            let v2 = "Variable IF 2";
+            alert(v1);
+            alert(v2);
+        } else {
+            alert("Cambia el valor de verdad, para ver lo de if 2");
+        }
+    </script>
+
+    
 </body>
+
 </html>

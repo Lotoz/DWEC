@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Para que sea mas comodo para leer-->
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <meta name="author" content="Zamira Grippi" />
+    <title>Operaciones aritmeticas y de comparacion JS</title>
+</head>
+
+<body>
+    <h1>
+        Zamira Grippi 2 DAW
+    </h1>
+    <h2>1. Rellena el siguiente tabla</h2>
+    <table>
+        <tr>
+            <th>Operador</th>
+            <th>Nombre</th>
+            <th>Entrada</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>==</td>
+            <td>Igualdad</td>
+            <td>todos</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>!=</td>
+            <td>distinto</td>
+            <td>todos</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>===</td>
+            <td>Igualdad estricta</td>
+            <td>todos</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>!==</td>
+            <td>Desigualdad Estricta</td>
+            <td>Todos</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>></td>
+            <td>Mayor que.</td>
+            <td>Todos</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>>=</td>
+            <td>Mayor o igual que</td>
+            <td>Todos</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>
+                < </td>
+            <td>Menor</td>
+            <td>Todos</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td> <= </td>
+            <td>Menor o igual que</td>
+            <td>Todos</td>
+            <td>Boolean</td>
+        </tr>
+    </table>
+    <br />
+    <h2>2. Ejecuta el siguiente código</h2>
+    <script>
+        var resultado1 = 30 == 30;
+        var resultado2 = 30 == 30.0; // true
+        var resultado3 = 5 != 8; // true
+        var resultado4 = 9 > 13; // false
+        var resultado5 = 7.29 <= 7.28; // false
+        var resultado6 = "Marta" == "Marta"; // true
+        var resultado7 = "Marta" == "marta"; // false
+        var resultado8 = "Marta" > "marta"; // false
+        var resultado9 = "Mark" < "Marta"; // true
+        document.write("resultado1" + resultado1 + "<br>" +
+            "resultado1" + resultado1 + "<br> " +
+            "resultado2" + resultado2 + "<br> " +
+            "resultado3" + resultado3 + "<br> " +
+            "resultado4" + resultado4 + "<br> " +
+            "resultado5" + resultado5 + "<br> " +
+            "resultado6" + resultado6 + "<br> " +
+            "resultado7" + resultado7 + "<br> " +
+            "resultado8" + resultado8 + "<br> " +
+            "resultado9" + resultado9 + "<br>");
+    </script>
+    <br />
+    <h2>3.Rellena el siguiente tabla y creala con html5</h2>
+    <table>
+        <tr>
+            <th> </th>
+            <th>Nombre</th>
+            <th>Tipos de operando</th>
+            <th>Resutados</th>
+        </tr>
+        <tr>
+            <td> + </td>
+            <td>Mas</td>
+            <td>integer,float,string</td>
+            <td>integer,float,string</td>
+        </tr>
+        <tr>
+            <td> - </td>
+            <td>Menos</td>
+            <td>integer,float,string</td>
+            <td>integer,float,string</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Multiplicacion</td>
+            <td>integer,float</td>
+            <td>integer,float</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>Division</td>
+            <td>integer,float</td>
+            <td>integer,float</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Modulo</td>
+            <td>integer,float</td>
+            <td>integer,float</td>
+        </tr>
+        <tr>
+            <td>++</td>
+            <td>Incremento</td>
+            <td>integer,float</td>
+            <td>integer,float</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>Decremento</td>
+            <td>integer,float</td>
+            <td>integer,float</td>
+        </tr>
+        <tr>
+            <td>+valor</td>
+            <td>Positivo</td>
+            <td>integer,float,string</td>
+            <td>integer,float</td>
+        </tr>
+        <tr>
+            <td>-valor</td>
+            <td>negativo</td>
+            <td>integer,float,string</td>
+            <td>integer,float</td>
+        </tr>
+    </table>
+    <br />
+    <h2>4. Ejecuta el siguiente código</h2>
+    <script>
+        var resultado1 = 30;
+        var resultado2 = 100;
+        var resultado3 = resultado1 + resultado2;
+        var resultado3 = resultado1 - resultado2;
+        var resultado4 = resultado1 * resultado2;
+        var resultado5 = resultado1 / resultado2;
+        var resultado6 = resultado1 % 2;
+        var resultado7 = resultado1++;
+        var resultado8 = resultado1--;
+        var resultado9 = -resultado1;
+        document.write("resultado1" + resultado1 + "<br>" +
+            "resultado1" + resultado1 + "<br> " +
+            "resultado2" + resultado2 + "<br> " +
+            "resultado3" + resultado3 + "<br> " +
+            "resultado4" + resultado4 + "<br> " +
+            "resultado5" + resultado5 + "<br> " +
+            "resultado6" + resultado6 + "<br> " +
+            "resultado7" + resultado7 + "<br> " +
+            "resultado8" + resultado8 + "<br> " +
+            "resultado9" + resultado9 + "<br>");
+    </script>
+</body>
+
+</html>
