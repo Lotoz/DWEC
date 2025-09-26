@@ -46,24 +46,24 @@
         </tr>
         <tr>
             <td>/=</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Dividir un valor</td>
+            <td>Sirve para dividir valores</td>
+            <td>x = x / y</td>
+            <td> x/=y </td>
         </tr>
         <tr>
             <td>%=</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Modulo de un valor</td>
+            <td>Sirve para sacar el modulo de valores</td>
+            <td>x = x % y</td>
+            <td>x %= y</td>
         </tr>
         <tr>
             <td>[]=</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Desestructurando asignaciones</td>
+            <td>Destructura asignaciones</td>
+            <td>[a,b] = [c,d]</td>
+            <td>a=b, d=c</td>
         </tr>
     </table>
     <h2>Rellanar la tabla</h2>
@@ -75,19 +75,219 @@
         </tr>
        <tr>
             <td>&&</td>
-            <td></td>
-            <td></td>
+            <td>AND</td>
+            <td>num1 > num2 && num2 > num3</td>
        </tr>
        <tr>
             <td>||</td>
-            <td></td>
-            <td></td>
+            <td>OR</td>
+            <td>num1 >= 0 || num2 == 0</td>
        </tr>
        <tr>
             <td>!</td>
-            <td></td>
-            <td></td>
+            <td>NOT</td>
+            <td>!flag => false (flag = true)</td>
        </tr>
     </table>
+
+    <h2>Rellanar la tabla</h2>
+    <table>
+        <tr>
+            <th>A</th>
+            <th>OP</th>
+            <th>B</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>TRUE</td>
+            <td>&&</td>
+            <td>TRUE</td>
+            <td>TRUE</td>
+        </tr>
+        <tr>
+            <td>TRUE</td>
+            <td>&&</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+        </tr>
+        <tr>
+            <td>FALSE</td>
+            <td>&&</td>
+            <td>TRUE</td>
+            <td>FALSE</td>
+        </tr>
+        <tr>
+            <td>FALSE</td>
+            <td>&&</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+        </tr>
+    </table>
+
+    <h2>Rellana la tabla con OR</h2>
+    <table>
+        <tr>
+            <th>A</th>
+            <th>OP</th>
+            <th>B</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>TRUE</td>
+            <td>||</td>
+            <td>TRUE</td>
+            <td>TRUE</td>
+        </tr>
+        <tr>
+            <td>TRUE</td>
+            <td>||</td>
+            <td>FALSE</td>
+            <td>TRUE</td>
+        </tr>
+        <tr>
+            <td>FALSE</td>
+            <td>||</td>
+            <td>TRUE</td>
+            <td>TRUE</td>
+        </tr>
+        <tr>
+            <td>FALSE</td>
+            <td>||</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+        </tr>
+    </table>
+    <h2>Crea un ejemplo para cada operador booleano</h2>
+    <script>
+        let num1 = 3;
+        let num2 = 6;
+        if (num1 == 3 && num2 < 5) {
+            document.write("No deberia entrar al if.");
+        }else {
+            document.write("No ha entrado en el if porque es num1 = 3 && num2 < 5."
+                + "Y num1 = 3 y num2 = 6"
+            );
+        }
+        if(num1 == 3 || num2 < 5){
+            document.write("H entrado en el if porque es num1 = 3 || num2 < 5."
+                + "Y num1 = 3 y num2 = 6"
+            );
+        }
+    </script>
+
+    <h2>Crea un ejemplo combinando con parentesis con cada uno de los operadores booleanos</h2>
+    <script>
+        let num3 = 1;
+        let num4 = 8;
+        if (num3 == 3 && num4 < 5) {
+            document.write("No deberia entrar al if.");
+        }else if(num3 < 1 || num4 == 8 ){
+            document.write("Entra en el if porque num4 = 8.");
+        }
+    </script>
+    <h2>Que son los operadores bit a bit</h2>
+    <p>Realizan operaciones aritméticas o de desplazamiento de columna en las
+representaciones binarias de dos operandos.</p>
+    <h2>En que formatos se pueden usar?</h2>
+    <p>Los operandos numéricos, pueden aparecer en JavaScript en cualquiera de los tres formatos posibles
+(decimal, octal o hexadecimal).</p>
+
+    <h2>Rellena las tablas de bits</h2>
+    <table>
+        <tr>
+            <th>Operador</th>
+            <th>Nombre</th>
+            <th>Operando izquierdo</th>
+            <th>Operando derecho</th>
+            <th>Ejemplo</th>
+        </tr>
+        <tr>
+            <td>&</td>
+            <td>desplazamiento AND</td>
+            <td>Valor integer</td>
+            <td>Valor integer</td>
+            <td>00001000 
+                & 00001100 =  
+            00001000</td>
+        </tr>
+        <tr>
+            <td>|</td>
+            <td>desplazamiento or</td>
+            <td>valor interger</td>
+            <td>valor integer</td>
+            <td>00001000 
+                | 0000100 =  
+            00001000</td>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>desplazamiento xor</td>
+            <td>valor integer</td>
+            <td>valor integer</td>
+            <td>00001000 
+                ^0000000 =  
+            00001000</td>
+        </tr>
+         <tr>
+            <td>~</td>
+            <td>Desplazamiento not</td>
+            <td>ninguno</td>
+            <td>valor integer</td>
+            <td>~ 0000100 =  
+            00001000</td>
+        </tr>
+        <tr>
+            <td>&lt&lt</td>
+            <td>desplazamiento a la izquierda</td>
+            <td>Valor integer.</td>
+            <td>Cantidad a desplazar.</td>
+            <td>0001000 &lt&lt2=0100000 </td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;</td>
+            <td>Desplazamiento a la derecha.</td>
+            <td>Valor integer.</td>
+            <td>Cantidad a desplazar.</td>
+            <td>11000>>2=110</td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;&gt;</td>
+            <td>Desplazamiento derecha rellenando con 0.</td>
+            <td>Valor integer.</td>
+            <td>Cantidad a desplazar.</td>
+            <td>11000>>2= 00110</td>
+        </tr>
+    </table>
+    <h2>Ejecuta este codigo y observa los resultados de los alert</h2>
+    <script>
+     /*
+     let binario = "10010111";
+    let num255 = "11111111";
+    let decimal = parseInt("10010111", 2);
+    document.writeln("<br>" + binario + " binario"  + " es " + decimal + " en decimal");
+
+    let DesplazamientoAND = decimal & 255
+    let DesplazamientoOR = decimal | 255
+    let DesplazamientoXOR = decimal ^ decimal
+    let DesplazamientoNOT = ~decimal
+    let Desplazamientoizquierda = decimal << 1
+    let Desplazamientoderecha = decimal >> 1
+    let Desplazamientoderecha0 = decimal >>> 2
+
+    document.writeln("<br> AND " + DesplazamientoAND);
+    document.writeln("<br> OR" + DesplazamientoOR);
+    document.writeln("<br>"+DesplazamientoXOR);
+    document.writeln("<br>"+DesplazamientoNOT);
+    document.writeln("<br">+Desplazamientoizquierda);
+    document.writeln("<br>"+Desplazamientoderecha);
+    document.writeln("<br>"+Desplazamientoderecha0);   */
+    </script>
+    <h2>Modifica la variable</h2>
+    <script>
+        let segundoparametroBinario = "11111111";
+        let segundoparametro = parseInt(segundoparametroBinario, 2);
+        let DesplazamientoAND = decimal & segundoparametro // 0
+    
+    </script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Operadores de tipos avanzados y Objetos en JS</title>
+</head>
+<body>
+    <h2>Que hace el operador . ?</h2>
+    <p>Se usa para acceder a propiedades o metodos de un objeto.</p>
+    <h3>Ejecuta este codigo y explicalo</h3>
+    <script>
+        var s = new String('rafa');document.write(s);
+	    var longitud = s.length;document.write(longitud);
+	    var pos = s.indexOf("fa"); document.write(pos);
+    </script>
+    <p>En la primera variable, var s. Imprime la cadena entera.
+        en la segunda impreme la longitud.
+        En la tercera solo imprime la longitud de la parte que sea de fa.
+    </p>
+    <h2>Que hace el operador []?</h2>
+    <p>Se usa para: Acceder a elementos de un array. Acceder a propiedades de un objeto mediante notación por corchetes. Crear arreglos o claves dinámicamente
+    </p>
+    <h3>Ejecuta el codigo  y explica que hace.</h3>
+    <script>
+        var arraya =["Santiago","Coruña", "Lugo"];
+        var arrayb={ elem1:"Santiago", elem2:"Coruña",  elem3:"Lugo" };
+        document.write(arraya[1]);
+        document.write(arrayb["elem3"]);
+    </script>
+    <p>En el arraya pilla el de primera posicion, que seria el segundo objeto del array.
+        En el arrayb pilla el la clave del tercer elemento.
+    </p>
+    <h2>Que hace el operador {}</h2>
+    <p>Se usa para: Definir objetos literales. Crear bloques de código</p>
+    <h3>Ejecuta el codigo y explica que hace</h3>
+    <script>
+        var arrayb={ elem1:"Santiago", elem2:"Coruña",  elem3:"Lugo" };
+        document.write(arrayb["elem3"]);
+    </script>
+    <p>Pilla el elemento 3 del array.</p>
+    <h2>Que hace el operador Delete?</h2>
+    <p>Se usa para eliminar propiedades de un objeto</p>
+    <h3>Crea un ejemplo de delete</h3>
+    <script>
+        var oceano = {
+            color : "azul",
+            cantidad : 45,
+            esSalado : true
+        };
+        delete oceano.cantidad;
+        document.write(oceano.cantidad);
+    </script>
+    <h2>Que hace el operador de escape \'?</h2>
+    <p>Se usa para poder incluir caracteres con caracteristicas especiales en javascript.</p>
+    <h3>Crea un ejemplo</h3>
+    <script>
+        document.writeln("\\\" asi se usa");
+    </script>
+    <h2>Que hace el operador instanceof?</h2>
+    <p>Sirve para comprobar si un objeto es instancia de una clase o de un constructor.</p>
+    <h3>Ejecuta el codigo</h3>
+    <script>
+        aray = new Array(1,2,3);
+	    aray instanceof Array; // devolverá true.
+        document.write(aray instanceof Array);
+    </script>
+    <p>Devuelve true ya que el elemento es un array</p>
+    <h2>Que hace el operador coma? Operador . Como operador instanceof</h2>
+    <p></p>
+
+
+</body>
+</html>
