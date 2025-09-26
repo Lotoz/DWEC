@@ -67,8 +67,40 @@
     </script>
     <p>Devuelve true ya que el elemento es un array</p>
     <h2>Que hace el operador coma? Operador . Como operador instanceof</h2>
-    <p></p>
-
+    <p>Se usa para:
+    1. Separar elementos en listas: arrays, objetos, argumentos de funciones.
+    2. En expresiones, evalúa múltiples expresiones y retorna la última.</p>
+    <h3>Ejecuta el codigo</h3>
+    <script>
+        var nombre="juan", direccion="C\ pepep,1", apellidos="lopez Abad", edad="30";
+        document.write( nombre + "," + apellidos  + "," + direccion + "," + edad );
+    </script>
+    <h2>Que hace el operador : ?</h2>
+    <p>Es el operador condiconal, sirve para hacer una forma reducida de if.</p>
+    <script>
+        var a =10;
+        var b = 15; 
+        var opcion= b>a ? "B es mayor que A": "A es mayor que B";
+        document.write( "opcion "+opcion);
+    </script>
+    <h2>ejecuta este codigo</h2>
+    <script>
+        var a =confirm("Estas de Acuerdo");
+        var opcion= a ? "Acuerdo": "En Desacuerdo";
+        document.write( "opcion "+opcion);
+    </script>
+    <h2>Que hace el operador typeof</h2>
+    <p>Operador unario que se usa para identificar cuadno una variable o expresion es de algun tipo.</p>
+    <h2>Ejecuta el codigo</h2>
+    <script>
+        var a ="hola" , b=34, c=3.1e3 d = 34; 
+        var at =typeof(a) ;
+        var bt =typeof(b) ;
+        var ct =typeof(c) ;
+        document.write( " tipo de "+ a: + " es  "+at);
+        document.write( " tipo de "+b: + " es  "+bt);
+        document.write( " tipo de "+ c: + " es  "+ct);
+    </script>
 
 </body>
 </html>
