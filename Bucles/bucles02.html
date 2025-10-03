@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles</title>
+</head>
+
+<body>
+    <h1>Ejemplos resolucion ejercicios</h1>
+    <h3>Ejercicio 1</h3>
+    <ol>
+        <script>
+            const ar1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            for (const m of ar1) {
+
+                document.writeln("<li>" + "<h4 style=\"color:#006600;\">" + m + "</h4>" + "</li>");
+
+            }
+        </script>
+    </ol>
+    <h3>Ejercicio 2</h3>
+    <ol>
+        <script>
+            const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const arr2 = ["#000000", "#003300", "#006600", "#009900", "#00CC00", "#00CC00"];
+            let i = 0;
+            for (const m of arr1) {
+
+                document.writeln("<li>" + "<h4 style=\"color:" + arr2[i] + ";\">" + m + "</h4>" + "</li>");
+                i += 1;
+            }
+        </script>
+    </ol>
+    <h3>Ejercicio 3</h3>
+    <script>
+        var Mis_notas = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };
+        for (const nota in Mis_notas) {
+            document.writeln("La nota de " + Mis_notas[nota] + " es de " + nota + "<br/>");
+        }
+    </script>
+    <h3>Ejercicio 4</h3>
+    <table>
+        <script>
+            const a1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const a2 = ["bonita", "Guapa", " Bella", "Pintoresca", "Hermosa"];
+            for (const e of a1) {
+                document.write("<tr>");
+                for (const y of a2) {
+                    document.write("<td>");
+                    document.write( e + "-" + y );
+                    document.write("</td>");
+                }
+                document.write("</tr>"); 
+            }
+        </script>
+    </table>
+
+    <h3>Ejercicio 5</h3>
+    <script>
+    const ciudades = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+        let o = 0;
+        while (ciudades.length > o) {
+            document.write("<button onclick='alert(\"La ciudad mas bonita es "+ ciudades[o] + "\")'>"+ ciudades[o] +"</button>");
+        o++;
+        }
+
+    </script>
+    <h3>Ejercicio 6</h3>
+    <script>
+        let size = 10;
+        for (let valor = 0; valor <= 10; valor++) {
+            document.write("<p style=\"font-size: "+ size +"px" + "\"> hola que tal</p>");
+            size--;
+        }
+    </script>
+</body>
+</html>

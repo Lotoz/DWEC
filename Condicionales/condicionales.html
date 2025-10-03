@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales</title>
+</head>
+
+<body>
+    <h3>Ejercicio 1</h3>
+    <script language="JavaScript">
+        var nombre;
+        var edad;
+        nombre = prompt('Ingrese su nombre:', '');
+        edad = prompt('Ingrese su edad:', '');
+        document.write('Hola ');
+        document.write(nombre);
+        document.write(' asi que tienes ');
+        document.write(edad);
+        document.write(' años');
+    </script>
+    <h3>Ejercicio 2</h3>
+    <script>
+        let entrada = prompt('Ingresa algo:', '');
+        document.write("<h1><b>"+ entrada +"</b></h1>");
+    </script>
+    <h3>Ejercicio 3,4,5</h3>
+    <script>
+        let nacimiento = prompt('Tu edad?', '');
+        if (isNaN(nacimiento)) {
+            document.writeln("Debes ingresar un numero, refresca la pagina para reintentar.");
+        }
+        else if (nacimiento >= 18) {
+            document.writeln("Estas en edad activa.");
+        } else if (nacimiento < 75) {
+             document.writeln("Estas jubilado.");
+        } else {
+            document.writeln("No estas en edad activa.");
+        }
+    </script>
+    <h3>Ejercicio 6</h3>
+    <script>
+        let entr1 = prompt('Dame un año:', '');
+        if (isNaN(entr1)) {
+            document.writeln("Debes ingresar un numero, refresca la pagina para reintentar.");
+        } else{
+            if (entr1 % 4 == 0) {
+                if (entr1 % 400 == 0) {
+                    if (entr1 % 100 == 0) {
+                       document.write("Es bisiesto."); 
+                    } else {
+                      document.write("No es bisiesto.");   
+                    }
+                } else {
+                    document.write("Es bisiesto."); 
+                }
+            } else {
+                document.write("No es bisiesto.");
+            }
+        }
+    </script>
+    <h3>Ejercicio 7</h3>
+    <script>
+       let url = prompt('Dame una url:', '');
+    
+    </script>
+    <h3>Ejercicio 8</h3>
+    <script>
+        let num = prompt('Dame un numero:', '');
+        if (isNaN(num)) {
+            document.writeln("Debes ingresar un numero, refresca la pagina para reintentar.");
+        } else if(num == 1000) {
+            document.writeln("GANASTE!!");
+        } else {
+            document.writeln("Sigue participando.");
+        }
+    </script>
+    <h3>Ejercicio 9,10</h3>
+    <script>
+        let num1 = prompt('Dame un numero:', '');
+        if (!isNaN(num1) && !isNaN(num2) ) {
+            if (num1 > num2) {
+                document.write("El numero "+num1+" es mayor a "+ num2);
+            } else if (num2 > num1){
+                document.write("El numero "+num2+" es mayor a "+ num1);
+            } else {
+                document.write("Son iguales.");
+            }
+        } else {
+            document.writeln("Debes ingresar un numero, refresca la pagina para reintentar.");
+        }
+    </script>
+    <h3>Ejercicio 11</h3>
+    <script>
+        let dia = prompt('Dame un dia de la semana:', '');
+        switch (dia.toLowerCase) {
+            case 'lunes':
+                document.write("Otra vez lunes.");
+                break;
+            case 'martes':
+                document.write("Bueh, martes.");
+                break;
+            case 'miercoles':
+                document.write("Como la serie!");
+                break;
+            case 'jueves':
+                document.write("Feliz jueves!");
+                break;
+            case 'viernes':
+                document.write("Ya se viene el descanso.");
+                break;
+            case 'sabado':
+                document.write("Descanso chill.");
+                break;
+            case 'domingo':
+                document.write("Pre-lunes.");
+                break;
+            default:
+                document.write("Ingresa un dia valido.")
+                break;
+        }
+    </script>
+    <h3>Ejercicio 12,16</h3>
+    <script>
+        let numEntero = prompt('Dame un numero:', '');
+        if (!isNaN(numEntero)) {
+            if (numEntero > 0) {
+                document.writeln("El valor absoluto es: "+ numEntero);
+            } else {
+                numEntero = -(numEntero);
+                document.writeln("El valor absoluto es: " + numEntero);
+            }
+        } else {
+            document.writeln("Debes ingresar un numero, refresca la pagina para reintentar.");
+        }
+    </script>
+    <h3>Ejercicio 13</h3>
+    <script>
+        let nombre1 = prompt('Dame un nombre:', '');
+        let nombre2 = prompt('Dame un nombre:', '');
+        if (nombre1.substring(0,1)== nombre2.substring(0,1)) {
+            document.write("Son iguales");
+        } else{
+            document.write("No hay coincidencia.");
+        }
+    </script>
+    <h3>Ejercicio 14,17</h3>
+    <ul>
+        <li>Candidato A: Partido Rojo</li>
+        <li>Candidato B: Partido Verde</li>
+        <li>Candidato C: Partido Azul</li>
+    </ul>
+    <script>
+        let candidato = prompt('Elija un candidato(Solo ingresa A,B,C):', '');
+
+       if (candidato.length > 1) {
+            document.write("Solo una letra.");
+       } else {
+            switch (candidato) {
+                case 'A':
+                    document.write("ROJO.");
+                    break;
+                case 'B':
+                    document.write("VERDE.");
+                    break;
+                case 'C':
+                    document.write("AZUL.");
+                    break;
+            
+                default:
+                    document.write("Candidato invalido.");
+                    break;
+            }
+       }
+    </script>
+    <h3>Ejercicio 15</h3>
+    <script>
+        let letra = prompt('Ingresa una letra:', '');
+        letra.toLocaleLowerCase;
+        if (letra.length > 1) {
+            document.write("No es una letra.");
+        } else {
+            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
+                document.write("Es una vocal.");
+            } else {
+                document.write("Es una consonante.");
+            }
+        }
+    </script>
+    <h3>Ejercicio 18</h3>
+    <script>
+         let parImpar = prompt('Dame un numero(par/impar):', '');
+         if (isNaN(parImpar)) {
+            parImpar % 2 == 0 ? document.write("Es par.") : document.write("Es impar.");
+         }else{
+            document.write("Ingresa un numero.");
+         }
+    </script>
+    <h3>Ejercicio 19</h3>
+    <script>
+        let voto = prompt('Dime tu edad:', '');
+         if (isNaN(voto)) {
+            voto >= 18 ? document.write("Puedes votar.") : document.write("No puedes votar.");
+         }else{
+            document.write("Ingresa un numero.");
+         }
+    </script>
+    <h3>Ejercicio 20</h3>
+    <script>
+        let m = prompt('Dame un numero:', '');
+        let n = prompt('Dame un numero:', '');
+         if (isNaN(m) && isNaN(n)) {
+            m > n ? document.write("El numero " + m + "es mayor") : document.write("El numero " + n + "es mayor");
+         }else{
+            document.write("Ingresa un numero.");
+         }
+    </script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+    <h3></h3>
+    <script></script>
+</body>
+
+</html>
