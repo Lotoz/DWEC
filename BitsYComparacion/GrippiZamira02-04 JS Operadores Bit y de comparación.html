@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Zamira Grippi" />
     <title>Bits y comparacion</title>
 </head>
+
 <body>
     <h2>Rellena la siguiente tabla</h2>
     <table>
@@ -73,21 +75,21 @@
             <th>Nombre</th>
             <th>Ejemplo</th>
         </tr>
-       <tr>
+        <tr>
             <td>&&</td>
             <td>AND</td>
             <td>num1 > num2 && num2 > num3</td>
-       </tr>
-       <tr>
+        </tr>
+        <tr>
             <td>||</td>
             <td>OR</td>
             <td>num1 >= 0 || num2 == 0</td>
-       </tr>
-       <tr>
+        </tr>
+        <tr>
             <td>!</td>
             <td>NOT</td>
             <td>!flag => false (flag = true)</td>
-       </tr>
+        </tr>
     </table>
 
     <h2>Rellanar la tabla</h2>
@@ -163,12 +165,12 @@
         let num2 = 6;
         if (num1 == 3 && num2 < 5) {
             document.write("No deberia entrar al if.");
-        }else {
+        } else {
             document.write("No ha entrado en el if porque es num1 = 3 && num2 < 5."
                 + "Y num1 = 3 y num2 = 6"
             );
         }
-        if(num1 == 3 || num2 < 5){
+        if (num1 == 3 || num2 < 5) {
             document.write("H entrado en el if porque es num1 = 3 || num2 < 5."
                 + "Y num1 = 3 y num2 = 6"
             );
@@ -181,16 +183,16 @@
         let num4 = 8;
         if (num3 == 3 && num4 < 5) {
             document.write("No deberia entrar al if.");
-        }else if(num3 < 1 || num4 == 8 ){
+        } else if (num3 < 1 || num4 == 8) {
             document.write("Entra en el if porque num4 = 8.");
         }
     </script>
     <h2>Que son los operadores bit a bit</h2>
     <p>Realizan operaciones aritméticas o de desplazamiento de columna en las
-representaciones binarias de dos operandos.</p>
+        representaciones binarias de dos operandos.</p>
     <h2>En que formatos se pueden usar?</h2>
     <p>Los operandos numéricos, pueden aparecer en JavaScript en cualquiera de los tres formatos posibles
-(decimal, octal o hexadecimal).</p>
+        (decimal, octal o hexadecimal).</p>
 
     <h2>Rellena las tablas de bits</h2>
     <table>
@@ -206,35 +208,35 @@ representaciones binarias de dos operandos.</p>
             <td>desplazamiento AND</td>
             <td>Valor integer</td>
             <td>Valor integer</td>
-            <td>00001000 
-                & 00001100 =  
-            00001000</td>
+            <td>00001000
+                & 00001100 =
+                00001000</td>
         </tr>
         <tr>
             <td>|</td>
             <td>desplazamiento or</td>
             <td>valor interger</td>
             <td>valor integer</td>
-            <td>00001000 
-                | 0000100 =  
-            00001000</td>
+            <td>00001000
+                | 0000100 =
+                00001000</td>
         </tr>
         <tr>
             <td>^</td>
             <td>desplazamiento xor</td>
             <td>valor integer</td>
             <td>valor integer</td>
-            <td>00001000 
-                ^0000000 =  
-            00001000</td>
+            <td>00001000
+                ^0000000 =
+                00001000</td>
         </tr>
-         <tr>
+        <tr>
             <td>~</td>
             <td>Desplazamiento not</td>
             <td>ninguno</td>
             <td>valor integer</td>
-            <td>~ 0000100 =  
-            00001000</td>
+            <td>~ 0000100 =
+                00001000</td>
         </tr>
         <tr>
             <td>&lt&lt</td>
@@ -260,34 +262,52 @@ representaciones binarias de dos operandos.</p>
     </table>
     <h2>Ejecuta este codigo y observa los resultados de los alert</h2>
     <script>
-     /*
-     let binario = "10010111";
-    let num255 = "11111111";
-    let decimal = parseInt("10010111", 2);
-    document.writeln("<br>" + binario + " binario"  + " es " + decimal + " en decimal");
-
-    let DesplazamientoAND = decimal & 255
-    let DesplazamientoOR = decimal | 255
-    let DesplazamientoXOR = decimal ^ decimal
-    let DesplazamientoNOT = ~decimal
-    let Desplazamientoizquierda = decimal << 1
-    let Desplazamientoderecha = decimal >> 1
-    let Desplazamientoderecha0 = decimal >>> 2
-
-    document.writeln("<br> AND " + DesplazamientoAND);
-    document.writeln("<br> OR" + DesplazamientoOR);
-    document.writeln("<br>"+DesplazamientoXOR);
-    document.writeln("<br>"+DesplazamientoNOT);
-    document.writeln("<br">+Desplazamientoizquierda);
-    document.writeln("<br>"+Desplazamientoderecha);
-    document.writeln("<br>"+Desplazamientoderecha0);   */
+        /*
+        let binario = "10010111";
+       let num255 = "11111111";
+       let decimal = parseInt("10010111", 2);
+       document.writeln("<br>" + binario + " binario"  + " es " + decimal + " en decimal");
+   
+       let DesplazamientoAND = decimal & 255
+       let DesplazamientoOR = decimal | 255
+       let DesplazamientoXOR = decimal ^ decimal
+       let DesplazamientoNOT = ~decimal
+       let Desplazamientoizquierda = decimal << 1
+       let Desplazamientoderecha = decimal >> 1
+       let Desplazamientoderecha0 = decimal >>> 2
+   
+       document.writeln("<br> AND " + DesplazamientoAND);
+       document.writeln("<br> OR" + DesplazamientoOR);
+       document.writeln("<br>"+DesplazamientoXOR);
+       document.writeln("<br>"+DesplazamientoNOT);
+       document.writeln("<br">+Desplazamientoizquierda);
+       document.writeln("<br>"+Desplazamientoderecha);
+       document.writeln("<br>"+Desplazamientoderecha0);   */
     </script>
     <h2>Modifica la variable</h2>
     <script>
         let segundoparametroBinario = "11111111";
         let segundoparametro = parseInt(segundoparametroBinario, 2);
-        let DesplazamientoAND = decimal & segundoparametro // 0
-    
+
+        let decimal = 42; // Valor de ejemplo
+
+        let DesplazamientoAND = decimal & segundoparametro;
+        let DesplazamientoOR = decimal | segundoparametro;
+        let DesplazamientoXOR = decimal ^ segundoparametro;
+        let DesplazamientoNOT = ~segundoparametro;
+        let Desplazamientoizquierda = segundoparametro << 1;
+        let Desplazamientoderecha = segundoparametro >> 1;
+        let Desplazamientoderecha0 = decimal >>> 2;
+
+        document.writeln("<br>+ AND " + DesplazamientoAND);
+        document.writeln("<br>+ OR " + DesplazamientoOR);
+        document.writeln("<br>+ XOR " + DesplazamientoXOR);
+        document.writeln("<br>+ NOT " + DesplazamientoNOT);
+        document.writeln("<br>+ Desplazamiento izquierda " + Desplazamientoizquierda);
+        document.writeln("<br>+ Desplazamiento derecha " + Desplazamientoderecha);
+        document.writeln("<br>+ Desplazamiento derecha (sin signo) " + Desplazamientoderecha0);
+
     </script>
 </body>
+
 </html>
