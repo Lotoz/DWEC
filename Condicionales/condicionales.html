@@ -216,26 +216,99 @@
             document.write("Ingresa un numero.");
          }
     </script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
-    <h3></h3>
-    <script></script>
+    <h3>Ejercicio 21</h3>
+    <script>
+        let nota = prompt('Dime tu nota');
+        let mensaje = "";
+        switch (nota) {
+            case '1':
+            case '2': 
+            case '3': 
+            case '4':
+                mensaje = "Desaprobado";
+                break;
+            case '5':
+                mensaje = "Suficiente";
+                break;
+            case '6':
+                mensaje = "Aprobado";
+                break;
+            case '7': 
+            case '8':
+                mensaje = "Muy bien";
+                break;
+            case '9':
+            case '10': 
+                mensaje = "Excelente";
+                break;
+            default: 
+                mensaje = "Error";
+        }
+        document.writeln(mensaje);
+    </script>
+    <h3>Ejercicio 23</h3>
+    <script>
+        let number = parseInt(prompt('Dame un numero'));
+        if (number > 0){
+            document.write("Es positivo");
+        }else if (number < 0) {
+            document.write("Es negativo");
+        } else{
+            document.write("Es cero");
+        }
+    </script>
+    <h3>Ejercicio 24</h3>
+    <script>
+        let password = 'admin123';
+        let passwUser = prompt("Ingresa la contraseña: ");
+        if(passwUser === password){
+            document.writeln("Acceso permitido");
+        }else{
+            document.writeln("Acceso denegado")
+        }
+    </script>
+    <h3>Ejercicio 26</h3>
+    <script>
+        let nume1 =  parseFloat(prompt('Dame un numero'));
+        let nume2 =  parseFloat(prompt('Dame un numero'));
+        let operando =  prompt('Dime tu operacion: ');
+        
+        switch (operando) {
+            case '+':
+                document.writeln("El resultado de la suma es: ", nume1 + nume2);
+                break;
+            case '-':
+                document.writeln("El resultado de la resta es: ", nume1 - nume2);
+                break;
+            case '/':
+                nume1 == 0 || nume2 == 0 ? document.writeln('No se puede dividir entre cero.') : document.writeln("El resultado de la division es: ", nume1 > nume2 ? nume2/nume1 : nume1/nume2);
+                break;
+            case '*':
+                document.writeln("El resultado de la multiplicacion es: ", nume1 * nume2);
+                break;   
+            default:
+                document.writeln('Operacion no valida o no implementada');
+                break;
+        }
+    </script>
+    <h3>Ejercicio 27</h3>
+    <script>
+        let color = prompt('Dame un color del semafaro:');
+        switch (color.toLowerCase) {
+            case 'rojo':
+                document.writeln('Detente');
+                break;
+            case 'amarillo':
+                document.writeln('Preciaucion');
+                break;
+            case 'verde':
+                document.writeln('Avanza');
+                break;    
+            default:
+                document.writeln('Colores validos = Rojo, Verde, Amarillo');
+                break;
+        }
+    </script>
 </body>
 
 </html>
