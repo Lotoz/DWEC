@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles I</title>
+</head>
+<body>
+    <h3>Ejercicio 1</h3>
+    <script>
+        let palabra = prompt('Dame una palabra');
+        for (let i = 0; i <= 10; i++) {
+            document.writeln(palabra, "<br/>");
+        }
+    </script>
+    <h3>Ejercicio 2</h3>
+    <script>
+        let edad = parseInt(prompt("Dime tu edad:"));
+        let i = 1;
+        while (i <= edad) {
+             if (i == edad) {
+                document.writeln("<br/>Tienes:  ", i);
+            } else {
+                document.writeln("<br/>Has cumplido: ", i);
+            }
+            i++;
+        }
+    </script>
+    <h3>Ejercicio 3</h3>
+    <script>
+        let numero = parseInt(prompt("Dame el numero"));
+        for (let index = 1; index <= numero ; index++) {
+            if (index % 2 != 0) {
+                document.writeln("Numero:", index, "<br/>");
+            }
+        }
+    </script>
+    <h3>Ejercicio 4</h3>
+    <script>
+        numero = parseInt(prompt("Dame el numero"));
+        document.writeln('Cuenta atras!');
+        for (let index = numero ; index > 0; index--) {   
+            document.writeln(index, " ,");
+        }
+        document.writeln('Boom!');
+    </script>
+    <h3>Ejercicio 5</h3>
+    <script>
+        let inversion = parseFloat(prompt("Cuanto deseas invertir?"));
+        let interesAnual = parseFloat(prompt("Interes anual?"));
+        let numeroAnyos = parseFloat(prompt("Cuantos años deseas invertir? "));
+        let total = 0;
+        for (let index = 0; index <= numeroAnyos ; index++) {
+            total += inversion * interesAnual;
+        }
+        document.writeln("El capital ganado es de: ", parseInt(total));
+    </script>
+    <h3>Ejercicio 6</h3>
+    <script>
+        let triangulo = parseInt(prompt("Dime un numero: "));
+        let cadena = "";
+        for (let index = 0; index <= triangulo ; index++) {
+            cadena += "*";
+            document.writeln(cadena);
+            document.writeln("<br/>"); 
+        }
+    </script>
+    <h3>Ejercicio 7</h3>
+    <script>
+        document.writeln("Tabla de multiplicar");
+        numero = 1;
+        for (let index = 0; numero <= 10; index++) {
+            document.writeln(index, "x",numero, "=", index*numero );
+            numero++;
+            document.writeln("<br/>");
+        }
+    </script>
+    <h3>Ejercicio 8</h3>
+    <script>
+        //Ver como invertir
+        /*let number = parseInt(prompt("Dime un numero: 8 "));
+        let cadenaNumerica = "";
+        let numerosInvertidos = "";
+        for (let i = 1; i <= number; i++) {
+            cadenaNumerica += i;
+            for (let i = cadenaNumerica.length; i >= 0; i--) {
+                numerosInvertidos += cadenaNumerica.charAt(i); 
+                document.writeln(numerosInvertidos);
+                document.writeln('<br/>');
+            }
+        }*/
+    </script>
+    <h3>Ejercicio 9 </h3>
+    <script>
+        /**let contra = "NoHay!";
+        let passw = "";
+        let intento = 0;
+        do {
+            passw = prompt("Ingresa la contraseña: ");
+            if (intento == 10) {
+                document.write("NoHay!");
+            }
+            intento++;
+        } while (contra != passw);
+        document.write("La adivinaste!");
+        */
+    </script>
+    <h3>Ejercicio 10</h3>
+    <script>
+        numero = parseInt(prompt("Dime un numero(Primo): "));
+        let flag = false;
+        let contador = 2;
+        do {
+            if (numero % contador == 0 && contador > 1) {
+                flag = true;
+            }
+            contador++;
+        } while (!flag && contador < numero);
+        
+        if (contador >= numero) {
+            document.writeln("Es primo.")
+        } else {
+            document.writeln("No es primo");
+        }
+
+    </script>
+    <h3>Ejercicio 11</h3>
+    <script>
+        //Corregir
+        /*palabra = prompt("Dame una palabra: ");
+        contador = 0;
+        for (let index = palabra.length ; index <= 0; index--) {
+            document.writeln(palabra.charAt(index));
+            document.write("<br/>")    
+        }*/
+    </script>
+    <h3>Ejercicio 12</h3>
+    <script>
+        let frase = prompt("Dame una frase: ");
+        let letra = prompt("Letra a contar: ");
+        let cuenta = 0;
+        frase.toUpperCase;
+        letra.toUpperCase;
+        for (const element of frase) {
+            if (element == letra) {
+                cuenta++;
+            }
+        }
+        document.writeln("La letra ha aparecido: ", cuenta);
+    </script>
+    <h3>Ejercicio 13</h3>
+    <script>
+        /*Corregir
+        let escrito = prompt("Soy eco: (Escribi salir para finalizar)");
+        let flag1 = false;
+        let salida = "salir";
+        while (flag1 == true) {
+            if (escrito == salida) {
+                flag1 = true;
+            }else{
+                document.writeln(escrito);
+                document.write("<br/>")
+            }
+        }*/
+    </script>
+    <h3>Ejercicio 14</h3>
+    <script></script>
+    <h3>Ejercicio 15</h3>
+    <script></script>
+</body>
+</html>
