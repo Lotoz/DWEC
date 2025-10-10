@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 03-01 String</title>
+</head>
+<body>
+    <h3>Ejercicio 1</h3>
+    <script>
+        let mensaje = window.prompt('Ejercicio 1: ');
+        document.writeln(mensaje);
+    </script>
+    <h3>Ejercicio 2</h3>
+    <script>
+        let m = window.prompt("Ejercicio 2:"); 
+        document.writeln(m.charAt(parseInt(m.length/2)));
+    </script>
+    <h3>Ejercicio 3</h3>
+    <script>
+        let n = window.prompt("Ejercicio 3:"); 
+        document.writeln(n.charCodeAt(parseInt(n.length/2)));
+    </script>
+    <h3>Ejercicio 4</h3>
+    <script>
+        document.writeln(mensaje.charCodeAt(parseInt(mensaje.length/2)));
+    </script>
+    <h3>Ejercicio 5</h3>
+    <script>
+        /*let entrada1 = window.prompt("Ejercicio 5 primera entrada");
+        let entrada2 = window.prompt("Ejercicio 5 segunda entrada");
+        let cadenaUnida = entrada1.concat(entrada2);
+        document.writeln(cadenaUnida);*/
+    </script>
+    <h3>Ejercicio 6</h3>
+    <script>
+        /* No work, repasar
+        let numero = window.prompt("Ejercicio 6");
+        let hola = "holaaa";
+        if (isNaN(numero)) {
+            document.writeln(hola.FromCharCode(numero));
+        }*/
+    </script>
+    <h3>Ejercicio 7</h3>
+    <script>
+        /*let entrada1 = window.prompt("Ejercicio 7 primera entrada");
+        let entrada2 = window.prompt("Ejercicio 7 segunda entrada");
+        document.writeln(entrada2.indexOf(entrada1));*/
+    </script>
+    <h3>Ejercicio 8</h3>
+    <script>
+        /*let entrada1 = window.prompt("Ejercicio 8 primera entrada");
+        let entrada2 = window.prompt("Ejercicio 8 segunda entrada");
+        document.writeln(entrada1.indexOf(entrada2));*/
+    </script>
+    <h3>Ejercicio 9</h3>
+    <script>
+        /*let entrada1 = window.prompt("Ejercicio 8 primera entrada");
+        let entrada2 = window.prompt("Ejercicio 8 segunda entrada");
+        document.writeln(entrada1.lastIndexOf(entrada2));*/
+    </script>
+    <h3>Ejercicio 10</h3>
+    <script>
+        /*cadena = "<br>Los temas son tema 1, tema 3, tema 5 y tema 6";
+        //expresion = /(capítulo \d+(\.\d)*)/i;
+        expresion = /(tema \d+)/i;
+        hallado = cadena.match(expresion);
+        document.write( cadena + "<br> expresion en "+hallado[1]); 
+        */
+    </script>
+    <p>
+        Busca que parte de la cadena coincide con esa expresion. En el caso de coincidir, coloca cuantas coincidencias encontro.
+    </p>
+    <h3>Ejercicio 11</h3>
+    <script>
+        /*let entrada1 = window.prompt("Ejercicio 11 primera entrada");
+        let entrada2 = window.prompt("Ejercicio 11 segunda entrada");
+        document.writeln(entrada1.replace(entrada2));*/
+    </script>
+    <h3>Ejercicio 12</h3>
+    <script>
+        let cadena = "Hola, soy una cadena que tiene cosas de cadena";
+        let subcadena = "cadena";
+        let encontrado = subcadena.search(cadena);
+        document.writeln(encontrado);
+    </script>
+    <h3>Ejercicio 13</h3>
+    <script>
+        /*let entrada1 = window.prompt("Ejercicio 13 primera entrada");
+        document.writeln(entrada1.slice(parseInt(entrada1.length/2)));*/
+    </script>
+    <h3>Ejercicio 14</h3>
+    <script>
+        /* Revisar si esta bien
+        let entrada1 = window.prompt("Ejercicio 14 primera entrada");
+        let cadenas = entrada1.split();
+        document.writeln(cadenas);*/
+    </script>
+    <h3>Ejercicio 15</h3>
+    <script>
+        let cadenaSub = "Esto no deberia verse, esto si :D";
+        cadenaSub = cadenaSub.substr(22);
+        document.writeln(cadenaSub);
+    </script>
+    <h3>Ejercicio 16</h3>
+    <script>
+        cadenaSub = "Esto no deberia verse, esto si :D";
+         cadenaSub = cadenaSub.substring(22,33);
+        document.writeln(cadenaSub);
+    </script>
+    <h3>Ejercicio 17</h3>
+    <script>
+        /* Ver porque no va
+        let entrada1 = window.prompt("Ejercicio 17 primera entrada");
+        let grande = entrada1.toUpperCase;
+        let minus = entrada1.toLowerCase;
+        document.writeln(grande);
+    
+        document.writeln(minus);*/
+    </script>
+    <h3>Ejercicio 18</h3>
+    <script>
+        /*Revisara*/
+        let entrada1 = window.prompt("Ejercicio 18 primera entrada");
+        let entrada2 = window.prompt("Ejercicio 18 segunda entrada");
+        let corte = entrada2.indexOf(entrada1);
+        
+        document.writeln("<b>" + entrada2.split(corte) + "</b>");
+    </script>
+</body>
+</html>
