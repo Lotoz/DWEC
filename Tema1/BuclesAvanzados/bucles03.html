@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicios de Tablas de Colores</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin-top: 30px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      /* Estilo general de las tablas */
+      table {
+        border-collapse: collapse;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+      }
+
+      td {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Ejercicio 8</h2>
+    <div id="ej8"></div>
+
+    <h2>Ejercicio 9</h2>
+    <div id="ej9"></div>
+
+    <h2>Ejercicio 10</h2>
+    <div id="ej10"></div>
+
+    <script>
+      // Función genérica para dibujar tablas de colores asi no tener que repetir codigo por cada tabla
+      function dibujarTabla(id, matriz) {
+        let filas = matriz.length;
+        let cols = matriz[0].length;
+        let tabla = "<table>";
+
+        for (let i = 0; i < filas; i++) {
+          tabla += "<tr>";
+          for (let j = 0; j < cols; j++) {
+            tabla += `<td style="background-color:${matriz[i][j]};"></td>`;
+          }
+          tabla += "</tr>";
+        }
+
+        tabla += "</table>";
+        document.getElementById(id).innerHTML = tabla;
+      }
+
+      // Ejercicio 8, tabvla 3x3
+      const colores8 = [
+        ["#0f0", "#00f", "#0f0"],
+        ["#f00", "#00f", "#f00"],
+        ["#0f0", "#f00", "#00f"],
+      ];
+      dibujarTabla("ej8", colores8);
+
+      // Ejercicio 9, tabla 6x6
+      const colores9 = [
+        ["#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f"],
+        ["#f0f", "#ff0", "#ff0", "#ff0", "#ff0", "#f0f"],
+        ["#f0f", "#ff0", "#0ff", "#0ff", "#ff0", "#f0f"],
+        ["#f0f", "#ff0", "#0ff", "#0ff", "#ff0", "#f0f"],
+        ["#f0f", "#ff0", "#ff0", "#ff0", "#ff0", "#f0f"],
+        ["#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f"],
+      ];
+      dibujarTabla("ej9", colores9);
+
+      // Ejercicio 10, tabla 8x8
+      const colores10 = [
+        ["#ff0", "#ff0", "#f0f", "#f0f", "#f0f", "#f0f", "#ff0", "#ff0"],
+        ["#ff0", "#ff0", "#f0f", "#0ff", "#0ff", "#f0f", "#ff0", "#ff0"],
+        ["#ff0", "#ff0", "#f0f", "#0ff", "#0ff", "#f0f", "#ff0", "#ff0"],
+        ["#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f"],
+        ["#f0f", "#f0f", "#0ff", "#0ff", "#0ff", "#0ff", "#f0f", "#f0f"],
+        ["#ff0", "#ff0", "#f0f", "#0ff", "#0ff", "#f0f", "#ff0", "#ff0"],
+        ["#ff0", "#ff0", "#f0f", "#f0f", "#f0f", "#f0f", "#ff0", "#ff0"],
+        ["#ff0", "#ff0", "#f0f", "#f0f", "#f0f", "#f0f", "#ff0", "#ff0"],
+      ];
+      dibujarTabla("ej10", colores10);
+    </script>
+
+    <form name="selectForm">
+      <p>
+        <label for="musicTypes">
+          Elija algunos tipos de música, luego haga clic en el botón de abajo:
+        </label>
+        <select id="musicTypes" name="musicTypes" multiple="multiple">
+          <option selected="selected">R&B</option>
+          <option>Jazz</option>
+          <option>Blues</option>
+          <option>New Age</option>
+          <option>Classical</option>
+          <option>Opera</option>
+        </select>
+      </p>
+      <p>
+        <input id="btn" type="button" value="¿Cuántos están seleccionados?" />
+      </p>
+    </form>
+
+    <script>
+      function howMany(selectObject) {
+        let numberSelected = 0;
+        let i = 0;
+
+        while (i < selectObject.options.length) {
+          if (selectObject.options[i].selected) {
+            numberSelected++;
+          }
+          i++;
+        }
+
+        return numberSelected;
+      }
+
+      let btn1 = document.getElementById("btn");
+      btn1.addEventListener("click", function () {
+        alert(
+          "Número de opciones seleccionadas (WHILE): " +
+            howMany(document.selectForm.musicTypes)
+        );
+      });
+    </script>
+    <!--
+   <form name="selectForm">
+  <p>
+    <label for="musicTypes">
+      Elija algunos tipos de música, luego haga clic en el botón de abajo:
+    </label>
+    <select id="musicTypes" name="musicTypes" multiple="multiple">
+      <option selected="selected">R&B</option>
+      <option>Jazz</option>
+      <option>Blues</option>
+      <option>New Age</option>
+      <option>Classical</option>
+      <option>Opera</option>
+    </select>
+  </p>
+  <p>
+    <input id="btn" type="button" value="¿Cuántos están seleccionados?" />
+  </p>
+</form>
+
+<script>
+  function howMany(selectObject) {
+    let numberSelected = 0;
+    let i = 0;
+
+    if (selectObject.options.length === 0) return 0;
+
+    do {
+      if (selectObject.options[i].selected) {
+        numberSelected++;
+      }
+      i++;
+    } while (i < selectObject.options.length);
+
+    return numberSelected;
+  }
+
+  let btn = document.getElementById("btn");
+  btn.addEventListener("click", function () {
+    alert(
+      "Número de opciones seleccionadas (DO...WHILE): " +
+        howMany(document.selectForm.musicTypes)
+    );
+  });
+</script>
+-->
+  </body>
+</html>
