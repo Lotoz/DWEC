@@ -11,45 +11,108 @@
     <h3>Ejercicio 1</h3>
     <script>
         //Creamos 3 personas
-       var persona1 = {
-            nombre: "Laura",
-            edad: 29,
-            ciudad: "Madrid",
-            intereses: ["fotografía", "viajes", "tecnología"],
-        };
-        var persona2 = {
-            nombre: "Marta",
-            edad: 22,
-            ciudad: "Barcelona",
-            intereses: ["dibujo", "comida", "crochet"],
-        };
-        var persona3 = {
-            nombre: "Julio",
-            edad: 19,
-            ciudad: "Malaga",
-            intereses: ["comics", "libros", "verduras"],
-        };
-        //Creamos un array de cada persona
-        let personas = [persona1,persona2,persona3];
-        //Recorremos el array con un for
-        for (const persona of personas) {
-            // Creamos una plantilla HTML usando backticks
-        let tarjetaUsuario = `
-                <div class="tarjeta">
-                <h2>${personas["nombre"]}</h2>
-                <p>Edad: ${personas["edad"]}</p>
-                <p>Ciudad: ${personas["ciudad"]}</p>
-                <h4>Intereses:</h4>
-                <ul>
-                    ${personas["intereses.map(interes => `<li>${interes}</li>`).join("")]}
-                </ul>
-                </div>
-                `;
-             // Mostramos el resultado en consola (o en una página)
-            document.writeln(tarjetaUsuario);
-        }
+        /* var persona1 = {
+              nombre: "Laura",
+              edad: 29,
+              ciudad: "Madrid",
+              intereses: ["fotografía", "viajes", "tecnología"],
+          };
+          var persona2 = {
+              nombre: "Marta",
+              edad: 22,
+              ciudad: "Barcelona",
+              intereses: ["dibujo", "comida", "crochet"],
+          };
+          var persona3 = {
+              nombre: "Julio",
+              edad: 19,
+              ciudad: "Malaga",
+              intereses: ["comics", "libros", "verduras"],
+          };
+          //Creamos un array de cada persona
+          let personas = [persona1,persona2,persona3];
+          //Recorremos el array con un for
+          let contador = 0;
+          for (const persona of personas) {
+              // Creamos una plantilla HTML usando backticks
+          let tarjetaUsuario = `
+                  <div class="tarjeta">
+                  <h2>${persona["nombre"]}</h2>
+                  <p>Edad: ${persona["edad"]}</p>
+                  <p>Ciudad: ${persona["ciudad"]}</p>
+                  <h4>Intereses:</h4> `;
+                  for (const interes in persona) {
+                      tarjetaUsuario += `
+                      <ul>
+                          <li> ${interes[contador]}
+                      </ul>
+                      </div>
+                      `;
+                      contador++;
+                  }
+               // Mostramos el resultado en consola (o en una página)
+              document.writeln(tarjetaUsuario);
+          }
+                     Revisar */
+    </script>
+    <h2>Ejercicio 2</h2>
+    <script>
+        // Ejemplo de entrada
+        const producto = "auriculares inalámbricos";
+        const precio = 59.99;
+        const marca = "SoundMax";
+        // Tareas:
+        // Usa backticks para crear un texto como:
+        // "Los Auriculares Inalámbricos de la marca SoundMax cuestan 59.99€."
+        // Convierte la primera letra de cada palabra a mayúscula (usa toUpperCase, split, map, join).
+        // Cambia el símbolo € por "euros" (usa replace).
+        //Ver en casa porque toString, UpperCase y lowerCase no van
+        let precioM = toString(precio);
+        precioM += "€";
+        let cadenaCompleta = `Los ${producto} de la ${marca} cuestan ${precioM}`;
+        document.writeln(cadenaCompleta);
+        precioM = precioM.replace("€", "euros");
+        cadenaCompleta = `Los ${producto} de la ${marca} cuestan ${precioM}`;
+        document.writeln(cadenaCompleta);
+    </script>
+    <h2>Ejercicio 3</h2>
+    <script>
+        // Datos
+        const nombre = " juan pérez ";
+        producto = "Teclado mecánico RGB";
+        const fecha = "09/10/2025";
+        // Tareas:
+        // Quita espacios extra en el nombre (usa trim()).
+        // Crea una plantilla de correo con backticks:
+        // "Hola Juan Pérez, tu pedido del producto Teclado mecánico RGB se enviará el 09/10/2025."
+        // Convierte la primera letra del nombre y apellido en mayúsculas (usa split y map).
+        // Convierte todo el mensaje a mayúsculas (usa toUpperCase).
 
     </script>
+    <h2>Ejercicio 4</h2>
+    <script>
+        // Datos
+        const usuarios = [" ana ", "PEDRO", "maria "];
+        // Tareas:
+        // Limpia los nombres (trim() y toLowerCase()).
+        // Capitaliza la primera letra de cada uno.
+        // Usa backticks para crear un bloque HTML con una lista <ul> donde cada <li> tenga un nombre formateado.
+        // (Extra) Usa padEnd() o padStart() para alinear los nombres si los imprimes en consola.
+    </script>
+    <h2>Ejercicio 5</h2>
+    <script>
+        // Datos
+        const nombr1e = "Lucía";
+        const hobby = "leer libros de ciencia ficción";
+        // Tareas:
+        // Crea un mensaje: `A ${nombre} le encanta ${hobby}.`
+        // Muestra cuántas letras tiene el mensaje (length).
+        // Verifica si el texto incluye la palabra “ficción” (includes()).
+        // Reemplaza “ficción” por “aventuras” (replace()).
+        // Convierte la oración a minúsculas y luego a mayúsculas (toLowerCase(), toUpperCase()).
+        // Convierte todo el mensaje a mayúsculas (usa toUpperCase).
+    </script>
+    <h2>Ejercicio 6</h2>
 </body>
 
 </html>
