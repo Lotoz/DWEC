@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> </h1>
+    <h2>ejercicio  1 Prompt</h2>
+    <button id="boton1">iniciar</button>
+    <p id="resultado1"></p>
+    <script>
+       const boton1 = document.getElementById('boton1');
+       const resultado1 = document.getElementById('resultado1');
+       boton1.addEventListener("click", ()=>{
+         let e1_number1 = prompt("Introduce el primer numero");
+         let e1_number2 = prompt("Introduce el segundo numero");
+         let e1_number3 = prompt("Introduce el tercer numero");
+         
+         if (!isNaN(e1_number1) && !isNaN(e1_number2) && !isNaN(e1_number3)) {
+            let e1_operacion = (e1_number1*e1_number2 + e1_number3)*e1_number3
+
+            resultado1.textContent = `El resultado es ${e1_operacion}`;
+         }else{
+            resultado1.textContent = "Los valores introducidos no son validos.";
+         }
+         
+       })
+    </script>
+
+ <h2>ejercicio 2 typeof
+ </h2>
+    <script>
+     var e2_cadena = "Hola soy una cadena";
+      document.writeln(typeof(e2_cadena));
+      //FALTA INSTANCE OF,VUELVE LUEGO
+    </script>
+ <h2>ejercicio  3 operador ternario
+</h2>
+   <button id="boton3">iniciar</button>
+    <p id="resultado3"></p>
+    <script>
+      const boton3 = document.getElementById('boton3');
+      const resultado3 = document.getElementById('resultado3');
+
+      //Array que contiene a los filosofos
+      let filosofos = [
+         "Aristoteles",
+         "Platon",
+         "San Agustin",
+         "Santo Tomas",
+         "Descartes",
+         "Rousseau",
+         "Locke"
+      ];
+
+      boton3.addEventListener("click", () => {
+         let e3_number = prompt("Dame un unmero del 1 al 12");
+         (!isNaN(e3_number) && e3_number <= 12) ? (e3_number <= 7 ) ?  resultado3.textContent= `El filosofo es ${filosofos[e3_number - 1]}` : resultado3.textContent = "No conocido" :  resultado3.textContent = "Opcion no valida"; 
+      })
+       
+    </script>
+
+
+ <h2>ejercicio  4 binario
+</h2>
+   <button id="boton4">iniciar</button>
+   <p id="resultado4"></p>
+    <script>
+      //Revisar
+       const boton4 = document.getElementById('boton4');
+       const resultado4 = document.getElementById('resultado4');
+     
+       boton4.addEventListener("click", () =>{
+         let e4_number1 = prompt("Dame un numero");
+         let e4_number2 = prompt("Dame un segundo numero");
+         
+         let e4_operacion = prompt("Operacion 1. AND = AND binario 2. OR = OR binario 3. XOR= XOR binario 4. DIZQ = Desplazamiento a la izquierda  5. DDER = Desplazamiento a la derecha. ");
+         
+         if (!isNaN(e4_number1) && !isNaN(e4_number2)) {
+            e4_number1 = parseInt(e4_number1,2);
+            e4_number2 = parseInt(e4_number2,2);
+
+            if(e4_operacion == "1"){
+               let DesplazamientoAND = e4_number1 & e4_number2;
+               resultado4.textContent = `AND = ${e4_number1}, ${DesplazamientoAND.toString(2)}`;
+            } else if(e4_operacion == "2"){
+               let DesplazamientoOR = e4_number1 | e4_number2;
+               resultado4.textContent = `OR = ${e4_number1}, ${DesplazamientoOR.toString(2)}`;
+            } else if (e4_operacion == "3"){
+               let DesplazamientoXOR = e4_number1 ^ e4_number2;
+               resultado4.textContent = `XOR = ${e4_number1}, ${DesplazamientoXOR.toString(2)}`;
+            } else if (e4_operacion == "4"){
+               let Desplazamientoizquierda = e4_number1<< e4_number2;
+               resultado4.textContent = `Desplazamiento a la izquierda = ${e4_number1}, ${Desplazamientoizquierda.toString(2)}`;
+            } else if (e4_operacion == "5"){
+               let Desplazamientoderecha = e4_number1 >> e4_number2;
+               resultado4.textContent = `Desplazamiento a la derecha = ${e4_number1}, ${Desplazamientoderecha.toString(2)}`;
+            } else {
+               resultado4.textContent = "Opcion no valida.";
+            }
+
+         } else {
+            resultado4.textContent = "Valores no validos";
+         }
+
+      })
+    </script>
+    
+
+ <h2>ejercicio  5 switch
+</h2>
+   <button id="boton5">iniciar</button>
+   <p id="resultado5"></p>
+    <script>
+       const boton5 = document.getElementById('boton5');
+       const resultado5 = document.getElementById('resultado5');
+
+       boton5.addEventListener("click", () =>{
+         let e5_number = prompt("Dame un numero");
+         switch (e5_number) {
+            case "1":
+            case "2":
+            case "3":
+               resultado5.textContent = "Numeros pequeños";
+               break;
+            case "7":
+               resultado5.innerHTML += "la opcion es es mayor o igual que 7<br/>";
+            case "6":
+               resultado5.innerHTML += "la opcion es es mayor o igual que 6 <br/>";
+            case "5":
+               resultado5.innerHTML += "la opcion es mayor o igual que 5 <br/>";
+               break;
+            case "8":
+               resultado5.textContent = "numero 8";
+               break;
+            case "9":
+               resultado5.textContent = "numero 9";
+               break;
+            default:
+               resultado5.textContent = "Error";
+               break;
+         }
+       })
+       
+    </script>
+    
+
+ <h2>ejercicio 6  tabla
+</h2>
+   <button id="boton6">iniciar</button>
+   <p id="resultado6"></p>
+    <script>
+       const boton6 = document.getElementById('boton6');
+       const resultado6 = document.getElementById('resultado6');
+
+       var colores=[
+       "#f25","#f50","#f85","#F11","#F36",
+       "#fA5","#f5B","#f25","#f50","#f85","#F11"]
+
+
+       boton6.addEventListener("click", () =>{
+         let i = prompt("Dame un valor: ");
+         if (!isNaN(i)) {
+            dibujarTabla(i);
+         }else{
+            resultado6.textContent = "No es un numero, ingresa un numero entero."
+         }
+       })
+    </script>
+ <h2>ejercicio 7 bucle1
+</h2>
+<button id="boton7">iniciar</button>
+   <p id="resultado7"></p>
+    <script>
+       const boton7 = document.getElementById('boton7');
+       const resultado7 = document.getElementById('resultado7');
+      var persona = {   Nombre: "paco",   
+      Apellido : "Lopez", 
+      nacimiento : "11/12/1969", 
+      trabajo:"informatico" , sexo: "hombre", amigos:
+         ["juan","pedro","miguel"],sueldo:40000,   trabajo:"olists   SL",
+      UltimoProjecto: "jse.js" };
+      
+      boton7.addEventListener("click", () => {
+         for (const claves of persona) {
+            
+         }
+      })
+    </script>
+    
+
+ <h2>ejercicio 8 bucle2
+</h2>
+<button id="boton8">iniciar</button>
+   <table id="resultado8"></table>
+    <script>
+      //Corregir posicion
+       const boton8 = document.getElementById('boton8');
+       const resultado8 = document.getElementById('resultado8');
+       boton8.addEventListener("click", () => {
+         var signos = [ "capricornio", "acuario","piscis","aries", "tauro" ]; 
+         for (let largo = 0; largo < signos.length; largo++) {
+            resultado8.innerHTML += `
+            <td><img src="./signos/${signos[largo]}.jpg"</td>
+            <td>${signos[largo]}</td>
+            `;
+         }
+       })
+    </script>
+    
+
+ <h2>ejercicio  9 Minas
+</h2>
+<table id="tabla9">
+    <script>
+      const tabla9 = document.getElementById('tabla9');
+       const minas = [ 1,0,0,0,0,
+                 0,1,1,1,1,
+                 0,1,1,1,1,
+                 0,1,1,1,1,
+                 0,1,1,1,0
+         ]; 
+
+         // aqui debes crear una tabla como la de la practica de los
+         //  colores pero el cambio en vez
+         // de ser sobre el bgcolor de la celda es para cambiar 
+         // el codigo de una boton como el del ejercicio 5
+         // en cada celda debe haber un boton algo como <button onclick="alert('Es una Mina/ un Hueco')"> Mina/Hueco</button>
+      for (let index = 0; index < minas.length; index++) {
+         if(minas[index] == 1){
+            tabla9.innerHTML += `<td><button onclick="alert('Es una Mina')"> M o H? </button></td>`
+         } else {
+            tabla9.innerHTML += `<td><button onclick="alert('Es un Hueco')"> M o H? </button></td>`
+         }
+        tabla9.innerHTML += "<tr/>"
+      }
+       
+    </script>
+    </table>
+
+
+
+</body>
+</html>
