@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Objeto Number y Math</title>
-    <script src="codigo.js"></script>
+    <script src="./codigo.js"></script>
 </head>
 
 <body>
-   
+
     <div class="cajaBonita">
         <h1>Ejercicio 1</h1>
         <script>
@@ -25,29 +25,183 @@
         <p>Toma dos entradas con window.prompt() y que nos pida los dos catetos y debemos calcular la hipotenusa</p>
         <button onclick="ejercicio2Func()">Iniciar</button>
         <p id="salida2"></p>
+        <script>
+            let salida_e2 = document.getElementById("salida2");
+
+            function ejercicio2Func() {
+                let cateto1 = window.prompt("Ingresa el primer cateto");
+                let cateto2 = window.prompt("Ingresa el segundo cateto");
+                let hipotenusa = Math.sqrt((Math.pow(cateto1, 2)) + (Math.pow(cateto2, 2)));
+                salida_e2.innerHTML = "La hipotenusa vale: " + hipotenusa;
+            };
+        </script>
     </div>
     <div class="cajaBonita">
         <h1>Ejercicio 3</h1>
         <p>Haz un script que nos muestre los siguientes constantes.</p>
-        <button onclick="ejercicio3Fun()">Iniciar</button>
+        <button id="boton3">Iniciar</button>
         <script>
-            document.writeln("");
+            let salida_e3 = document.getElementById('salida_e3');
+            let constantes = [
+                Math.E,
+                Math.LN10,
+                Math.LN2,
+                Math.LOG10E,
+                Math.LOG2E,
+                Math.PI
+            ]
+            for (let index = 0; index < constantes.length; index++) {
+                salida_e3.innerHTML += constantes[index] + "<br/>";
+
+            }
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 4</h1>
+        <p>Toma una entrada con window.prompt() y que nos pida un numero y debemos calcular los siguientes
+            valores</p>
+        <button id="boton_e4">Iniciar</button>
+        <p id="salida_e4"></p>
+        <script>
+            document.getElementById('boton_e4').addEventListener("click", () => {
+                let numero1 = window.prompt("Ingresa un numero");
+                document.getElementById('salida_e4').innerHTML = `
+                Logaritmo neperiano del valor = ${Math.log(numero1)}<br/>
+                Logaritmo base 2 del valor = ${Math.log2(numero1)} <br/>
+                Logaritmo base 10 del valor = ${Math.log10(numero1)}
+                `;
+            })
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 5</h1>
+        <p>Toma como entrada un angulo entre 0 y 360 con window.prompt() y nos la debe convertir en radianes
+            ( radianes = (grados/180)*PI ) debe tener un if para que su valor este entre 0 y 360 en caso contrario debe
+            dar
+            error.
+        </p>
+        <button id="boton_e5">Iniciar</button>
+        <p id="salida_e5"></p>
+        <script>
+            document.getElementById('boton_e5').addEventListener("click", () => {
+                let grados = window.prompt("Ingresa un angulo");
+                (grados > 0 && grados <= 360) ? document.getElementById('salida_e5').innerHTML = `
+                    radianes = ${(grados / 180) * Math.PI} 
+                ` : document.getElementById('salida_e5').innerHTML = "La entrada no es valida";
+            })
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 6</h1>
+        <p>Modifica el anterior script para muestre los siguientes valores del valor tomado
+        </p>
+        <button id="boton_e6">Iniciar</button>
+        <p id="salida_e6"></p>
+        <script>
+            document.getElementById('boton_e6').addEventListener("click", () => {
+                let grados = window.prompt("Ingresa un angulo");
+                let radianes = 0;
+                (grados > 0 && grados <= 360) ? radianes = (grados / 180) * Math.PI
+                 : document.getElementById('salida_e6').innerHTML = "La entrada no es valida";
+                 document.getElementById('salida_e6').innerHTML =`
+                    Coseno = ${Math.cos(radianes)} <br/>
+                    Seno = ${Math.sin(radianes)} <br/>
+                    Tan = ${Math.tan(radianes)}
+                 `;
+
+                })
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 7</h1>
+        <p>Toma una entrada con window.prompt() y debe tener un if para que su valor este entre en el rango (0 y 1) en 
+caso contrario debe dar error y calcule los siguientes valores
+        </p>
+        <button id="boton_e7">Iniciar</button>
+        <p id="salida_e7"></p>
+        <script>
+            document.getElementById('boton_e7').addEventListener("click", () => {
+                let grados = window.prompt("Ingresa un angulo");
+                let radianes = 0;
+                (grados > 0 && grados <= 360) ? radianes = (grados / 180) * Math.PI
+                 : document.getElementById('salida_e7').innerHTML = "La entrada no es valida";
+                 document.getElementById('salida_e7').innerHTML =`
+                    Coseno = ${Math.acos(radianes)} <br/>
+                    Seno = ${Math.asin(radianes)} <br/>
+                    Tan = ${Math.atan(radianes)}
+                 `;
+                })
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 8</h1>
+        <p>Toma un numero con window.prompt() y  debe tener un if para que sea un numero y que calcule su techo, 
+suelo y redondeo.</p>
+        <button id="boton_e8">Iniciar</button>
+        <p id="salida_e8"></p>
+        <script>
+            document.getElementById('boton_e8').addEventListener("click", () => {
+                let numero = window.prompt("Ingresa un numero:");
+                numero = parseInt(numero);
+                if (!isNaN(numero)) {
+                    document.getElementById('salida_e8').innerHTML =`
+                    Redondeo = ${Math.round(numero)} <br>
+                    Techo = ${Math.max(numero)} <br>
+                    Suelo = ${Math.min(numero)} 
+                    `;
+                } else {
+                    document.getElementById('salida_e8').innerHTML = "Es una cadena";
+                }
+                })
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 9</h1>
+        <p>Toma un numero con window.prompt() y  debe tener un if para que sea un numero y que calcule su  
+redondeo con un decimal con esta formula.</p>
+        <button id="boton_e9">Iniciar</button>
+        <p id="salida_e9"></p>
+        <script>
+            document.getElementById('boton_e9').addEventListener("click", () => {
+                let numero = window.prompt("Ingresa un numero:");
+                numero = parseInt(numero);
+                if (!isNaN(numero)) {
+                    document.getElementById('salida_e9').innerHTML =`
+                    Redondeo decimal = ${Math.round(numero*10)/10}
+                    `;
+                } else {
+                    document.getElementById('salida_e9').innerHTML = "Es una cadena";
+                }
+                })
+        </script>
+    </div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 10</h1>
+        <p>Toma un numero con window.prompt() y  debe tener un if para que sea un numero y que calcule su  
+redondeo con un decimal con esta formula.</p>
+        <button id="boton_e10">Iniciar</button>
+        <p id="salida_e10"></p>
+        <script>
+            /*document.getElementById('boton_e10').addEventListener("click", () => {
+                let minimo = 10e64;
+                let maximo = -10e64;
+                let numero;
+                do {
+                    numero = window.prompt("Ingresa un numero:(Cero para terminar)");
+                    minimo = Math.min((numero > minimo) ? numero : minimo);
+                    maximo = Math.min((numero > maximo) ? numero : maximo);
+                } while (numero != 0);
+                document.getElementById('salida_e10').innerHTML = `
+                    El minimo y el maximo son-> <br/>
+                    Min: ${minimo} <br/>
+                    Max: ${maximo}
+                `;
+                })*/
         </script>
     </div>
     <div class="cajaBonita">
 
     </div>
-    <div class="cajaBonita">
-
-    </div>
-    <div class="cajaBonita">
-
-    </div>
-    <div class="cajaBonita"></div>
-    <div class="cajaBonita"></div>
-    <div class="cajaBonita"></div>
-    <div class="cajaBonita"></div>
-    <div class="cajaBonita"></div>
     <div class="cajaBonita"></div>
     <div class="cajaBonita"></div>
 </body>

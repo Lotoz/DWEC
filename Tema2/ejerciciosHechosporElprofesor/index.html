@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="Parar()">Parar</button>
+    <button onclick="iniciar()">Iniciar</button>
+    <div id="hola"></div>
+    <script>
+        let intervalo; 
+        let contador = 0;
+        let isIntervalRunning = false;
+
+        function iniciar() {
+            if (!isIntervalRunning) {
+                document.getElementById('hola').innerHTML += "Activo";
+            } else {
+                isIntervalRunning = true;
+                intervalo = setInterval(dihola, 500, "valor");  
+            }
+          
+        }
+        function dihola(valor) {
+            contador ++;
+            document.getElementById('hola').innerHTML += "Hello"+contador;
+            isIntervalRunning = false;
+        }
+        function Parar() {
+            window.clearInterval(intervalo);
+        }
+    </script>
+</body>
+
+</html>

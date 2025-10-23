@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <button onclick="cerrarVentana()">Parar</button>
+    <button onclick="comprobarVentana()">Iniciar</button>
+    <button onclick="abrirVentana()">Iniciar</button>
+    <button onclick="Parar()">Parar</button>
+    <button onclick="iniciar()">Iniciar reloj</button>
+    <div id="hola"></div>
+    <script>
+
+        let subVentana;
+        let estado = false;
+        function cerrarVentana() {
+            estado = false;
+            subVentana.close();            
+        }
+        function comprobarVentana() {
+            document.getElementById('hola').innerHTML += "Ventana"+ estado;
+        }
+        function abrirVentana(){
+            estado = true;
+            subVentana = window.open("index.html","nueva","height=800,width=600");
+        }
+        function iniciar() {
+            if (!isIntervalRunning) {
+                document.getElementById('hola').innerHTML += "Activo";
+            } else {
+                isIntervalRunning = true;
+                intervalo = setInterval(dihola, 500, "valor");  
+            }
+          
+        }
+        function dihola(valor) {
+            contador ++;
+            document.getElementById('hola').innerHTML += "Hello"+contador;
+            isIntervalRunning = false;
+        }
+        function Parar() {
+            window.clearInterval(intervalo);
+        }
+    </script>
+</body>
+</html>

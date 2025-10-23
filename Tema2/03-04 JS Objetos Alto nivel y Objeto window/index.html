@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Nativos en JavaScript</title>
+</head>
+<body>
+    <nav>
+       <h5>Diferentes ejercicios</h5> 
+        <ul>
+            <li><a href="./index.html">Ejercicio 1,2,3</a></li>
+            <li><a href="./ejercicio4.html">Ejercicio 4</a></li>
+            <li><a href="./ejercicio5.html">Ejercicio 5</a></li>
+            <li><a href="./ejercicio6.html">Ejercicio 6</a></li>
+            <li><a href="./ejercicio7.html">Ejercicio 7</a></li>
+            <li><a href="./ejercicio8.html">Ejercicio 8,9,10</a></li>
+        </ul>
+    </nav>
+    <h3>Crea ventanas segun el numero ingresado</h3>
+    <button onclick="abrirVentanas()">Iniciar</button>
+    <button onclick="cerrarVentana()">Cerrar</button>
+    <button onclick="estadoVentana()">Estado</button>
+    <div id="estado"></div>
+    <script>
+        const ESTADO = document.getElementById('estado');
+        let subVentana;
+        let ventanaEstado = false;
+
+
+        function abrirVentanas(){
+            let numero = window.prompt("Numero 1 para gatito. Numero 2 para pinguino.");
+            if (numero == 1) {
+                ventanaEstado = true;
+                subVentana = window.open("./secundarias/gatito.html","nueva","height=800,width=600");
+            } else if(numero == 2){
+                ventanaEstado = true;
+                subVentana = window.open("./secundarias/pinguino.html","nueva","height=800,width=600");
+            } else{
+                alert("Coloca el numero correcto.");
+            }
+        }
+
+        function cerrarVentana() {
+            ventanaEstado = false;
+            subVentana.close();
+        }
+
+        function estadoVentana(){
+            ESTADO.innerHTML = "";
+            (ventanaEstado) ? ESTADO.innerHTML = "Activa" : ESTADO.innerHTML = "Desactivada"; 
+        }
+       
+    </script>
+    
+</body>
+</html>
