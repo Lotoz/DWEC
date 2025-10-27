@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Objeto Number y Math</title>
     <script src="./codigo.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -182,28 +183,289 @@ redondeo con un decimal con esta formula.</p>
         <button id="boton_e10">Iniciar</button>
         <p id="salida_e10"></p>
         <script>
-            /*document.getElementById('boton_e10').addEventListener("click", () => {
-                let minimo = 10e64;
-                let maximo = -10e64;
-                let numero;
-                do {
-                    numero = window.prompt("Ingresa un numero:(Cero para terminar)");
-                    minimo = Math.min((numero > minimo) ? numero : minimo);
-                    maximo = Math.min((numero > maximo) ? numero : maximo);
-                } while (numero != 0);
-                document.getElementById('salida_e10').innerHTML = `
-                    El minimo y el maximo son-> <br/>
-                    Min: ${minimo} <br/>
-                    Max: ${maximo}
-                `;
-                })*/
+           document.getElementById('boton_e10').addEventListener("click", () => {
+    let numeros = [];
+    let numero;
+    do {
+        numero = parseFloat(window.prompt("Ingresa un número (0 para terminar):"));
+        if (!isNaN(numero) && numero !== 0) {
+            numeros.push(numero);
+        }
+    } while (numero !== 0);
+
+    if (numeros.length > 0) {
+        let minimo = Math.min(...numeros);
+        let maximo = Math.max(...numeros);
+        document.getElementById('salida_e10').innerHTML = `
+            El mínimo y el máximo son-> <br/>
+            Min: ${minimo} <br/>
+            Max: ${maximo}
+        `;
+    } else {
+        document.getElementById('salida_e10').innerHTML = "No se ingresaron números válidos";
+    }
+});
+
         </script>
     </div>
     <div class="cajaBonita">
-
+    <h1>Ejercicio 11</h1>
+        <p>Toma una entrada con window.promt() debes sacar un numero aleatorio entre 0 y ese numero usando esta formula:
+            aleatorio entre 0 y B = AleatorioMaxB = round(random()*B)
+            y Aleatorio entre A y B = AleatorioAB = round (A + (random()*(B-A)))
+        </p>
+        <button id="boton_e11">Iniciar</button>
+        <p id="salida_e11"></p>
+        <script>
+            document.getElementById('boton_e11').addEventListener("click", () => {
+    let maximo = parseInt(window.prompt("Ingresa el número máximo:"));
+    if (!isNaN(maximo)) {
+        let aleatorioMaxB = Math.round(Math.random() * maximo);
+        let aleatorioAB = Math.round(1 + (Math.random() * (maximo-1)));
+        document.getElementById('salida_e11').innerHTML = `
+            Aleatorio entre 0 y ${maximo}: ${aleatorioMaxB}<br/>
+            Aleatorio entre 1 y ${maximo}: ${aleatorioAB}
+        `;
+    }
+});
+        </script>
     </div>
-    <div class="cajaBonita"></div>
-    <div class="cajaBonita"></div>
+    <div class="cajaBonita">
+        <h1>Ejercicio 12</h1>
+        <p>Toma una entrada con window.prompt() debes mostrarla
+1. en base 2, 8 y 16
+2. notación exponencial.
+3. con 10 digitos decimales después del punto decimal.
+4. con número a la longitud 8
+        </p>
+        <button id="boton_e12">Iniciar</button>
+        <p id="salida_e12"></p>
+        <script>
+            document.getElementById('boton_e12').addEventListener("click", () => {
+    let numero = parseFloat(window.prompt("Ingresa un número:"));
+    if (!isNaN(numero)) {
+        document.getElementById('salida_e12').innerHTML = `
+            Base 2: ${numero.toString(2)}<br/>
+            Base 8: ${numero.toString(8)}<br/>
+            Base 16: ${numero.toString(16)}<br/>
+            Notación exponencial: ${numero.toExponential()}<br/>
+            10 decimales: ${numero.toFixed(10)}<br/>
+            Longitud 8: ${numero.toPrecision(8)}
+        `;
+    }
+});
+        </script>
+    </div>
+    <div class="cajaBonita">
+         <h1>Ejercicio 13</h1>
+        <p>Toma una entrada con window.prompt() debes mostrarla
+1. Como Euros
+2. Como yenes
+3. Con 3 decimales minimo
+4. Con 3 decimales minimo y maximo
+        </p>
+        <button id="boton_e13">Iniciar</button>
+        <p id="salida_e13"></p>
+        <script>
+            document.getElementById('boton_e13').addEventListener("click", () => {
+    let numero = parseFloat(window.prompt("Ingresa un número:"));
+    if (!isNaN(numero)) {
+        document.getElementById('salida_e13').innerHTML = `
+            Euros: ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(numero)}<br/>
+            Yenes: ${new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(numero)}<br/>
+            3 decimales mínimo: ${numero.toFixed(3)}<br/>
+            3 decimales min/max: ${numero.toPrecision(3)}
+        `;
+    }
+});
+        </script>
+    </div>
+     <div class="cajaBonita">
+         <h1>Ejercicio 14</h1>
+        <p>Toma una entrada con window.prompt() a b c y resulelve la ecuación de segundo grado
+        </p>
+        <button id="boton_e14">Iniciar</button>
+        <p id="salida_e14"></p>
+        <script>
+            document.getElementById('boton_e14').addEventListener("click", () => {
+    let a = parseFloat(window.prompt("Ingresa a:"));
+    let b = parseFloat(window.prompt("Ingresa b:"));
+    let c = parseFloat(window.prompt("Ingresa c:"));
+    
+    if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+        let discriminante = Math.pow(b, 2) - (4 * a * c);
+        let x1, x2;
+        
+        if (discriminante > 0) {
+            x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+            x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+            document.getElementById('salida_e14').innerHTML = `
+                x1 = ${x1}<br/>
+                x2 = ${x2}
+            `;
+        } else if (discriminante === 0) {
+            x1 = -b / (2 * a);
+            document.getElementById('salida_e14').innerHTML = `Solución única: x = ${x1}`;
+        } else {
+            document.getElementById('salida_e14').innerHTML = "No hay soluciones reales";
+        }
+    }
+});
+        </script>
+    </div>
+     <div class="cajaBonita">
+         <h1>Ejercicio 15</h1>
+        <p> Toma una entrada con window.prompt() para tomar a1 a2 b1 b2 c1 c2
+1. Sea un sistema
+a1x+b1y =c1
+a2x+b2y =c2
+Resuelvelo
+(a 1∗c 2−c 1∗a 2)
+ (c 1∗b 2−c 2∗b1)
+2.
+ X=
+ y=
+(a 1∗b 2−a 2∗b 1)
+ (a1∗b 2−a2∗b 1)
+        </p>
+        <button id="boton_e15">Iniciar</button>
+        <p id="salida_e15"></p>
+        <script>
+            document.getElementById('boton_e15').addEventListener("click", () => {
+    let a1 = parseFloat(window.prompt("a1:"));
+    let b1 = parseFloat(window.prompt("b1:"));
+    let c1 = parseFloat(window.prompt("c1:"));
+    let a2 = parseFloat(window.prompt("a2:"));
+    let b2 = parseFloat(window.prompt("b2:"));
+    let c2 = parseFloat(window.prompt("c2:"));
+    
+    let determinante = (a1 * b2 - a2 * b1);
+    
+    if (determinante !== 0) {
+        let x = (c1 * b2 - c2 * b1) / determinante;
+        let y = (a1 * c2 - a2 * c1) / determinante;
+        document.getElementById('salida_e15').innerHTML = `
+            x = ${x}<br/>
+            y = ${y}
+        `;
+    } else {
+        document.getElementById('salida_e15').innerHTML = "El sistema no tiene solución única";
+    }
+});
+        </script>
+    </div>
+     <div class="cajaBonita">
+         <h1>Ejercicio 16</h1>
+        <p>Toma una entrada con window.prompt() para tomar una de estas figuras y que pregunte sus cooredenadas y
+muestre el area y el volumen (Cubo, Esfera, Cono, Cilindro, Piramide, Ortoedro)
+        </p>
+        <button id="boton_e16">Iniciar</button>
+        <p id="salida_e16"></p>
+        <script>
+            document.getElementById('boton_e16').addEventListener("click", () => {
+    let figura = window.prompt("Ingresa una figura (Cubo, Esfera, Cono, Cilindro, Piramide, Ortoedro):").toLowerCase();
+    let area = 0, volumen = 0;
+    
+    switch(figura) {
+        case "cubo":
+            let lado = parseFloat(window.prompt("Lado:"));
+            area = 6 * Math.pow(lado, 2);
+            volumen = Math.pow(lado, 3);
+            break;
+        case "esfera":
+            let radio = parseFloat(window.prompt("Radio:"));
+            area = 4 * Math.PI * Math.pow(radio, 2);
+            volumen = (4/3) * Math.PI * Math.pow(radio, 3);
+            break;
+        case "cono":
+            let radioCono = parseFloat(window.prompt("Radio:"));
+            let alturaCono = parseFloat(window.prompt("Altura:"));
+            let generatriz = Math.sqrt(Math.pow(radioCono, 2) + Math.pow(alturaCono, 2));
+            area = Math.PI * radioCono * (radioCono + generatriz);
+            volumen = (1/3) * Math.PI * Math.pow(radioCono, 2) * alturaCono;
+            break;
+        case "cilindro":
+            let radioCilindro = parseFloat(window.prompt("Radio:"));
+            let alturaCilindro = parseFloat(window.prompt("Altura:"));
+            area = 2 * Math.PI * radioCilindro * (radioCilindro + alturaCilindro);
+            volumen = Math.PI * Math.pow(radioCilindro, 2) * alturaCilindro;
+            break;
+        case "piramide":
+            let basePiramide = parseFloat(window.prompt("Base (lado cuadrado):"));
+            let alturaPiramide = parseFloat(window.prompt("Altura:"));
+            let apotema = Math.sqrt(Math.pow((basePiramide / 2), 2) + Math.pow(alturaPiramide, 2));
+            area = Math.pow(basePiramide, 2) + 2 * basePiramide * apotema;
+            volumen = (1/3) * Math.pow(basePiramide, 2) * alturaPiramide;
+            break;
+        case "ortoedro":
+            let largo = parseFloat(window.prompt("Largo:"));
+            let ancho = parseFloat(window.prompt("Ancho:"));
+            let alto = parseFloat(window.prompt("Alto:"));
+            area = 2 * (largo * ancho + largo * alto + ancho * alto);
+            volumen = largo * ancho * alto;
+            break;
+        default:
+            document.getElementById('salida_e16').innerHTML = "Figura no reconocida";
+            return;
+    }
+    
+    document.getElementById('salida_e16').innerHTML = `
+        Área: ${area.toFixed(2)}<br/>
+        Volumen: ${volumen.toFixed(2)}
+    `;
+});
+        </script>
+    </div>
+     <div class="cajaBonita">
+         <h1>Ejercicio 17</h1>
+        <p> Toma una entrada con window.prompt() para tomar el numero de Iones muestre el Ph con una tabla que
+muestre su fondo de rojo intenso muy acido a azul intenso muy basico
+Cálculo de pH en química:
+El pH es una medida que indica qué tan ácida o básica es una solución. Se define como el logaritmo negativo en
+base 10 de la concentración de iones de hidrógeno en una solución. Matemáticamente:
+• Si el pH es menor que 7, la solución es ácida (tiene más iones H+H^+H+).
+• Si el pH es igual a 7, la solución es neutra (como el agua pura).
+• Si el pH es mayor que 7, la solución es básica o alcalina (tiene menos iones H+H^+H+).
+El pH de una solución se define como
+Por ejemplo, si la concentración de iones 1×10−3
+Para el valor por ejemplo 0,001 Este color deberia salir muy rojo
+        </p>
+        <button id="boton_e17">Iniciar</button>
+        <p id="salida_e17"></p>
+        <script>
+        document.getElementById('boton_e17').addEventListener("click", () => {
+    let concentracion = parseFloat(window.prompt("Ingresa la concentración de iones H+:"));
+    if (!isNaN(concentracion) && concentracion > 0) {
+        let pH = -Math.log10(concentracion);
+        let color;
+        
+        if (pH < 6.9) {
+            // Ácido - Rojo
+            let intensidad = Math.floor((7 - pH) * 36);
+            color = `rgb(255, ${255 - intensidad}, ${255 - intensidad})`;
+        } else if (pH > 7.1) {
+            // Básico - Azul
+            let intensidad = Math.floor((pH - 7) * 36);
+            color = `rgb(${255 - intensidad}, ${255 - intensidad}, 255)`;
+        } else {
+            // Neutro - Verde
+            color = "rgb(0, 255, 0)";
+        }
+        
+        document.getElementById('salida_e17').innerHTML = `
+            <div style="background-color: ${color}; padding: 20px; border-radius: 4px; color: ${pH === 7 ? 'black' : 'white'};">
+                pH = ${pH.toFixed(2)}
+                <br>
+                ${pH < 7 ? 'Ácido' : pH > 7 ? 'Básico' : 'Neutro'}
+            </div>
+        `;
+    } else {
+        document.getElementById('salida_e17').innerHTML = "Por favor, ingresa una concentración válida mayor que 0";
+    }
+});
+        </script>
+    </div>
+
 </body>
 
 </html>
