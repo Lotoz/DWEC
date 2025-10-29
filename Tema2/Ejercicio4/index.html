@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>Ejercicios 1,2,3</h2>
     <script>
         let hoy = new Date();
         let hoyAMano = new Date(2025,9,16,15,52,0);
@@ -14,10 +15,8 @@
         document.writeln("<br> Hoy es" + hoyAMano);
         document.writeln("<br> Hora cero es " + horaCero);
 
-
         const tiempoTranscurrido = Date.now();
         const hoy1= new Date(tiempoTranscurrido);
-        //Revisar
         document.writeln("<br>Milesegundos de esa fecha " + tiempoTranscurrido);
         document.writeln("<br>Segundos de esa fecha " + Math.floor(tiempoTranscurrido/1000));
         document.writeln("<br>Minutos de esa fecha " + Math.floor(tiempoTranscurrido/(1000*60)));
@@ -25,13 +24,101 @@
         document.writeln("<br>Dias de esa fecha " + Math.floor(tiempoTranscurrido/(1000*60*24*365)));
         document.writeln("<br>Meses de esa fecha " + Math.floor(tiempoTranscurrido/(60*60*24*30)));
         document.writeln("<br>Años de esa fecha " + Math.floor(tiempoTranscurrido/(60*60*24*365)));
-        //Te lo pone en formato español
         document.writeln("<br> Hoy es  " + hoy1.toLocaleDateString("es-ES"));
-        //Meter las fechas como un string que es complicado
         let dia = new Date("11/06/2023");
-        
-
-        
     </script>
+  <h2>Ejercicio 4</h2>
+  <script>
+    let fechaNacimientoStr = prompt("Introduce tu fecha de nacimiento (YYYY-MM-DD):");
+    let fechaNacimiento = new Date(fechaNacimientoStr);
+    let ahora = new Date();
+
+    let diferencia = ahora - fechaNacimiento;
+
+    let diasVividos = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+    document.write("Fecha de nacimiento: " + fechaNacimiento.toLocaleDateString("es-ES") + "<br>");
+    document.write("Hoy es: " + ahora.toLocaleDateString("es-ES") + "<br>");
+    document.write("Has vivido aproximadamente <b>" + diasVividos + "</b> días.<br><br>");
+  </script>
+
+  <h2>Ejercicio 5</h2>
+  <script>
+    let anioNacimiento = parseInt(prompt("Introduce tu año de nacimiento:"));
+    let pais = prompt("Introduce tu país (Japón, Suiza, España, Italia, Irak, Guinea Ecuatorial, Somalia):");
+    let sexo = prompt("Introduce tu sexo (hombre/mujer):").toLowerCase();
+
+    let esperanzaVida = 75; 
+
+    if (pais.toLowerCase() === "japón") {
+      esperanzaVida = (sexo === "mujer") ? 86.9 : 81.5;
+    } else if (pais.toLowerCase() === "suiza") {
+      esperanzaVida = (sexo === "mujer") ? 85.1 : 81.8;
+    } else if (pais.toLowerCase() === "españa") {
+      esperanzaVida = (sexo === "mujer") ? 85.7 : 80.7;
+    } else if (pais.toLowerCase() === "italia") {
+      esperanzaVida = (sexo === "mujer") ? 84.9 : 80.9;
+    } else if (pais.toLowerCase() === "irak") {
+      esperanzaVida = (sexo === "mujer") ? 75.0 : 69.9;
+    } else if (pais.toLowerCase() === "guinea ecuatorial") {
+      esperanzaVida = (sexo === "mujer") ? 63.6 : 60.9;
+    } else if (pais.toLowerCase() === "somalia") {
+      esperanzaVida = (sexo === "mujer") ? 59.2 : 54.0;
+    }
+
+    let anioActual = new Date().getFullYear();
+    let edadActual = anioActual - anioNacimiento;
+    let aniosRestantes = esperanzaVida - edadActual;
+
+    document.write("Tienes " + edadActual + " años.<br>");
+    document.write("En " + pais + ", la esperanza de vida media para " + sexo + " es de " + esperanzaVida + " años.<br>");
+    if (aniosRestantes > 0) {
+      document.write("Te quedan aproximadamente <b>" + aniosRestantes.toFixed(1) + "</b> años de vida media.<br><br>");
+    } else {
+      document.write("¡Has superado la esperanza de vida media! 🎉<br><br>");
+    }
+  </script>
+
+  <h2>Ejercicio 6: Ejemplos con DateJS</h2>
+  <script>
+    document.write("<pre>");
+    document.write("Date.today(): " + Date.today() + "\n");
+    document.write("Date.today().next().friday(): " + Date.today().next().friday() + "\n");
+    document.write("Date.today().last().monday(): " + Date.today().last().monday() + "\n");
+    document.write("new Date().next().march(): " + new Date().next().march() + "\n");
+    document.write("new Date().last().week(): " + new Date().last().week() + "\n");
+    document.write("Date.today().is().friday(): " + Date.today().is().friday() + "\n");
+    document.write("Date.today().is().weekday(): " + Date.today().is().weekday() + "\n");
+    document.write("Date.today().addDays(1): " + Date.today().addDays(1) + "\n");
+    document.write("Date.today().addMonths(-3): " + Date.today().addMonths(-3) + "\n");
+    document.write("(1).day().fromNow(): " + (1).day().fromNow() + "\n");
+    document.write("(3).months().ago(): " + (3).months().ago() + "\n");
+    document.write("Date.today().first().thursday(): " + Date.today().first().thursday() + "\n");
+    document.write("Date.october().final().sunday(): " + Date.october().final().sunday() + "\n");
+    document.write("Date.today().at('6:15pm'): " + Date.today().at('6:15pm') + "\n");
+    document.write("</pre>");
+  </script>
+
+  <h2>Ejercicio 7: Cálculos con DateJS</h2>
+  <script>
+    hoy = Date.today();
+    let proximoLunes = Date.today().next().monday();
+    let hoyA23 = Date.today().at("23:00");
+    let dentroUnAnio = Date.today().add(1).year();
+    let cumpleEsteAnio = new Date(Date.today().getFullYear(), fechaNacimiento.getMonth(), fechaNacimiento.getDate());
+    let primerLunesMesQueViene = Date.today().add(1).month().first().monday();
+    let esViernes = Date.today().is().friday();
+    let haceUnMes = Date.today().addMonths(-1);
+    let fueSeptiembre = haceUnMes.getMonth() === 8;
+
+    document.write("<b>Hoy:</b> " + hoy + "<br>");
+    document.write("<b>Próximo lunes:</b> " + proximoLunes + "<br>");
+    document.write("<b>Hoy a las 23:00:</b> " + hoyA23 + "<br>");
+    document.write("<b>Dentro de un año:</b> " + dentroUnAnio + "<br>");
+    document.write("<b>Tu cumpleaños este año:</b> " + cumpleEsteAnio + "<br>");
+    document.write("<b>Primer lunes del mes que viene:</b> " + primerLunesMesQueViene + "<br>");
+    document.write("<b>¿Hoy es viernes?:</b> " + esViernes + "<br>");
+    document.write("<b>¿Hace un mes fue septiembre?:</b> " + fueSeptiembre + "<br>");
+  </script>
 </body>
 </html>
