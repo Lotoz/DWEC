@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El objeto window.document</title>
+</head>
+
+<body>
+    <h3>1. Crea un script que te muestre con bucle los siguientes htmlCollections (arrays) ojo algunos podrían fallar ya
+        que están deprectated</h3>
+    <p id="salida"></p>
+    <script>
+        /**
+         * 1. anchors[] Es un array que contiene todos los hiperenlaces del documento. (deprectated)
+        2. applets[] Es un array que contiene todos los applets del documento(deprectated)
+        3. links[] Es un array que contiene todos los enlaces del documento. 
+        4. forms[] Es un array que contiene todos los formularios del documento.
+        5. images[] Es un array que contiene todas las imágenes del documento.
+        6. Document.scripts[]
+        7. Document.styleSheets []
+        8. cookie[] Devuelve todos los nombres/valores de las cookies en el documento
+        */
+    </script>
+    <h3>2. Muestra las siguientes Propiedades del objeto Document</h3>
+    <script>
+        /**
+         * 1. domain Cadena que contiene el nombre de dominio del servidor que cargó el documento.
+2. lastModified Devuelve la fecha y hora de la última modificación del documento
+3. readyState Devuelve el estado de carga del documento actual
+4. referrer Cadena que contiene la URL del documento desde el cuál llegamos al documento actual.
+5. title Devuelve o ajusta el título del documento.
+6. URL Devuelve la URL completa del documento
+         */
+    </script>
+    <h3>3. Ejecuta el siguiente código para observar como podemos cambiar el titulo de la pagina</h3>
+    <button id="e3_boton">Ejercicio 3</button>
+    <script>
+        const boton_e3 = document.getElementById('e3_boton');
+        boton_e3.addEventListener('click', () => {
+            nombre = prompt('Ingrese su nombre:', '');
+            alert("Titulo antiguo " + document.title); // displays "Hello World!"
+            document.title = nombre;
+            alert("Titulo nuevos " + document.title); // displays "Goodbye World!"
+        });
+    </script>
+    <h3>4. Modifica el código anterior para sustituir los alert por document.getElementById("idetiqueta").innerHTML ="
+    </h3>
+    <button id="e4_boton">Ejercicio 4</button>
+    <div id="etiquetatituloviejo"> </div>
+    <div id="etiquetatitulonuevo"> </div>
+    <script>
+        const boton_e4 = document.getElementById('e4_boton');
+        boton_e4.addEventListener('click', () => {
+            let salidaTitutloViejo = document.getElementById('etiquetatituloviejo');
+            let salidaTituloNuevo = document.getElementById('etiquetatitulonuevo');
+            nombre = prompt('Ingrese su nombre:', '');
+            salidaTitutloViejo.innerHTML = `El titulo viejo era: ${document.title}`; // displays "Hello World!"
+            document.title = nombre;
+            salidaTituloNuevo.innerHTML = `El titulo nuevo es: ${document.title}`; // displays "Goodbye World!"
+        });
+    </script>
+    <h3>5. Ejercicio Usa getElementById()para acceder a un elemento identificado por el id escrito entre paréntesis.
+    </h3>
+    <button id="e5_boton">Ejercicio 5</button>
+    <div id="etiquetaARellenar"></div>
+    <script>
+        const boton_e5 = document.getElementById('e5_boton');
+        boton_e5.addEventListener('click', () => {
+            let salida = document.getElementById('etiquetaARellenar');
+            contenido = prompt('Ingresa texto para rellenar: ');
+            salida.innerText = contenido;
+        });
+    </script>
+    <h3>6.Ejercicio Usa getElementsByName().InnerElement para acceder a un elemento identificado por el id escrito
+        entre paréntesis.</h3>
+    <!--No funciona buscar el porque-->
+    <button id="e6_boton">Ejercicio 6</button>
+    <input type="text" name="etiquetaARellenar1">elemento1</input>
+    <input type="text" name="etiquetaARellenar2">elemento2</input>
+    <script>
+        const boton_e6 = document.getElementById('e6_boton');
+        boton_e6.addEventListener('click', () => {
+            let elemento1 = document.getElementsByName('etiquetaARellenar1');
+            let elemento2 = document.getElementsByName('etiquetaARellenar2');
+            nombre = prompt('Ingrese su nombre:', '');
+            elemento1.innerHTML = nombre;
+        });
+    </script>
+    <h3>7.Ejecuta el siguiente código para ver como se Usa getElementsByName().InnerHTML para acceder a un
+        elemento identificado por el id escrito entre paréntesis.</h3>
+    <button id="e7_boton">Ejercicio 7</button>
+    <p> Una Lista ordenada:</p>
+    <ol>
+        <li>Torremolinos</li>
+        <li>Málaga</li>
+        <li>Granada</li>
+        <li>Sevilla</li>
+        <li>Alhaurin</li>
+        <li>Churriana</li>
+    </ol>
+    <p id="indice"></p>
+    <h2 id="lista"></h2>
+    <script>
+        numero = prompt('Ingrese el numero que deseas selecionar:', '');
+        indice_string = "El " + numero + "º elemento de la lista es";
+        const collection1 = document.getElementsByTagName("li");
+        document.getElementById("lista").innerHTML = collectio1[numero - 1].innerHTML;
+        document.getElementById("indice").innerHTML = indice_string;
+    </script>
+    <h3>8.Modifica el siguiente código para ver el contenido de la etiqueta que se le indique</h3>
+    <h1> una cabecera h1</h1>
+    <h2> una cabecera h2</h2>
+    <p> Un parrafo </p>
+    <span>Torremolinos</span>
+    <button id="e8_boton">Ejercicio 8</button>
+    <p id="explica"></p>
+    <div id="elemento" style='background-color: #959595;'></div>
+    <!--h1 y span no funcionan-->
+    <script>
+
+        document.getElementById('e8_boton').addEventListener('click', () => {
+            etiqueta = prompt('Ingrese el contenido que deseas conocer (p,h1,h2,span)  que deseas seleccionar:', '');
+            /*
+              const collection = document.getElementsByTagName(etiqueta);
+              document.getElementById("explica").innerHTML = "El contenido de la etiqueta " +  etiqueta  + " es: "; 
+              document.getElementById("elemento").innerHTML = collection[0].innerHTML; ;
+            */
+            const collection = document.getElementsByTagName(etiqueta);
+            document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + etiqueta + " es: ";
+            document.getElementById("elemento").innerHTML = collection[1].innerHTML;
+        });
+
+    </script>
+
+    <h3>9.Modifica el siguiente código para ver el contenido de la etiqueta que se le indique </h3>
+    <p> etiqueta1 <input type="text" name="etiqueta1" value="Guadalajara"> </p>
+    <p> etiqueta2 <input type="text" name="etiqueta2" value="Toledo"> </p>
+    <p> etiqueta3 <input type="text" name="etiqueta3" value="Cuenca"> </p>
+    <hr>
+    <p id="explica"></p>
+    <h2 id="elemento"></h2>
+    <script language="JavaScript">
+        numero = prompt('Ingresa el numero de la etiqueta:', '');
+        // valorDeEtiqueta=document.getElementByName(numero).value;
+        elements = document.getElementsByName("etiqueta" + numero);
+        valorDeEtiqueta = elements[0].value;
+        document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + numero + " es: ";
+        document.getElementById("elemento").innerHTML = valorDeEtiqueta;
+
+        // codigo para rellenar
+    </script>
+
+</body>
+
+</html>
