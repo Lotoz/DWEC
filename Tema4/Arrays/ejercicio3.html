@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio Arrays</title>
+</head>
+
+<body>
+    <br>
+    <h2> Ejercicio Arrays </h2>
+    <p> Array X <input type="text" size="60" name="caja1" value="X1,X2,X3,X4,X5"> </p>
+    <p> <input type="button" name="button" value="Add Array" onclick="addArrays();"> </p>
+    <hr>
+    <p id="explica"></p>
+    <h2 id="tamano"></h2>
+    <br>
+    <script language="JavaScript">
+        var arrayX = new Array();
+        var arraymix = new Array();
+        function addArrays() {
+            arrayXstr = document.getElementsByName("caja1")[0].value;
+            arrayX = arrayXstr.split(',');
+            lX = arrayX.length;
+            for (var i = 0; i < lX; i++) { arraymix.push(arrayX[i]); }
+            contenidostr = "El contenido del array es " + arraymix.join('-');
+            tamanostr = "El tamano del array es " + arraymix.length;
+            //alert(contenidostr);
+            document.getElementById("explica").innerHTML = contenidostr;
+            document.getElementById("tamano").innerHTML = tamanostr;
+        }
+    </script>
+</body>
+
+</html>
