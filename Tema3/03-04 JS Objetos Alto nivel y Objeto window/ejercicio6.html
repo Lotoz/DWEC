@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Ejercicio 6: Intervalo y reinicio</h3>
+    <div id="salida"></div>
+    <button onclick="iniciar()">Iniciar</button>
+    <button onclick="detener()">Detener</button>
+
+    <script>
+        //Se declara primero asi, asi podemos manipularlo siempre evitando la clonacion a darle a iniciar varias veces
+      let intervalo;
+
+      function diHola() {
+        document.getElementById("salida").innerHTML += "Hello World!";
+      }
+
+      function iniciar() {
+        detener();
+        //Aqui iniciamos el intervalo
+        //Al estar declarado fuera, no se clona
+        intervalo = setInterval(diHola, 500);
+      }
+
+      function detener() {
+        clearInterval(intervalo);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+  </head>
+  <body>
+    <h2>Ejercicio 1</h2>
+    <div id="elementoaCambiar"></div>
+
+    <script>
+      document.getElementById("elementoaCambiar").innerHTML = "texto nuevo";
+    </script>
+
+    <h2>Ejercicio 2</h2>
+    <p id="info"></p>
+
+    <script>
+      let info = `
+    hash: ${location.hash} <br>
+    host: ${location.host} <br>
+    hostname: ${location.hostname} <br>
+    href: ${location.href} <br>
+    pathname: ${location.pathname} <br>
+    port: ${location.port} <br>
+    protocol: ${location.protocol} <br>
+    search: ${location.search}
+    `;
+
+      document.getElementById("info").innerHTML = info;
+    </script>
+
+    <h2>Ejercicio 3</h2>
+    <button onclick="myFunction()">Load new document</button>
+
+    <script>
+      function myFunction() {
+        location.assign("https://www.iesplayamar.es");
+      }
+    </script>
+
+    <h2>Ejercicio 4</h2>
+    <input type="text" id="url" placeholder="Escribe una URL..." />
+    <button onclick="cargar()">Ir</button>
+    <button onclick="cargarPrompt()">Ir con prompt</button>
+
+    <script>
+      // Carga la URL escrita en el input
+      function cargar() {
+        let direccion = document.getElementById("url").value;
+        location.assign(direccion);
+      }
+
+      // Carga la URL introducida por prompt
+      function cargarPrompt() {
+        let direccion = prompt("Introduce una URL:");
+        location.assign(direccion);
+      }
+    </script>
+    <h2>Ejercicio 5</h2>
+    <button onclick="window.location.reload()">Recargar página</button>
+    <h2>Ejercicio 6</h2>
+    <button onclick="window.location.replace('https://www.google.es')">
+      Reemplazar página
+    </button>
+    <h2>Ejercicio 7</h2>
+    <table border="1" cellpadding="8" cellspacing="0">
+      <tr>
+        <th>Propiedad</th>
+        <th><code>location.assign()</code></th>
+        <th><code>location.replace()</code></th>
+      </tr>
+      <tr>
+        <td>Guarda la página actual en el historial</td>
+        <td>Sí</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Permite volver atrás con el botón del navegador</td>
+        <td>Sí</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Reemplaza la página actual</td>
+        <td>No (carga una nueva)</td>
+        <td>Sí</td>
+      </tr>
+      <tr>
+        <td>Uso típico</td>
+        <td>Navegación normal o redirección con historial</td>
+        <td>Redirecciones sin historial (por seguridad o limpieza)</td>
+      </tr>
+    </table>
+
+    <br />
+    <button onclick="location.assign('https://www.google.es')">
+      Probar assign()
+    </button>
+    <button onclick="location.replace('https://www.google.es')">
+      Probar replace()
+    </button>
+
+    
+    <h2>Ejercicio 8</h2>
+    <p id="info2"></p>
+
+    <script>
+      let info2 = `
+appCodeName: ${navigator.appCodeName} <br>
+appName: ${navigator.appName} <br>
+appVersion: ${navigator.appVersion} <br>
+cookieEnabled: ${navigator.cookieEnabled} <br>
+platform: ${navigator.platform} <br>
+userAgent: ${navigator.userAgent}
+`;
+
+      document.getElementById("info2").innerHTML = info2;
+    </script>
+    <h2>Ejercicio 9</h2>
+    <p id="demo"></p>
+
+    <script>
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        document.getElementById("demo").innerHTML =
+          "La geolocalización no es soportada por este navegador.";
+      }
+
+      function showPosition(position) {
+        document.getElementById("demo").innerHTML =
+          "Latitud: " +
+          position.coords.latitude +
+          "<br>Longitud: " +
+          position.coords.longitude;
+      }
+
+      function showError(error) {
+        document.getElementById("demo").innerHTML =
+          "No se pudo obtener la ubicación.";
+      }
+    </script>
+    <iframe
+      src="https://www.google.es/maps/@36.643675,-4.4902875,15z&output=embed"
+      width="500"
+      height="400"
+    ></iframe>
+
+    <h2>Ejercicio 10</h2>
+    <iframe id="mapa" width="500" height="400"></iframe>
+    <br />
+    <button onclick="mostrarMapa()">Mostrar mapa</button>
+
+    <script>
+      function mostrarMapa() {
+        document.getElementById("mapa").src =
+          "https://www.google.es/maps/@36.643675,-4.4902875,15z&output=embed";
+      }
+    </script>
+
+    <h2>Ejercicio 11</h2>
+    <iframe
+      id="mapa"
+      width="500"
+      height="400"
+      src="https://www.google.es/maps/@36.643675,-4.4902875,15z&output=embed"
+    ></iframe>
+    <br />
+    <button onclick="zoomIn()">Zoom +</button>
+    <button onclick="zoomOut()">Zoom -</button>
+
+    <script>
+      let zoom = 15; // nivel de zoom inicial
+
+      // Aumenta el zoom
+      function zoomIn() {
+        zoom++;
+        actualizarMapa();
+      }
+
+      // Disminuye el zoom
+      function zoomOut() {
+        zoom--;
+        actualizarMapa();
+      }
+
+      // Actualiza el iframe con el nuevo zoom
+      function actualizarMapa() {
+        document.getElementById(
+          "mapa"
+        ).src = `https://www.google.es/maps/@36.643675,-4.4902875,${zoom}z&output=embed`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 4</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-       <h5>Diferentes ejercicios</h5> 
-        <ul>
-            <li><a href="./index.html">Ejercicio 1,2,3</a></li>
-            <li><a href="./ejercicio4.html">Ejercicio 4</a></li>
-            <li><a href="./ejercicio5.html">Ejercicio 5</a></li>
-            <li><a href="./ejercicio6.html">Ejercicio 6</a></li>
-            <li><a href="./ejercicio7.html">Ejercicio 7</a></li>
-            <li><a href="./ejercicio8.html">Ejercicio 8,9,10</a></li>
-        </ul>
+      <h5>Diferentes ejercicios</h5>
+      <ul>
+        <li><a href="./index.html">Ejercicio 1,2,3</a></li>
+        <li><a href="./ejercicio4.html">Ejercicio 4</a></li>
+        <li><a href="./ejercicio5.html">Ejercicio 5</a></li>
+        <li><a href="./ejercicio6.html">Ejercicio 6</a></li>
+        <li><a href="./ejercicio7.html">Ejercicio 7</a></li>
+        <li><a href="./ejercicio8.html">Ejercicio 8,9,10</a></li>
+      </ul>
     </nav>
-    <h3>Lee una url y genera la funcion</h3>
-    <button onclick="abrirVentanas()">Iniciar</button>
-    <script> 
-        function abrirVentanas() {
-            let url = prompt("Ingresa la url");
-            let subVentana = window.open("./secundarias/ventanaEjercicio4.html","nueva","height=800,width=600");
-        }
+    <h3>Ejercicio 4: Propiedades de una nueva ventana</h3>
+    <button onclick="abrirURL()">Abrir URL</button>
+    
+    <script>
+      function abrirURL() {
+        url = prompt(
+          "Introduce una URL (ej: https://www.wikipedia.org):"
+        );
+
+        const nueva = window.open("./ventanaDatos.html", "datos", "width=600,height=400");
+
+      // Esperamos a que cargue completamente
+      nueva.addEventListener("load", () => {
+        // Creamos un objeto con los datos que queremos mostrar
+        const info = {
+          defaultStatus: nueva.defaultStatus,
+          length: nueva.length,
+          location: nueva.location.href,
+          name: nueva.name || "Ventana sin nombre",
+          origen: document.title
+        };
+
+        // Enviamos los datos a la ventana hija usando postMessage()
+        nueva.postMessage(info, "*");
+      });
+      }
     </script>
-</body>
+  </body>
 </html>

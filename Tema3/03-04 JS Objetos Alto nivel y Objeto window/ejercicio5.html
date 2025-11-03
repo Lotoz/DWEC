@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 5</title>
+</head>
+<body>
+<h3>Ejercicio 5: Ventanas de alerta</h3>
+<button onclick="mostrarAlertas()">Ejecutar</button>
+<p id="resultado"></p>
+
+<script>
+function mostrarAlertas() {
+    alert("ALERTA:Te están robando el banco!!");
+    const respuesta = confirm("¿Estás de acuerdo?");
+    const texto = respuesta ? "De acuerdo" : "No estoy de acuerdo";
+    document.getElementById("resultado").innerText = texto;
+}
+</script>
+</body>
+</html>

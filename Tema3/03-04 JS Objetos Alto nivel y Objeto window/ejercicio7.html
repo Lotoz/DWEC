@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Ejercicio 7: Mostrar hora actual</h3>
+    <p id="hora"></p>
+
+    <script>
+      function mostrarHora() {
+        const date = new Date();
+        document.getElementById("hora").innerHTML =
+          "La hora es: " + date.toLocaleTimeString();
+      }
+      //Con intervalo hace que avance cada segundo
+      setInterval(mostrarHora, 1000);
+    </script>
+  </body>
+</html>

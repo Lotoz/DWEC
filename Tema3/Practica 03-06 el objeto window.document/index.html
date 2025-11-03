@@ -1,157 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El objeto window.document</title>
-</head>
+  </head>
 
-<body>
-    <h3>1. Crea un script que te muestre con bucle los siguientes htmlCollections (arrays) ojo algunos podrían fallar ya
-        que están deprectated</h3>
+  <body>
+    <h2>1. Mostrar colecciones HTML (HTMLCollections)</h2>
+    <button id="e1_boton">Ejercicio 1</button>
     <p id="salida"></p>
     <script>
-        /**
-         * 1. anchors[] Es un array que contiene todos los hiperenlaces del documento. (deprectated)
-        2. applets[] Es un array que contiene todos los applets del documento(deprectated)
-        3. links[] Es un array que contiene todos los enlaces del documento. 
-        4. forms[] Es un array que contiene todos los formularios del documento.
-        5. images[] Es un array que contiene todas las imágenes del documento.
-        6. Document.scripts[]
-        7. Document.styleSheets []
-        8. cookie[] Devuelve todos los nombres/valores de las cookies en el documento
-        */
+      document.getElementById("e1_boton").addEventListener("click", () => {
+        let salida = document.getElementById("salida");
+        let texto = "<strong>Mostrando HTMLCollections:</strong><br>";
+
+        try {
+          texto += "<br><b>anchors[]:</b><br>";
+          for (let a of document.anchors) texto += a.href + "<br>";
+        } catch (e) {
+          texto += "anchors[] no disponible<br>";
+        }
+
+        try {
+          texto += "<br><b>applets[]:</b><br>";
+          for (let a of document.applets) texto += a + "<br>";
+        } catch (e) {
+          texto += "applets[] no disponible<br>";
+        }
+
+        texto += "<br><b>links[]:</b><br>";
+        for (let a of document.links) texto += a.href + "<br>";
+
+        texto += "<br><b>forms[]:</b><br>";
+        for (let f of document.forms) texto += f.name + "<br>";
+
+        texto += "<br><b>images[]:</b><br>";
+        for (let i of document.images) texto += i.src + "<br>";
+
+        texto += "<br><b>scripts[]:</b><br>";
+        for (let s of document.scripts)
+          texto += (s.src || "script interno") + "<br>";
+
+        texto += "<br><b>styleSheets[]:</b><br>";
+        for (let ss of document.styleSheets)
+          texto += (ss.href || "incrustado") + "<br>";
+
+        document.cookie = "usuario=Alumno; path=/";
+        texto += "<br><b>cookie:</b><br>" + document.cookie;
+
+        salida.innerHTML = texto;
+      });
     </script>
-    <h3>2. Muestra las siguientes Propiedades del objeto Document</h3>
+
+    <hr />
+    <h2>2. Propiedades del objeto Document</h2>
+    <button id="e2_boton">Ejercicio 2</button>
+    <div id="salida2"></div>
     <script>
-        /**
-         * 1. domain Cadena que contiene el nombre de dominio del servidor que cargó el documento.
-2. lastModified Devuelve la fecha y hora de la última modificación del documento
-3. readyState Devuelve el estado de carga del documento actual
-4. referrer Cadena que contiene la URL del documento desde el cuál llegamos al documento actual.
-5. title Devuelve o ajusta el título del documento.
-6. URL Devuelve la URL completa del documento
-         */
+      document.getElementById("e2_boton").addEventListener("click", () => {
+        let out = `
+  <b>Domain:</b> ${document.domain}<br>
+  <b>Last Modified:</b> ${document.lastModified}<br>
+  <b>Ready State:</b> ${document.readyState}<br>
+  <b>Referrer:</b> ${document.referrer}<br>
+  <b>Title:</b> ${document.title}<br>
+  <b>URL:</b> ${document.URL}<br>
+  `;
+        document.getElementById("salida2").innerHTML = out;
+      });
     </script>
-    <h3>3. Ejecuta el siguiente código para observar como podemos cambiar el titulo de la pagina</h3>
+
+    <hr />
+    <h2>3. Cambiar título del documento (alert)</h2>
     <button id="e3_boton">Ejercicio 3</button>
     <script>
-        const boton_e3 = document.getElementById('e3_boton');
-        boton_e3.addEventListener('click', () => {
-            nombre = prompt('Ingrese su nombre:', '');
-            alert("Titulo antiguo " + document.title); // displays "Hello World!"
-            document.title = nombre;
-            alert("Titulo nuevos " + document.title); // displays "Goodbye World!"
-        });
+      document.getElementById("e3_boton").addEventListener("click", () => {
+        let nombre = prompt("Ingrese el nuevo nombre:", "");
+        alert("Título antiguo: " + document.title);
+        document.title = nombre;
+        alert("Título nuevo: " + document.title);
+      });
     </script>
-    <h3>4. Modifica el código anterior para sustituir los alert por document.getElementById("idetiqueta").innerHTML ="
-    </h3>
+
+    <hr />
+    <h2>4. Cambiar título con innerHTML</h2>
     <button id="e4_boton">Ejercicio 4</button>
-    <div id="etiquetatituloviejo"> </div>
-    <div id="etiquetatitulonuevo"> </div>
+    <div id="etiquetatituloviejo"></div>
+    <div id="etiquetatitulonuevo"></div>
     <script>
-        const boton_e4 = document.getElementById('e4_boton');
-        boton_e4.addEventListener('click', () => {
-            let salidaTitutloViejo = document.getElementById('etiquetatituloviejo');
-            let salidaTituloNuevo = document.getElementById('etiquetatitulonuevo');
-            nombre = prompt('Ingrese su nombre:', '');
-            salidaTitutloViejo.innerHTML = `El titulo viejo era: ${document.title}`; // displays "Hello World!"
-            document.title = nombre;
-            salidaTituloNuevo.innerHTML = `El titulo nuevo es: ${document.title}`; // displays "Goodbye World!"
-        });
+      document.getElementById("e4_boton").addEventListener("click", () => {
+        let nombre = prompt("Ingrese nuevo título:", "");
+        document.getElementById(
+          "etiquetatituloviejo"
+        ).innerHTML = `Título viejo: ${document.title}`;
+        document.title = nombre;
+        document.getElementById(
+          "etiquetatitulonuevo"
+        ).innerHTML = `Título nuevo: ${document.title}`;
+      });
     </script>
-    <h3>5. Ejercicio Usa getElementById()para acceder a un elemento identificado por el id escrito entre paréntesis.
-    </h3>
+
+    <hr />
+    <h2>5. getElementById()</h2>
     <button id="e5_boton">Ejercicio 5</button>
     <div id="etiquetaARellenar"></div>
     <script>
-        const boton_e5 = document.getElementById('e5_boton');
-        boton_e5.addEventListener('click', () => {
-            let salida = document.getElementById('etiquetaARellenar');
-            contenido = prompt('Ingresa texto para rellenar: ');
-            salida.innerText = contenido;
-        });
+      document.getElementById("e5_boton").addEventListener("click", () => {
+        let texto = prompt("Ingresa texto para rellenar: ");
+        document.getElementById("etiquetaARellenar").innerText = texto;
+      });
     </script>
-    <h3>6.Ejercicio Usa getElementsByName().InnerElement para acceder a un elemento identificado por el id escrito
-        entre paréntesis.</h3>
-    <!--No funciona buscar el porque-->
+
+    <hr />
+    <h2>6. getElementsByName()</h2>
     <button id="e6_boton">Ejercicio 6</button>
-    <input type="text" name="etiquetaARellenar1">elemento1</input>
-    <input type="text" name="etiquetaARellenar2">elemento2</input>
+    <p>
+      <input type="text" name="etiquetaARellenar1" placeholder="Elemento 1" />
+    </p>
+    <p>
+      <input type="text" name="etiquetaARellenar2" placeholder="Elemento 2" />
+    </p>
     <script>
-        const boton_e6 = document.getElementById('e6_boton');
-        boton_e6.addEventListener('click', () => {
-            let elemento1 = document.getElementsByName('etiquetaARellenar1');
-            let elemento2 = document.getElementsByName('etiquetaARellenar2');
-            nombre = prompt('Ingrese su nombre:', '');
-            elemento1.innerHTML = nombre;
-        });
+      document.getElementById("e6_boton").addEventListener("click", () => {
+        let nombre = prompt("Ingrese su nombre:", "");
+        let elemento1 = document.getElementsByName("etiquetaARellenar1")[0];
+        let elemento2 = document.getElementsByName("etiquetaARellenar2")[0];
+        elemento1.value = nombre + " (campo 1)";
+        elemento2.value = nombre + " (campo 2)";
+      });
     </script>
-    <h3>7.Ejecuta el siguiente código para ver como se Usa getElementsByName().InnerHTML para acceder a un
-        elemento identificado por el id escrito entre paréntesis.</h3>
+
+    <hr />
+    <h2>7. getElementsByTagName()</h2>
     <button id="e7_boton">Ejercicio 7</button>
-    <p> Una Lista ordenada:</p>
+    <p>Una lista ordenada:</p>
     <ol>
-        <li>Torremolinos</li>
-        <li>Málaga</li>
-        <li>Granada</li>
-        <li>Sevilla</li>
-        <li>Alhaurin</li>
-        <li>Churriana</li>
+      <li>Torremolinos</li>
+      <li>Málaga</li>
+      <li>Granada</li>
+      <li>Sevilla</li>
+      <li>Alhaurín</li>
+      <li>Churriana</li>
     </ol>
     <p id="indice"></p>
     <h2 id="lista"></h2>
     <script>
-        numero = prompt('Ingrese el numero que deseas selecionar:', '');
-        indice_string = "El " + numero + "º elemento de la lista es";
+      document.getElementById("e7_boton").addEventListener("click", () => {
+        let numero = prompt("Ingrese el número que deseas seleccionar:", "");
         const collection1 = document.getElementsByTagName("li");
-        document.getElementById("lista").innerHTML = collectio1[numero - 1].innerHTML;
-        document.getElementById("indice").innerHTML = indice_string;
+        if (numero > 0 && numero <= collection1.length) {
+          document.getElementById("indice").innerHTML =
+            "El " + numero + "º elemento de la lista es:";
+          document.getElementById("lista").innerHTML =
+            collection1[numero - 1].innerHTML;
+        } else {
+          alert("Número fuera de rango");
+        }
+      });
     </script>
-    <h3>8.Modifica el siguiente código para ver el contenido de la etiqueta que se le indique</h3>
-    <h1> una cabecera h1</h1>
-    <h2> una cabecera h2</h2>
-    <p> Un parrafo </p>
+
+    <hr />
+    <h2>8. Mostrar contenido según etiqueta</h2>
+    <h1>Una cabecera h1</h1>
+    <h2>Una cabecera h2</h2>
+    <p>Un párrafo</p>
     <span>Torremolinos</span>
     <button id="e8_boton">Ejercicio 8</button>
     <p id="explica"></p>
-    <div id="elemento" style='background-color: #959595;'></div>
-    <!--h1 y span no funcionan-->
+    <div id="elemento" style="background: #ddd; padding: 5px"></div>
     <script>
-
-        document.getElementById('e8_boton').addEventListener('click', () => {
-            etiqueta = prompt('Ingrese el contenido que deseas conocer (p,h1,h2,span)  que deseas seleccionar:', '');
-            /*
-              const collection = document.getElementsByTagName(etiqueta);
-              document.getElementById("explica").innerHTML = "El contenido de la etiqueta " +  etiqueta  + " es: "; 
-              document.getElementById("elemento").innerHTML = collection[0].innerHTML; ;
-            */
-            const collection = document.getElementsByTagName(etiqueta);
-            document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + etiqueta + " es: ";
-            document.getElementById("elemento").innerHTML = collection[1].innerHTML;
-        });
-
+      document.getElementById("e8_boton").addEventListener("click", () => {
+        let etiqueta = prompt("Ingrese la etiqueta (p, h1, h2, span):", "");
+        const collection = document.getElementsByTagName(etiqueta);
+        if (collection.length > 0) {
+          document.getElementById("explica").innerHTML =
+            "El contenido de la etiqueta " + etiqueta + " es:";
+          document.getElementById("elemento").innerHTML =
+            collection[0].innerHTML;
+        } else {
+          document.getElementById("explica").innerHTML =
+            "No se encontró la etiqueta " + etiqueta;
+          document.getElementById("elemento").innerHTML = "";
+        }
+      });
     </script>
 
-    <h3>9.Modifica el siguiente código para ver el contenido de la etiqueta que se le indique </h3>
-    <p> etiqueta1 <input type="text" name="etiqueta1" value="Guadalajara"> </p>
-    <p> etiqueta2 <input type="text" name="etiqueta2" value="Toledo"> </p>
-    <p> etiqueta3 <input type="text" name="etiqueta3" value="Cuenca"> </p>
-    <hr>
-    <p id="explica"></p>
-    <h2 id="elemento"></h2>
-    <script language="JavaScript">
-        numero = prompt('Ingresa el numero de la etiqueta:', '');
-        // valorDeEtiqueta=document.getElementByName(numero).value;
-        elements = document.getElementsByName("etiqueta" + numero);
-        valorDeEtiqueta = elements[0].value;
-        document.getElementById("explica").innerHTML = "El contenido de la etiqueta " + numero + " es: ";
-        document.getElementById("elemento").innerHTML = valorDeEtiqueta;
-
-        // codigo para rellenar
+    <hr />
+    <h2>9. Obtener valor de input por nombre</h2>
+    <button id="e9_boton">Ejercicio 9</button>
+    <p>Etiqueta1 <input type="text" name="etiqueta1" value="Guadalajara" /></p>
+    <p>Etiqueta2 <input type="text" name="etiqueta2" value="Toledo" /></p>
+    <p>Etiqueta3 <input type="text" name="etiqueta3" value="Cuenca" /></p>
+    <p id="explica9"></p>
+    <h2 id="elemento9"></h2>
+    <script>
+      document.getElementById("e9_boton").addEventListener("click", () => {
+        let numero = prompt("Ingresa el número de la etiqueta:", "");
+        let elements = document.getElementsByName("etiqueta" + numero);
+        if (elements.length > 0) {
+          let valorDeEtiqueta = elements[0].value;
+          document.getElementById("explica9").innerHTML =
+            "El contenido de la etiqueta " + numero + " es:";
+          document.getElementById("elemento9").innerHTML = valorDeEtiqueta;
+        } else {
+          alert("Etiqueta no encontrada");
+        }
+      });
     </script>
-
-</body>
-
+  </body>
 </html>

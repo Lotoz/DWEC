@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana con datos</title>
+</head>
+<body>
+ <h2>Datos de la ventana</h2>
+  <div id="info">Esperando datos...</div>
+
+  <script>
+    // Espera el mensaje desde la ventana que la abrió
+    window.addEventListener("message", (event) => {
+      const datos = event.data;
+      if (!datos) return;
+      //Peque error, los datos salen undefined si no se envian bien
+      const salida = `
+        <p><b>Ventana abierta desde:</b> ${datos.origen}</p>
+        <p><b>defaultStatus:</b> ${datos.defaultStatus}</p>
+        <p><b>length:</b> ${datos.length}</p>
+        <p><b>location:</b> ${datos.location}</p>
+        <p><b>name:</b> ${datos.name}</p>
+      `;
+      document.getElementById("info").innerHTML = salida;
+    });
+  </script>
+</body>
+</html>
