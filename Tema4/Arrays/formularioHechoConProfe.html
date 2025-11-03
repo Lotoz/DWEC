@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <label for="idEmpleado">ID</label> 
+    <input type="text" name="idEmpleado" id="idEmpleado">   
+    <br>
+    <label for="nombre"></label> 
+    <input type="text" name="nombre" id="nombre" value="Paco">   
+    <br>
+    <label for="apellido"></label> 
+    <input type="text" name="apellido" id="apellido" value="Lopez">
+    <br>
+    <label for="fecha"></label> 
+    <input type="text" name="fecha" id="fecha" value="1990">
+    <br>
+    <label for="puesto"></label> 
+    <input type="text" name="puesto" id="puesto" value="Programador">
+    <div id="e9"></div>
+    <input type="button" value="Insertar" onclick="insertarEmpleado()">
+    <input type="button" value="mostrar" onclick="mostrarDatos()">
+    <input type="button" value="mostrar" onclick="mostrarJubilacion()">
+    <div id="salida"></div>
+    <br>
+    <label for="registro">Ver registro</label> 
+    <input type="text" id="registro" >
+    <input type="button" value="Buscar empleado especifico" onclick="verDatos()">
+    <div id="salida2"></div>
+    <script>
+        let contadorDeClaves = 0;
+        let almacen=[];
+        document.getElementById('idEmpleado').value= contadorDeClaves;
+
+        function insertarEmpleado() {
+            let registro = [];
+            registro.push(contadorDeClaves);
+            contadorDeClaves++;
+            registro.push(document.getElementById('nombre').value);
+            registro.push(document.getElementById('apellido').value);
+            registro.push(document.getElementById('fecha').value);
+            registro.push(document.getElementById('puesto').value);
+            almacen.push(registro);
+            document.getElementById('e9').innerHTML = "registro correcto";
+        }
+        function mostrarDatos(){
+            cadena = "<ol>";
+                for (registro of almacen) {
+                    cadena+='<li>'+registro.join(' - ')+ "</li>";
+                }
+            cadena += "</ol>";
+            document.getElementById('salida').innerHTML = "registro de empleados: " + cadena;
+        }
+        function verDatos(){
+            let idBuscado = document.getElementById('registro').value;
+            cadena = "<ol>";
+                for (registro of almacen) {
+                    if (registro[0] == idBuscado) {
+                         cadena+='<li>'+registro.join(' - ')+ "</li>";
+                    }
+                   
+                }
+            cadena += "</ol>";
+            document.getElementById('salida2').innerHTML = "registro de empleado: " + cadena;
+        }
+        function mostrarJubilacion(){
+            let idBuscado = document.getElementById('registro').value;
+            cadena = "<ol>";
+                for (registro of almacen) {
+                    let yearJubilacion = parseInt(registro[3]) + 67;
+
+                    
+                    cadena+='<li>'+registro.join(' - ')+ " -> Ano de jubiliacion: "+ yearJubilacion + "</li>";
+                    
+                   
+                }
+            cadena += "</ol>";
+            document.getElementById('salida2').innerHTML = "registro de empleado: " + cadena;
+        }
+
+    </script>
+</body>
+</html>

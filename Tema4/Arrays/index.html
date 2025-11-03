@@ -78,6 +78,8 @@
                         numAnt = num;
                     }
                     let e2_salida = document.getElementById('e2_salida');
+                    //La media es el numero medio del array
+                    //Sacar la mediana luego
                     e2_salida.innerHTML = `
                         La moda es: ${modanumMax} <br>
                         El numero repitido es : ${numAnt} <br>
@@ -90,25 +92,19 @@
             <h2 class="titulo">Ejercicio 4</h2>
             <p class="subtitulo">Realiza un ejercicio que te añada los datos de un campo text a un array pulsando en un botón y te los muestre debajo</p>
             <label for="input_e4">Cadenas aqui:</label>
-            <input class="inputBonito" id="input_e4" type="text">
+            <input class="inputBonito" name="input_e4" id="input_e4" type="text">
             <button class="botonBonito" id="e4_boton">Añade</button>
             <div class="salidaBonita" id="e4_salida"></div>
             <script>
-                
+                //Pillamos el boton
                 let boton_e4 = document.getElementById('e4_boton');
-                boton_e4.addEventListener('click', ()=>{
-                    let e4_salida = document.getElementById('e4_salida');
-                    //Pillamos el input
-                    let input_e4 = document.getElementById('input_e4').value;
-                    let array = new Array();
-                    //Antes de meterlo, mostramos por pantalla el nuevo input
-                    //Metemos lo del input en el array
-                    array.push(input_e4);
-                    //e4_salida.innerHTML = "<br> El contenido del array es: <br>"
-                    for (let index = 0; index < array.length; index++) {
-                        e4_salida.innerHTML += " " + array[index];
-                    }
-                });
+                //Esto es un string
+                let input_e4 = document.getElementsByName('input_e4')[0].value;
+                let salida_e4 = document.getElementById('e4_salida');
+                //Ahora creamos un evento
+                //Convertimos el string como un array
+                let array_e4 = input_e4.split(' ');
+
             </script>
         </div>
         <div class="cajaBonita">
@@ -119,7 +115,19 @@
             <button class="botonBonito" id="e5_boton">Añade</button>
             <div class="salidaBonita" id="e5_salida"></div>
             <script>
-                
+                //
+            </script>
+        </div>
+        <div class="cajaBonita">
+            <h2 class="titulo">Ejercicio 6</h2>
+            <p class="subtitulo">Realiza un ejercicio que te añada los datos de un campo text a un array pulsando en un botón y te los muestre debajo</p>
+            <label for="input_e4">Cadenas aqui:</label>
+            <input class="inputBonito" id="input_e5" type="text">
+            <button class="botonBonito" id="e5_boton">Añade</button>
+            <div class="salidaBonita" id="e5_salida"></div>
+            <script>
+                //Ahora debe pillar los datos de forma numerica, deben ser introducidos con ,
+                //Y luego se debe hacer la media
             </script>
         </div>
     </div>
