@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ejemplo del profe</h2>
+    <div id="salida1"></div>
+    <div id="salida2"></div>
+    <div id="salida3"></div>
+    <script>
+        let numbers = [1, 5, 10, 15];
+        //Anonima
+        let doubles = numbers.map( function(x) { return x * 2;});
+        //Normales
+        let doublesFun = numbers.map(dobles);
+        function dobles(x) {
+            return x * 2;
+        }
+        document.getElementById('salida1').innerHTML = doubles.join('-');
+        document.getElementById('salida2').innerHTML = doublesFun.join('-');
+
+        //Con objetos
+        var datos = new Array();
+datos[0] = new Array("Cristina","Seguridad",24);
+datos[1] = new Array("Catalina","Bases de Datos",17);
+datos[2] = new Array("Vieites","Sistemas Informáticos",28);
+datos[3] = new Array("Benjamin","Redes",26);
+
+        function sacarNombre(registro) {
+            return registro[0];
+          }
+        let lista = datos.map(sacarNombre).join("</li><li>");
+        //document.getElementById('salida3').innerHTML = `<ol><li> ${lista}</li></ol>`;
+
+        function sacarTodosLosDatos(registro) {
+            return `
+            Nombre: ${registro[0]}
+            Materia: ${registro[1]}
+            Numero: ${registro[2]}
+            `;
+        }
+        let lista2 = datos.map(sacarTodosLosDatos).join("</li><li>");
+        document.getElementById('salida3').innerHTML = `<ol><li> ${lista2}</li></ol>`;
+        
+
+        
+    </script>
+    <div id="salida4"></div>
+    <script>
+        
+
+        
+        
+        
+        let filas = 5;
+        let columnas = 4;
+        let datos = new Array(filas);
+        for (let i = 0; i <= filas; i++) {
+            datos[i] = new Array(columnas);  
+        }
+            for (let i = 0; i <= filas ; i++) {
+                
+                for (let j = 0; j <= columnas; j++) {
+                
+                    datos [i][j] = Math.round(Math.random()*10);
+
+                }   
+                
+            }
+  
+        let cadena = "<table border='2px'>";
+        for (let i = 0; i < filas ; i++) {
+                cadena += "<tr>"
+                for (let j = 0; j < columnas; j++) {
+                
+                    cadena+= "<td>"+datos[i][j]+"</td>";
+
+                }   
+                cadena += "</tr>"
+            }
+            cadena += "</table>"
+        document.getElementById('salida4').innerHTML = cadena;
+    </script>
+</body>
+</html>
