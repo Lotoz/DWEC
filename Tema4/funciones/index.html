@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 1</h2>
+        <p class="consigna">Crea una función Ej1Trigonometica que se le pase dos parametros  y calcule su trigonometria</p>
+        <label for="numeroGrados"> Grados :</label>
+        <input type="text" name="numeroGrados" id="numeroGrados">
+        <br>
+        <label for="funcionTrigo"> Funcion:</label>
+        <input type="text" name="funcionTrigo" id="funcionTrigo">
+        <button class="botones" onclick="Ej1Trigonometica()">Ejercicio 1</button>
+        <div class="resultado" id="e1_resultado"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 2</h2>
+        <p class="consigna">Crea una función Ej2JS  que le pases una lista de valores y un id y te cree una lista ordenada con ellos escrita en el el id </p>
+        <label for="valores"> Valores :</label>
+        <input type="text" name="valores" id="valores">
+        <br>
+        <label for="identificador"> ID :</label>
+        <input type="text" name="identificador" id="identificador" value="e2_resultado">
+        <button class="botones" onclick="Ej2Js()">Ejercicio 2</button>
+        <div class="resultado" id="e2_resultado"></div>
+    </div>
+    <script src="./codigo.js"></script>
+</body>
+</html>
