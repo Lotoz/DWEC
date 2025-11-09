@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number y math</title>
+  </head>
+  <body>
+    <!--Pide al usuario que introduzca un número decimal y muestra:
+    1. El número original y su tipo (typeof).
+    2. El número redondeado, su parte entera y su raíz cuadrada.
+    3. Un número aleatorio entre 1 y 100.
+    4. Si el número es positivo o negativo usando un valor booleano.
+    5. Convierte el número a string con toFixed(2) y muéstralo.-->
+    <h1>Number y math</h1>
+    <button onclick="Numero()">iniciar</button>
+    <div id="salida"></div>
+    <script>
+      function Numero() {
+        //Para aceptar int y float
+        let numero = Number(prompt("Dame un número"));
+        let salida = document.getElementById("salida");
+        //Genera un numero entre 1 y 100,.random solo genera numeros de 1 a 0
+        let aleatorio = Math.floor(Math.random() * 100) + 1;
+
+        salida.innerHTML = `
+         Numero original = ${numero} <br>
+         Su tipo es = ${typeof numero} <br>
+         Numero redondeado = ${Math.round(numero)} <br>
+         Numero aleatorio = ${aleatorio} <br>
+         Numero positivio o negativo = ${
+           numero > 0 ? "Es positivo" : "Es negativo"
+         } <br>
+        Raíz cuadrada = ${Math.sqrt(numero)} <br>
+         Numero string = ${numero.toFixed(2)}
+
+       `;
+      }
+    </script>
+  </body>
+</html>

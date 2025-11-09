@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetos del navegador</title>
+  </head>
+  <body>
+    <h1>Objetos de alto nivel del navegador</h1>
+
+    <button onclick="mostrarInfo()">Mostrar información</button>
+    <div id="salida"></div>
+    <script>
+      function mostrarInfo() {
+        const salida = document.getElementById("salida");
+        let texto = "";
+
+        // 1. Objeto window
+        texto += "<h2>Objeto window</h2>";
+        texto += `Ancho de ventana: ${window.innerWidth}px <br>`;
+        texto += `Alto de ventana: ${window.innerHeight}px <br>`;
+
+        // 2. Objeto location
+        texto += "<h2>Objeto location</h2>";
+        texto += `Protocolo: ${location.protocol} <br>`;
+        texto += `Hostname: ${location.hostname} <br>`;
+        texto += `URL actual: ${location.href} <br>`;
+
+        // 3. Objeto navigator
+        texto += "<h2>Objeto navigator</h2>";
+        texto += `Navegador (userAgent): ${navigator.userAgent} <br>`;
+        texto += `Idioma: ${navigator.language} <br>`;
+        texto += `Plataforma: ${navigator.platform} <br>`;
+
+        // 4. Objeto document
+        texto += "<h2>Objeto document</h2>";
+        document.title = "Nuevo título desde JavaScript";
+        texto += `Nuevo título del documento: ${document.title} <br>`;
+        texto += `Elementos dentro del body: ${document.body.children.length} <br>`;
+
+        salida.innerHTML = texto;
+      }
+    </script>
+  </body>
+</html>

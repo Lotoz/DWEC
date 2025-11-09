@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repaso javaScript</title>
+  </head>
+  <body>
+    <!--Ejercicio 1 – Métodos de cadenas y template literals
+
+Crea un pequeño programa que pida al usuario una frase mediante prompt() y muestre los siguientes resultados en el documento HTML:
+
+Longitud del texto.
+
+El texto en mayúsculas y en minúsculas.
+
+Las 3 primeras y las 3 últimas letras (usa métodos de substring o slice).
+
+El texto dividido por palabras en un array y mostrado como lista.
+
+Si la frase contiene la palabra "js" (sin importar mayúsculas o minúsculas).
+
+Un resumen final usando template literals (backticks) describiendo la frase del usuario con sus datos anteriores.-->
+    <h2>Metodos de cadenas y template literals</h2>
+    <h2>Pide a un usuario una frase o palabra y muestra datos especificos</h2>
+    <button onclick="DatosString()">Boton</button>
+    <div id="salida"></div>
+    <script>
+      //Generamos la funcion general
+      function DatosString() {
+        // Pedir frase al usuario
+        let frase = prompt("Dame una frase a analizar:");
+
+        // Validar que el usuario no deje el campo vacío
+        if (!frase) {
+          //Toda cadena no vacia es verdadero. Toda cadena vacia es true
+          document.getElementById("salida").innerHTML =
+            "No ingresaste ningún texto.";
+        } else {
+          // Procesamiento
+          let longitud = frase.length;
+          let mayus = frase.toUpperCase();
+          let minus = frase.toLowerCase();
+          let palabras = frase.split(" ");
+          let contieneJs = frase.toLowerCase().includes("js");
+
+          // Crear lista de palabras
+          let lista = palabras.map((p) => `<li>${p}</li>`).join("");
+
+          // Mostrar resultados usando template literals
+          document.getElementById("salida").innerHTML = `
+      <p>El texto tiene una longitud de <b>${longitud}</b> caracteres.</p>
+      <p>En mayúsculas: ${mayus}</p>
+      <p>En minúsculas: ${minus}</p>
+      <p>Palabras divididas:</p>
+      <ul>${lista}</ul>
+      <p>¿Contiene "js"? ${
+        contieneJs ? "Sí, lo contiene" : "No lo contiene"
+      }</p>
+    `;
+        }
+      }
+    </script>
+  </body>
+</html>

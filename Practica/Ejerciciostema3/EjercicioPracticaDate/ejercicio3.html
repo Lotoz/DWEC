@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date</title>
+  </head>
+  <body>
+    <!--Importa la librería date.js
+Con ella o con new Date(), muestra en la página:
+    1. La fecha y hora actual formateada.
+    2. El día de la semana y el mes con su nombre.
+    3. Cuántos días faltan para que termine el mes actual.
+-->
+
+    <!--Se puede hacer en el head, pero hacelro al final evita posibles errores de botones-->
+    <h1>Fechas</h1>
+    <button onclick="mostrarFechas()"></button>
+    <div id="salida">Iniciar</div>
+    <script>
+      function mostrarFechas() {
+        const salida = document.getElementById("salida");
+
+        //Fecha y hora actual formateada
+        const hoy = new Date();
+        const fechaFormateada = hoy.toLocaleString("es-ES");
+
+        //Día de la semana y mes con nombre
+        const dias = [
+          "domingo",
+          "lunes",
+          "martes",
+          "miércoles",
+          "jueves",
+          "viernes",
+          "sábado",
+        ];
+        const meses = [
+          "enero",
+          "febrero",
+          "marzo",
+          "abril",
+          "mayo",
+          "junio",
+          "julio",
+          "agosto",
+          "septiembre",
+          "octubre",
+          "noviembre",
+          "diciembre",
+        ];
+        //La libreria date tiene un pecularidad
+        //Los dias empiezan por domingo y finalizan en sabado como el horario gringo y te devuelve unumero
+        const diaNombre = dias[hoy.getDay()];
+        //Te devuelve un numweo
+        const mesNombre = meses[hoy.getMonth()];
+
+        // Días que faltan para que termine el mes
+        const ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0); // último día del mes
+        const diasRestantes = ultimoDia.getDate() - hoy.getDate();
+
+        salida.innerHTML = `
+          <p>Fecha y hora actual: <b>${fechaFormateada}</b></p>
+          <p>Hoy es <b>${diaNombre}</b> de <b>${mesNombre}</b></p>
+          <p>Faltan <b>${diasRestantes}</b> días para que termine el mes.</p>
+        `;
+      }
+    </script>
+    <script src="date.js"></script>
+  </body>
+</html>
