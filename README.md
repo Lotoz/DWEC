@@ -1,5 +1,7 @@
-## Desarollo Web Entorno Cliente
-# Ejercicios hechos en clase
-> Tema 1: Introduccion a javascript
+# Desarollo Web Entorno Cliente
 
-> Tema 2: Javascript por funciones
+<img src='./assets/banner.png' alt='imagenJS' width='600' height='300'/>
+
+## Ejercicios hechos en clase, examenes y actividades
+
+## Orden de las carpetas

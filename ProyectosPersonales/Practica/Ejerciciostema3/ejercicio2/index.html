@@ -4,7 +4,22 @@ Permite con prompt():
 •Buscar un producto por nombre.
 •Modificar su stock.
 •Calcular el valor total del inventario.
-Muestra los resultados en el DOM (no solo consola)-->
+Muestra los resultados en el DOM (no solo consola)
+INTERVALO
+let contador = 10; // Valor inicial
+
+const intervaloDecreciente = setInterval(() => {
+    console.log(contador); // Imprimir el contador
+    contador--; // Decrementar el contador
+
+    // Detener el intervalo cuando el contador llegue a 0
+    if (contador < 0) {
+        clearInterval(intervaloDecreciente);
+        console.log("Intervalo detenido.");
+    }
+}, 1000); // Intervalo de 1000 ms (1 segundo)
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
