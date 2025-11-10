@@ -1,6 +1,8 @@
 # Desarollo Web Entorno Cliente
 
-<img src='./assets/banner.png' alt='imagenJS' width='600' height='300'/>
+<div aling="center">
+  <img src="./assets/banner.png" alt="Js imagen"/>
+</div>
 
 ## Ejercicios hechos en clase, examenes y actividades
 
