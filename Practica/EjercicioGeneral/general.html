@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DWEC - Tema 3 (Demo interactivo)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        DWEC - Tema 3: Objetos fundamentales de JavaScript — Demo interactiva
+      </h1>
+      <p>
+        Este documento integra y ejemplifica los contenidos del resumen del tema
+        3 (Window, Location, Navigator, Document, String, Math, Number, Boolean
+        y Date).
+      </p>
+    </header>
+
+    <main>
+      <nav>
+        <h2>Índice</h2>
+        <ul>
+          <li><a href="#window">1. Window</a></li>
+          <li><a href="#location">2. Location</a></li>
+          <li><a href="#navigator">3. Navigator</a></li>
+          <li><a href="#document">4. Document</a></li>
+          <li><a href="#string">5. String</a></li>
+          <li><a href="#math">6. Math</a></li>
+          <li><a href="#number">7. Number</a></li>
+          <li><a href="#boolean">8. Boolean</a></li>
+          <li><a href="#date">9. Date</a></li>
+          <li><a href="#intervals">10. Intervalos y Subventanas</a></li>
+        </ul>
+      </nav>
+
+      <!-- ============================================================
+           SECCIONES DE DEMO
+      ============================================================ -->
+
+      <section id="window" class="card">
+        <h3>1. WINDOW</h3>
+        <p class="muted">
+          Demostración de propiedades y métodos del objeto global
+          <code>window</code>.
+        </p>
+        <div class="two-col">
+          <div>
+            <strong>Propiedades actuales</strong>
+            <div id="window-props" class="demo-output"></div>
+          </div>
+          <div>
+            <strong>Controles</strong>
+            <div class="controls">
+              <button id="btn-alert">alert()</button>
+              <button id="btn-confirm">confirm()</button>
+              <button id="btn-prompt">prompt()</button>
+              <button id="btn-focus">focus()</button>
+              <button id="btn-print">print()</button>
+            </div>
+            <div style="margin-top: 8px">
+              <label for="timeout-ms">setTimeout (ms):</label>
+              <input
+                id="timeout-ms"
+                type="number"
+                value="1500"
+                style="width: 80px" />
+              <button id="btn-timeout">Ejecutar</button>
+              <button id="btn-interval">setInterval demo</button>
+              <button id="btn-clear-interval">clearInterval</button>
+            </div>
+            <div id="timer-output" class="demo-output"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="location" class="card">
+        <h3>2. LOCATION</h3>
+        <div class="two-col">
+          <div>
+            <strong>Propiedades</strong>
+            <div id="location-props" class="demo-output"></div>
+          </div>
+          <div>
+            <strong>Acciones</strong>
+            <div class="controls">
+              <button id="btn-reload">reload()</button>
+              <button id="btn-replace">replace()</button>
+              <button id="btn-assign">assign()</button>
+              <input id="hash-input" placeholder="nuevoHash" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="navigator" class="card">
+        <h3>3. NAVIGATOR</h3>
+        <div>
+          <div id="navigator-props" class="demo-output"></div>
+          <div style="margin-top: 8px">
+            <input type="checkbox" id="chk-javaenabled" /> Comprobar
+            javaEnabled()
+            <button id="btn-refresh-navigator">Actualizar</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="document" class="card">
+        <h3>4. DOCUMENT</h3>
+        <div>
+          <input
+            id="new-text"
+            value="Párrafo añadido dinámicamente."
+            style="width: 60%" />
+          <button id="btn-add-para">Añadir</button>
+          <button id="btn-clear-para">Limpiar</button>
+          <div
+            id="doc-area"
+            style="
+              margin-top: 10px;
+              padding: 10px;
+              border: 1px dashed var(--border);
+              border-radius: 6px;
+            ">
+            <strong>Contenedor de demo</strong>
+            <div id="added-paragraphs"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="string" class="card">
+        <h3>5. STRING</h3>
+        <input
+          id="str-input"
+          value="  ejemplo de Cadena, prueba  "
+          style="width: 70%" />
+        <div class="controls">
+          <button data-fn="length">length</button>
+          <button data-fn="trim">trim()</button>
+          <button data-fn="toUpperCase">toUpperCase()</button>
+          <button data-fn="indexOf">indexOf('de')</button>
+          <button data-fn="slice">slice(2,10)</button>
+          <button data-fn="split">split(' ')</button>
+          <button data-fn="replace">replace('prueba','ejem')</button>
+        </div>
+        <div id="string-output" class="demo-output"></div>
+      </section>
+
+      <section id="math" class="card">
+        <h3>6. MATH</h3>
+        <div class="two-col">
+          <div><div id="math-consts" class="demo-output"></div></div>
+          <div>
+            <input id="math-x" value="2" style="width: 60px" />
+            <input id="math-y" value="8" style="width: 60px" />
+            <div class="controls">
+              <button id="btn-random">random()</button>
+              <button id="btn-pow">pow(x,y)</button>
+              <button id="btn-sqrt">sqrt(x)</button>
+              <button id="btn-round">round(x/y)</button>
+            </div>
+            <div id="math-output" class="demo-output"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="number" class="card">
+        <h3>7. NUMBER</h3>
+        <input id="num-input" value="123.456" style="width: 120px" />
+        <div class="controls">
+          <button id="btn-parseint">parseInt()</button>
+          <button id="btn-parsefloat">parseFloat()</button>
+          <button id="btn-isnan">isNaN()</button>
+          <button id="btn-isfinite">isFinite()</button>
+          <input id="fixed-n" type="number" value="2" style="width: 60px" />
+          <button id="btn-tofixed">toFixed()</button>
+        </div>
+        <div id="number-output" class="demo-output"></div>
+      </section>
+
+      <section id="boolean" class="card">
+        <h3>8. BOOLEAN</h3>
+        <select id="bool-select">
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+        <div class="controls">
+          <button id="btn-bvalue">valueOf()</button>
+          <button id="btn-btostr">toString()</button>
+        </div>
+        <div id="boolean-output" class="demo-output"></div>
+      </section>
+
+      <section id="date" class="card">
+        <h3>9. DATE</h3>
+        <input
+          id="date-iso"
+          placeholder="2025-11-09T12:00:00"
+          style="width: 60%" />
+        <div class="controls">
+          <button id="btn-now">Fecha actual</button>
+          <button id="btn-iso">toISOString()</button>
+          <button id="btn-locale">toLocaleDateString()</button>
+        </div>
+        <div id="date-output" class="demo-output"></div>
+      </section>
+
+      <section id="intervals" class="card">
+        <h3>10. INTERVALOS Y SUBVENTANAS</h3>
+        <div class="two-col">
+          <div>
+            <strong>Control de intervalos</strong>
+            <input
+              id="interval-ms"
+              type="number"
+              value="1000"
+              style="width: 80px" />
+            <button id="btn-start-interval">Iniciar</button>
+            <button id="btn-stop-interval">Detener</button>
+            <div id="interval-output" class="demo-output"></div>
+          </div>
+          <div>
+            <strong>Subventanas</strong>
+            <input
+              id="subwin-url"
+              value="./secundarias/gatito.html"
+              style="width: 70%" />
+            <div class="controls">
+              <button id="btn-open-subwin">Abrir/Reutilizar</button>
+              <button id="btn-focus-subwin">Focus</button>
+              <button id="btn-close-subwin">Cerrar</button>
+            </div>
+            <div id="subwin-output" class="demo-output"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>Documento de demostración interactiva — DWEC Tema 3.</footer>
+    </main>
+
+    <script>
+      /**
+       * El siguiente codigo posee funciones anonimas autoinvocadas.
+       * Podria haberlo hecho con funciones. Intentar un modelo a futuro de guia con funciones concreta y todo javascript
+       **/
+      // --- WINDOW ---
+      (function () {
+        const out = document.getElementById("window-props");
+        function refresh() {
+          out.innerHTML = `
+            <div><b>innerWidth</b>: ${innerWidth}</div>
+            <div><b>innerHeight</b>: ${innerHeight}</div>
+            <div><b>outerWidth</b>: ${outerWidth}</div>
+            <div><b>outerHeight</b>: ${outerHeight}</div>`;
+        }
+        refresh();
+        addEventListener("resize", refresh);
+        document.getElementById("btn-alert").onclick = () =>
+          alert("Ejemplo de alert()");
+        document.getElementById("btn-confirm").onclick = () =>
+          (document.getElementById("timer-output").textContent =
+            "confirm()=" + confirm("¿Aceptar?"));
+        document.getElementById("btn-prompt").onclick = () =>
+          (document.getElementById("timer-output").textContent =
+            "prompt()=" + prompt("Introduce algo:"));
+        document.getElementById("btn-focus").onclick = () => focus();
+        document.getElementById("btn-print").onclick = () => print();
+        let intId = null;
+        document.getElementById("btn-timeout").onclick = () => {
+          const ms = +document.getElementById("timeout-ms").value || 1000;
+          document.getElementById("timer-output").textContent =
+            "Esperando " + ms + " ms...";
+          setTimeout(
+            () =>
+              (document.getElementById("timer-output").textContent =
+                "Timeout ejecutado."),
+            ms
+          );
+        };
+        document.getElementById("btn-interval").onclick = () => {
+          if (intId) {
+            document.getElementById("timer-output").textContent =
+              "Intervalo activo.";
+            return;
+          }
+          let c = 0;
+          const ms = +document.getElementById("timeout-ms").value || 1000;
+          intId = setInterval(() => {
+            c++;
+            document.getElementById("timer-output").textContent = "Tick " + c;
+          }, ms);
+        };
+        document.getElementById("btn-clear-interval").onclick = () => {
+          clearInterval(intId);
+          intId = null;
+          document.getElementById("timer-output").textContent =
+            "Intervalo detenido.";
+        };
+      })();
+
+      // --- LOCATION ---
+      (function () {
+        const out = document.getElementById("location-props");
+        function ref() {
+          const L = location;
+          out.innerHTML = `<div><b>href</b>:${L.href}</div><div><b>hash</b>:${L.hash}</div>`;
+        }
+        ref();
+        addEventListener("hashchange", ref);
+        document.getElementById("btn-reload").onclick = () =>
+          confirm("¿Recargar?") && location.reload();
+        document.getElementById("btn-replace").onclick = () =>
+          location.replace(
+            "#" + (document.getElementById("hash-input").value || "rep")
+          );
+        document.getElementById("btn-assign").onclick = () =>
+          location.assign(
+            "#" + (document.getElementById("hash-input").value || "asig")
+          );
+      })();
+
+      // --- NAVIGATOR ---
+      (function () {
+        const out = document.getElementById("navigator-props");
+        function show() {
+          const n = navigator;
+          out.innerHTML = `<div><b>appVersion</b>:${n.appVersion}</div><div><b>language</b>:${n.language}</div>`;
+        }
+        show();
+        document.getElementById("btn-refresh-navigator").onclick = show;
+        document.getElementById("chk-javaenabled").onchange = () =>
+          alert("javaEnabled()=" + navigator.javaEnabled());
+      })();
+
+      // --- DOCUMENT ---
+      (function () {
+        const c = document.getElementById("added-paragraphs");
+        document.getElementById("btn-add-para").onclick = () => {
+          const p = document.createElement("p");
+          p.textContent = document.getElementById("new-text").value;
+          c.appendChild(p);
+        };
+        document.getElementById("btn-clear-para").onclick = () =>
+          (c.innerHTML = "");
+      })();
+
+      // --- STRING ---
+      (function () {
+        const input = document.getElementById("str-input");
+        const out = document.getElementById("string-output");
+        document.querySelectorAll("#string .controls button").forEach((b) => {
+          b.onclick = () => {
+            const s = input.value;
+            switch (b.dataset.fn) {
+              case "length":
+                out.textContent = s.length;
+                break;
+              case "trim":
+                out.textContent = s.trim();
+                break;
+              case "toUpperCase":
+                out.textContent = s.toUpperCase();
+                break;
+              case "indexOf":
+                out.textContent = s.indexOf("de");
+                break;
+              case "slice":
+                out.textContent = s.slice(2, 10);
+                break;
+              case "split":
+                out.textContent = JSON.stringify(s.split(" "));
+                break;
+              case "replace":
+                out.textContent = s.replace("prueba", "ejem");
+                break;
+            }
+          };
+        });
+      })();
+
+      // --- MATH ---
+      (function () {
+        document.getElementById(
+          "math-consts"
+        ).innerHTML = `PI=${Math.PI}<br>E=${Math.E}`;
+        const out = document.getElementById("math-output");
+        document.getElementById("btn-random").onclick = () =>
+          (out.textContent = Math.random());
+        document.getElementById("btn-pow").onclick = () =>
+          (out.textContent = Math.pow(+math - x.value, +math - y.value));
+      })();
+
+      // --- NUMBER ---
+      (function () {
+        const out = document.getElementById("number-output");
+        document.getElementById("btn-parseint").onclick = () =>
+          (out.textContent = parseInt(num - input.value));
+        document.getElementById("btn-parsefloat").onclick = () =>
+          (out.textContent = parseFloat(num - input.value));
+      })();
+
+      // --- BOOLEAN ---
+      (function () {
+        const out = document.getElementById("boolean-output");
+        document.getElementById("btn-bvalue").onclick = () => {
+          const v = bool - select.value === "true";
+          out.textContent = new Boolean(v).valueOf();
+        };
+        document.getElementById("btn-btostr").onclick = () => {
+          const v = bool - select.value === "true";
+          out.textContent = new Boolean(v).toString();
+        };
+      })();
+
+      // --- DATE ---
+      //Mejores ejemplos en la actividad
+      //es mas que nada para ver funcion a gran escala
+      (function () {
+        const out = document.getElementById("date-output");
+        document.getElementById("btn-now").onclick = () =>
+          (out.textContent = new Date().toString());
+        document.getElementById("btn-iso").onclick = () => {
+          const d = new Date(date - iso.value);
+          out.textContent = isNaN(d) ? "inválida" : d.toISOString();
+        };
+        document.getElementById("btn-locale").onclick = () => {
+          const d = new Date(date - iso.value || Date.now());
+          out.textContent =
+            d.toLocaleDateString() + " " + d.toLocaleTimeString();
+        };
+      })();
+
+      // --- INTERVALOS Y SUBVENTANAS ---
+      (function () {
+        // Control de intervalos
+        const out = document.getElementById("interval-output");
+        let id = null,
+          count = 0;
+        document
+          .getElementById("btn-start-interval")
+          .addEventListener("click", () => {
+            if (id) {
+              out.textContent = "Ya existe un intervalo activo.";
+              return;
+            }
+            const ms =
+              Number(document.getElementById("interval-ms").value) || 1000;
+            id = setInterval(() => {
+              count++;
+              out.textContent = `Intervalo: ${count} ejecuciones.`;
+            }, ms);
+          });
+        document
+          .getElementById("btn-stop-interval")
+          .addEventListener("click", () => {
+            if (id) {
+              clearInterval(id);
+              out.textContent = `Intervalo detenido tras ${count} ejecuciones.`;
+              id = null;
+            } else out.textContent = "No hay intervalo activo.";
+          });
+
+        // Subventanas (window.open)
+        let subVentana = null;
+        const outSub = document.getElementById("subwin-output");
+
+        document
+          .getElementById("btn-open-subwin")
+          .addEventListener("click", () => {
+            const url =
+              document.getElementById("subwin-url").value ||
+              "./secundarias/gatito.html";
+            try {
+              // Si ya existe y no está cerrada, se reutiliza
+              if (subVentana && !subVentana.closed) {
+                subVentana.location.href = url;
+                subVentana.focus();
+                outSub.textContent = "Subventana reutilizada.";
+              } else {
+                subVentana = window.open(url, "nueva", "width=600,height=800");
+                if (subVentana)
+                  outSub.textContent = "Subventana abierta correctamente.";
+                else
+                  outSub.textContent =
+                    "El navegador bloqueó la apertura de la ventana. Permite pop-ups.";
+              }
+            } catch (e) {
+              outSub.textContent = "Error al abrir la subventana: " + e;
+            }
+          });
+
+        document
+          .getElementById("btn-focus-subwin")
+          .addEventListener("click", () => {
+            if (subVentana && !subVentana.closed) {
+              subVentana.focus();
+              outSub.textContent = "Subventana enfocada.";
+            } else outSub.textContent = "No existe subventana activa.";
+          });
+
+        document
+          .getElementById("btn-close-subwin")
+          .addEventListener("click", () => {
+            if (subVentana && !subVentana.closed) {
+              subVentana.close();
+              outSub.textContent = "Subventana cerrada.";
+            } else outSub.textContent = "No hay subventana abierta.";
+          });
+      })();
+    </script>
+  </body>
+</html>

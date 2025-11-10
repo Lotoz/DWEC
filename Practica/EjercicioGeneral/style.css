@@ -1,0 +1,134 @@
+:root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --muted: #666;
+    --accent: #0b5ed7;
+    --border: #e1e4e8;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: #111;
+    line-height: 1.4;
+}
+
+header {
+    background: linear-gradient(90deg, #f1f5fb, #ffffff);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 24px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+header p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 18px;
+    padding: 18px;
+    align-items: start;
+}
+
+nav {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 8px;
+    height: calc(100vh - 120px);
+    overflow: auto;
+}
+
+nav h2 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+nav ul {
+    padding-left: 18px;
+    margin: 6px 0 0 0;
+}
+
+nav li {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+section.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+
+section.card h3 {
+    margin-top: 0;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+button {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+}
+
+input,
+select,
+textarea {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.demo-output {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #fbfdff;
+    border: 1px dashed var(--border);
+    min-height: 34px;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+footer {
+    padding: 12px 24px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+pre {
+    background: #f3f4f6;
+    padding: 10px;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
