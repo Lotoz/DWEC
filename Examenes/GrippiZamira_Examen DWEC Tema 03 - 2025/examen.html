@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio1 Zamira Grippi</title>
+    <script src="./date.js"></script>
+  </head>
+
+  <body>
+    <h1>Examen Javascript Tema 3</h1>
+    <strong> Nombre: Zamira Grippi</strong>
+
+    <!-- *************** -->
+    <h2>Ejercicio1</h2>
+    <div>
+      Fechas En un documento html crea un formulario con 3 controles numero que
+      sean año mes y dia que cree una fecha y te indique cuantos dias han pasado
+      desde el dia 01/02/1970
+    </div>
+    <label for="dia">Dias: </label>
+    <input type="text" name="dia" id="dia" value="2" />
+    <br />
+    <label for="mes">Mes: </label>
+    <input type="text" name="mes" id="mes" value="2" />
+    <br />
+    <label for="year">Año: </label>
+    <input type="text" name="year" id="year" value="1970" />
+    <br />
+    <button onclick="generaFecha()">Ejercicio 1</button>
+    <div id="salida_e1"></div>
+    <script>
+      //Funcion para generar la fecha pedida
+      function generaFecha() {
+        //Pillamos la salida
+        let salida_e1 = document.getElementById("salida_e1");
+        //Valores input
+        let year = document.getElementById("year").value;
+        let mes = document.getElementById("mes").value;
+        let dia = document.getElementById("dia").value;
+        //Fecha dada por el usuario
+        let fechaGenerada = new Date(year, mes, dia);
+        //Fecha a comparar
+        let fechaComparar = new Date(1970, 2, 1);
+        if (fechaGenerada < fechaComparar) {
+          salida_e1.innerHTML = `<p style='color: red'><b>Fecha no valida, ingrese una fecha superior</b></p>`;
+        } else {
+          //Diferencia
+          let diferencia = fechaGenerada - fechaComparar;
+
+          //Dias desde esa fecha
+          salida_e1.innerHTML =
+            "Dias de esa fecha: " +
+            Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        }
+      }
+    </script>
+    <hr />
+    <!-- *************** -->
+
+    <h2>Ejercicio2</h2>
+    <div>
+      Horas. Crea un formulario que se comporte como un cronometro. Que cuando
+      pulses un botón empiece a contar (Deben aparecer en un div los decimas de
+      segundo) hasta que vuelvas a pulsarlo para pararlo y te cuente el numero
+      de segundo y milisegundos transacurridos. Debes usar el algun metodo para
+      actualizar el cronometro cada segundo.
+    </div>
+    <button onclick="iniciaCronometro()">Iniciar</button>
+    <button onclick="detener()">Detener</button>
+    <div id="salida_e2"></div>
+    <script>
+      //Pillamos la salida
+      let salida_e2 = document.getElementById("salida_e2");
+      //Se declara afuera para manipulacion posterior
+      let segundos = 0;
+      //Creamos un intervalo
+      let intervalo;
+      function cronometro() {
+        //Se suman los segundos para ir amplificando
+        segundos++;
+        salida_e2.innerHTML = `Cronometro: ${segundos}`;
+      }
+      function iniciaCronometro() {
+        //Para evitar duplicados
+        if (!intervalo) {
+          intervalo = setInterval(cronometro, 1000);
+        }
+      }
+
+      function detener() {
+        clearInterval(intervalo);
+        //Muestra el tiempo pasado
+        salida_e2.innerHTML = `
+        Segundos  = ${segundos} <br>
+        Milisegundos = ${Math.floor(segundos * 1000)};
+        `;
+      }
+    </script>
+    <hr />
+    <!-- *************** -->
+
+    <h2>Ejercicio3</h2>
+    <div>
+      Number. Location Navigator. Crea un script que tome dos datos latitud y
+      longitud de un formulario y los valores latitud y longitud del objeto
+      navigator. Con el teorema de pitagoras Distancia = raiz (Lat2 +Long2) y
+      Asumiendo que un grado terrestre es aproximadamente 111 km calcula la
+      distancia a ese lugar.
+    </div>
+    <script>
+      /* ejercicio3
+       */
+    </script>
+    <hr />
+    <!-- *************** -->
+
+    <h2>Ejercicio 4</h2>
+    <div>
+      4. Fechas Utiliza la libreria date.js para que calcule las siguientes
+      fechas<br />
+      1. ayer<br />
+      2. el segundo martes del mes pasado.<br />
+      3. el primer domingo de octubre.<br />
+      4. el primer lunes del año pasado.<br />
+      5. la fecha dentro de dos años<br />
+      6. la fecha de mañana a las 18:30 p. m.<br />
+    </div>
+    <div id="salida_e4"></div>
+    <script>
+      //no funciona revisar
+      let salida_e4 = document.getElementById("salida_e4");
+      /*
+      Date.today().add(-1).day()
+      Date.tuesday().second().add(-1).months()
+      Date.sunday().first().october()
+      Date.monday().first().add(-12).moths()
+      Date.today().add(24).months()
+      Date.today().add(24).moths()
+      Date.today().add(1).day().at(18:30)
+      */
+      salida_e4.innerHTML = `
+      
+      Ayer = ${Date.yesterday()} <br>
+      El segundo martes del mes pasado = ${Date.getMonth(-1)
+        .second()
+        .tuesday()} <br>
+      El primer domingo de octubre = ${Date.october().first().sunday()} <br>
+      La fecha dentro de dos años = ${Date.today().add(2).year()} <br>
+      la fecha de mañana a las 18:30 p. m = ${Date.today().next().at("6:30pm")}
+      `;
+    </script>
+    <hr />
+    <!-- *************** -->
+
+    <h2>Ejercicio 5</h2>
+    <div>
+      5. Strings . Crea un script que tome una serie de numeros<br />
+      separados por coma de un control texto lo convierta<br />
+      una array y lo recorra para pintar con los numeros<br />
+      proporcionados como imagenes de la carpeta numbers.<br />
+    </div>
+    <label for="numeros">Numeros</label>
+    <input type="text" name="numeros" id="numeros" value="1,2,3" />
+    <button onclick="pintaNumeros()">Iniciar</button>
+    <div id="salida_e5"></div>
+    <script>
+      function pintaNumeros() {
+        let array = document.getElementById("numeros").value;
+        let numeros = array.split(",");
+        //Pillamos la salida
+        let salida_e5 = document.getElementById("salida_e5");
+        //Para limpiar
+        salida_e5.innerHTML = "";
+        for (const numero of numeros) {
+          salida_e5.innerHTML += `<img src='./numeros2/${numero}.jpg' alt='${numero}'>`;
+        }
+      }
+    </script>
+    <hr />
+    <!-- *************** -->
+
+    <h2>Ejercicio 6</h2>
+    <div>
+      Number y String. Crea un formulario que tome un valor de un control color
+      picker <br />
+      ( puedes hacerlo con el evento onchange o un botón). <br />
+      Calcule la siguiente formula para pasar de RGB a HSL y lo muestre en un
+      div <br />
+      (ojo el color picker te devuelve un string con el formato rrggbb ) <br />
+      por lo que para hallar RGB deberas cortarlo con substring y <br />
+      convertirlo a un numero o usar la funcion parseint<br />
+      let r = parseInt("FF", 16); // 255
+    </div>
+    <br />
+    <img src="hsl.jpg" /><br />
+    <script>
+      /* ejercicio6
+       */
+    </script>
+    <hr />
+    <!-- *************** -->
+
+    <h2>Ejercicio 7</h2>
+    <div>
+      7. imagenes de Document. Crea documento con un script que te genere
+      aleatoriamente entre 4 y 10 imagenes<br />
+      puedes cogerlas de la carpeta de los numeros o de las cartas o si no
+      quieres hacerlo variable asume que hay 5<br />
+      imagenes<br />
+
+      Haz un metodo que te haga rotar a la derecha todas las imagenes de cada
+      vez que pulses en un boton ( para ello<br />
+      debes usar los objetos document.images[i].src imagen1=imagen2;
+      imagen2=imagen3 .... ) y otro boton que las haga<br />
+      rotar a la izquierda<br />
+      Crea un ejemplo en el que se inserten varias imagenes aleatorias de la
+      carpeta number y las puedas probar.<br />
+    </div>
+    <button onclick="rotar()">Rotar</button>
+    <button onclick="generaImagenes()">Genera Imagenes</button>
+    <div id="salida_e7"></div>
+    <script>
+      let salida_e7 = document.getElementById("salida_e7");
+      //Numero aleatorio entre 10 y 4
+      let array_e7 = [];
+      function generaImagenes() {
+        let numero = numeroAleatorio();
+        for (let i = 0; i < numero; i++) {
+          array_e7.push(Math.floor(Math.random() * 10) + 1);
+        }
+        for (const cartas of array_e7) {
+          salida_e7.innerHTML += `<img src='./cartas/${cartas}.jpg' alt='${cartas}'>`;
+        }
+      }
+      function rotar() {
+        //Se rompen imagenes, revisar
+        for (const cartas of array_e7) {
+          document.images[cartas].src = cartas + 1;
+        }
+      }
+      function numeroAleatorio() {
+        //Numero aleatorio 10 a 1
+        let aleatorio = Math.floor(Math.random() * 10) + 1;
+        if (aleatorio < 4) {
+          aleatorio = 4;
+        }
+        return aleatorio;
+      }
+    </script>
+    <hr />
+    <!-- *************** -->
+    <h2>Ejercicio 8</h2>
+    <div>
+      8. Number Random. Crea un formulario que se comporte como el juego de la 7
+      y media .<br />
+      Cuentas con dos botones "Pedir carta" y "Parar".<br />
+      <br />
+      1. Cada vez que pulsas un boton "Pedir carta" debe sacar un numero
+      aleatorio entre 1 y 10. Debes mostrar el<br />
+      numero y usar las imagenes proporcionadas con un array.<br />
+
+      1. Cada carta numerada del 1 al 9 (1,2, 3, 4, 5, 6, 7) tendrá un valor
+      idéntico a su valor numérico.<br />
+      2. Las figuras (10,11,12 Jotas, Reinas y Reyes) valen todas medio punto.
+      (en el juego original el 1 vale 1 o 0.5<br />
+      lo reducimos a 1 para que sea mas facil)<br />
+      <br />
+      2. En cada jugada el jugador puede sacar cartas o plantarse.<br />
+      <br />
+      3. Cuando se pulsa el botón parar el sistema genera un numero al azar
+      entre 3 y 10<br />
+      1. Si te pasas de 7.5 pierdes.<br />
+      2. Si es mayor tu numero o el suyo es mayor de 7.5 has ganado<br />
+      3. Si no has perdido.<br />
+      <br />
+      4. Con el resultado debes poner la imagen correcta y y si ha ganado o
+      perdido y Debes poner un boton reiniciar.<br />
+    </div>
+    <button onclick="pedirCarta()">Pedir carta</button>
+    <button onclick="parar()">Parar</button>
+    <div id="salida_e8"></div>
+    <script>
+      let salida_e8 = document.getElementById("salida_e8");
+      function numeroAleatorio2() {
+        return Math.floor(Math.random() * 10) + 1;
+      }
+      let cartasJugador = [];
+      let cartasMaquina = [];
+      function pedirCarta() {
+        //Cada vez que pide se generra un numero aleatorio
+        let aleatorio = numeroAleatorio2();
+        let aleatorioComputadora = numeroAleatorio2();
+        cartasJugador.push(aleatorio);
+        cartasMaquina.push(aleatorioComputadora);
+        if (aleatorio > 7 || aleatorioComputadora > 7) {
+          parar();
+        }
+      }
+      function parar() {
+        let puntuajeJugador = contarPuntaje(cartasJugador);
+        let puntuajeMaquina = contarPuntaje(cartasMaquina);
+        if (puntuajeJugador > puntuajeMaquina) {
+          salida_e8.innerHTML += `Has ganado! <br> <img src='./cartas/gana.jpg' alt='ganar'>`;
+        } else {
+          salida_e8.innerHTML += `Has perdido! <br> <img src='./cartas/pierde.jpg' alt='ganar'>`;
+        }
+      }
+    </script>
+    <hr />
+    <!-- *************** -->
+  </body>
+</html>
