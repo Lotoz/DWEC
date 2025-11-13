@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Ejercicio 1</h2>
+    <div id="salida_e1"></div>
+    <script>
+      //Generamos array multidimensional
+      var datos = new Array();
+      datos[0] = new Array("Cristina", "Seguridad", 24);
+      datos[1] = new Array("Catalina", "Bases de Datos", 17);
+      datos[2] = new Array("Vieites", "Sistemas Informáticos", 28);
+      datos[3] = new Array("Benjamin", "Redes", 26);
+      //Salida
+      let salida_e1 = document.getElementById("salida_e1");
+
+      let nombres = datos.map((miniDato) => miniDato[0]);
+
+      salida_e1.innerHTML = `
+      <ol>
+        <li>${nombres.join("<li>")}
+      </ol>
+        `;
+    </script>
+    <h2>Ejercicio 2</h2>
+    <script>
+      function generaNumeros() {
+        let numero = Math.floor(Math.random() * 10) + 1;
+        if (numero == 10) {
+          numero = 9;
+        }
+        return numero;
+      }
+    </script>
+  </body>
+</html>
