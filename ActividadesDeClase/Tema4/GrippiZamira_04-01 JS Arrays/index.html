@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays</title>
+    <link href="./estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <div class="cajaBonita">
+        <h2 class="titulo">Ejercicio 1</h2>
+        <p class="subtitulo">
+          Realiza un ejercicio que te cree un array con 50 números random
+          (Math.random) con un bucle y que te calcule el mayor menor, media.
+        </p>
+        <button class="botonBonito" id="e1_boton">Iniciar</button>
+        <div class="salidaBonita" id="e1_salida"></div>
+        <script>
+          let e1_boton = document.getElementById("e1_boton");
+          //Genera un array
+          function creaUnArray() {
+            let array = new Array();
+            for (let index = 0; index <= 20; index++) {
+              numeroAleatorio = Math.floor(Math.random() * 100); //Numeros entre 1 y 100
+              array.push(numeroAleatorio);
+            }
+            array.sort();
+            return array;
+          }
+          //Pillamos este array para los ejercicios que nos convenga tener un array unico
+          arrayGeneral = creaUnArray();
+
+          //Generamos el evento del boton 1
+          e1_boton.addEventListener("click", muestraUnArray(arrayGeneral));
+
+          function muestraUnArray(array) {
+            //Pillamos la salida
+            let e1_salida = document.getElementById("e1_salida");
+            //Siempre limpiamos antes la salida para evitar que se choquen los resultados de los arrays
+            e1_salida.innerHTML = "";
+            for (let index = 0; index < array.length; index++) {
+              e1_salida.innerHTML += " " + array[index];
+            }
+          }
+        </script>
+      </div>
+      <div class="cajaBonita">
+        <h2 class="titulo">Ejercicio 2</h2>
+        <p class="subtitulo">
+          Realiza un ejercicio que te cree un array con 50 números random
+          (Math.random) enteros del uno al 10 con un bucle y que te los ordene
+          de mayor a menor y te calcule la moda (elemento que mas se repite ) y
+          la mediana
+        </p>
+        <button class="botonBonito" id="e2_boton">Iniciar</button>
+        <div class="salidaBonita" id="e2_salida"></div>
+        <script>
+          let e2_boton = document.getElementById("e2_boton");
+          e2_boton.addEventListener("click", modal(arrayGeneral));
+
+          function modal(array) {
+            let modanum = array[0];
+            let modanumMax = 1;
+            let moda = 1;
+            let numAnt = array[0];
+            for (let i = 0; i < 20; i++) {
+              num = array[i];
+              if (num == numAnt) {
+                moda++;
+              } else {
+                modanumMax = modanumMax > moda ? modanumMax : moda;
+                modanum = modanumMax > moda ? modanum : numAnt;
+                moda = 1;
+              }
+              numAnt = num;
+            }
+            let e2_salida = document.getElementById("e2_salida");
+            //La media es el numero medio del array
+            //Sacar la mediana luego
+            e2_salida.innerHTML = `
+                        La moda es: ${modanumMax} <br>
+                        El numero repitido es : ${numAnt} <br>
+                        La mediana es: ${modanum}
+                    `;
+          }
+        </script>
+      </div>
+      <div class="cajaBonita">
+        <h2 class="titulo">Ejercicio 4</h2>
+        <p class="subtitulo">
+          Realiza un ejercicio que te añada los datos de un campo text a un
+          array pulsando en un botón y te los muestre debajo
+        </p>
+        <label for="input_e4">Cadenas aqui:</label>
+        <input class="inputBonito" name="input_e4" id="input_e4" type="text" />
+        <button class="botonBonito" id="e4_boton">Añade</button>
+        <div class="salidaBonita" id="e4_salida"></div>
+        <script>
+          //Pillamos el boton
+          let boton_e4 = document.getElementById("e4_boton");
+          //Esto es un string
+          let input_e4 = document.getElementsByName("input_e4")[0].value;
+          let salida_e4 = document.getElementById("e4_salida");
+          //Ahora creamos un evento
+          //Convertimos el string como un array
+          let array_e4 = input_e4.split(" ");
+        </script>
+      </div>
+      <div class="cajaBonita">
+        <h2 class="titulo">Ejercicio 5</h2>
+        <p class="subtitulo">
+          Realiza un ejercicio que te añada los datos de un campo text a un
+          array pulsando en un botón y te los muestre debajo
+        </p>
+        <label for="input_e5">Cadenas aqui:</label>
+        <input
+          class="inputBonito"
+          id="input_e5"
+          type="text"
+          value="Hola, Como, Estas, Lola"
+        />
+        <button class="botonBonito" onclick="arrayTexto()">Añade</button>
+        <div class="salidaBonita" id="e5_salida"></div>
+        <script>
+          //La salida
+          let salida_e5 = document.getElementById("salida_e5");
+          //Input valores
+          let input_e5 = document.getElementById("input_e5").values;
+
+          function arrayTexto() {
+            //Nos devuelve una cadena de palabras separadas por ,
+            array = split(",", input_e5);
+            //devolvemos el array
+            salida_e5.innerHTML = "<ol><li>";
+            array.forEach((element) => {
+              salida_e5.innerHTML += element.join("<li>");
+            });
+            salida_e5.innerHTML += "</ol>";
+          }
+        </script>
+      </div>
+      <div class="cajaBonita">
+        <h2 class="titulo">Ejercicio 6</h2>
+        <p class="subtitulo">
+          Realiza un ejercicio que te añada los datos de un campo text a un
+          array pulsando en un botón y te los muestre debajo
+        </p>
+        <label for="input_e4">Cadenas aqui:</label>
+        <input class="inputBonito" id="input_e5" type="text" />
+        <button class="botonBonito" id="e5_boton">Añade</button>
+        <div class="salidaBonita" id="e5_salida"></div>
+        <script>
+          //Ahora debe pillar los datos de forma numerica, deben ser introducidos con ,
+          //Y luego se debe hacer la media
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

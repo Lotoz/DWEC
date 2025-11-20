@@ -27,14 +27,30 @@
         `;
     </script>
     <h2>Ejercicio 2</h2>
+    <div id="salida_e2"></div>
     <script>
-      function generaNumeros() {
-        let numero = Math.floor(Math.random() * 10) + 1;
-        if (numero == 10) {
-          numero = 9;
-        }
-        return numero;
+      let filas = 5;
+      let columnas = 4;
+      let datos = new Array(filas);
+      for (let i = 0; i <= filas; i++) {
+        datos[i] = new Array(columnas);
       }
+      for (let i = 0; i <= filas; i++) {
+        for (let j = 0; j <= columnas; j++) {
+          datos[i][j] = Math.round(Math.random() * 10);
+        }
+      }
+
+      let cadena = "<table border='2px'>";
+      for (let i = 0; i < filas; i++) {
+        cadena += "<tr>";
+        for (let j = 0; j < columnas; j++) {
+          cadena += "<td>" + datos[i][j] + "</td>";
+        }
+        cadena += "</tr>";
+      }
+      cadena += "</table>";
+      document.getElementById("salida_e2").innerHTML = cadena;
     </script>
   </body>
 </html>
