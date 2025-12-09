@@ -1,0 +1,47 @@
+body {
+    text-align: center;
+    background-color: rgb(228, 199, 255);
+}
+.cajaBonita {
+    margin: auto;
+    background-color: rgb(191, 133, 245);
+    border: 2px solid rgb(170, 80, 255);
+    padding: 2px;
+    width: 650px;
+    margin-bottom: 10px;
+}
+.titulos {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(164, 66, 255);
+    font-size: 26px;
+}
+.consigna {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: rgb(118, 31, 199);
+}
+.cajaBonita input {
+    border: 2px solid rgb(170, 80, 255);
+}
+.cajaBonita label {
+    color: rgb(99, 33, 162);
+    font-weight: bolder;
+}
+.botones {
+    color: goldenrod;
+    font-weight: 400;
+    cursor: pointer;
+}
+.resultado {
+    background-color: antiquewhite;
+    padding: 10px;
+    margin-top: 10px;
+}
+.error {
+    color: red;
+    background-color: purple;
+    padding: 5px;
+    display: block;
+}

@@ -1,161 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arrays</title>
-    <link href="./estilo.css" rel="stylesheet" type="text/css" />
-  </head>
 
-  <body>
-    <div class="contenedor">
-      <div class="cajaBonita">
-        <h2 class="titulo">Ejercicio 1</h2>
-        <p class="subtitulo">
-          Realiza un ejercicio que te cree un array con 50 números random
-          (Math.random) con un bucle y que te calcule el mayor menor, media.
-        </p>
-        <button class="botonBonito" id="e1_boton">Iniciar</button>
-        <div class="salidaBonita" id="e1_salida"></div>
-        <script>
-          let e1_boton = document.getElementById("e1_boton");
-          //Genera un array
-          function creaUnArray() {
-            let array = new Array();
-            for (let index = 0; index <= 20; index++) {
-              numeroAleatorio = Math.floor(Math.random() * 100); //Numeros entre 1 y 100
-              array.push(numeroAleatorio);
-            }
-            array.sort();
-            return array;
-          }
-          //Pillamos este array para los ejercicios que nos convenga tener un array unico
-          arrayGeneral = creaUnArray();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays</title>
+  <link href="./estilo.css" rel="stylesheet" type="text/css" />
+</head>
 
-          //Generamos el evento del boton 1
-          e1_boton.addEventListener("click", muestraUnArray(arrayGeneral));
+<body>
+  <div class="contenedor">
 
-          function muestraUnArray(array) {
-            //Pillamos la salida
-            let e1_salida = document.getElementById("e1_salida");
-            //Siempre limpiamos antes la salida para evitar que se choquen los resultados de los arrays
-            e1_salida.innerHTML = "";
-            for (let index = 0; index < array.length; index++) {
-              e1_salida.innerHTML += " " + array[index];
-            }
-          }
-        </script>
-      </div>
-      <div class="cajaBonita">
-        <h2 class="titulo">Ejercicio 2</h2>
-        <p class="subtitulo">
-          Realiza un ejercicio que te cree un array con 50 números random
-          (Math.random) enteros del uno al 10 con un bucle y que te los ordene
-          de mayor a menor y te calcule la moda (elemento que mas se repite ) y
-          la mediana
-        </p>
-        <button class="botonBonito" id="e2_boton">Iniciar</button>
-        <div class="salidaBonita" id="e2_salida"></div>
-        <script>
-          let e2_boton = document.getElementById("e2_boton");
-          e2_boton.addEventListener("click", modal(arrayGeneral));
-
-          function modal(array) {
-            let modanum = array[0];
-            let modanumMax = 1;
-            let moda = 1;
-            let numAnt = array[0];
-            for (let i = 0; i < 20; i++) {
-              num = array[i];
-              if (num == numAnt) {
-                moda++;
-              } else {
-                modanumMax = modanumMax > moda ? modanumMax : moda;
-                modanum = modanumMax > moda ? modanum : numAnt;
-                moda = 1;
-              }
-              numAnt = num;
-            }
-            let e2_salida = document.getElementById("e2_salida");
-            //La media es el numero medio del array
-            //Sacar la mediana luego
-            e2_salida.innerHTML = `
-                        La moda es: ${modanumMax} <br>
-                        El numero repitido es : ${numAnt} <br>
-                        La mediana es: ${modanum}
-                    `;
-          }
-        </script>
-      </div>
-      <div class="cajaBonita">
-        <h2 class="titulo">Ejercicio 4</h2>
-        <p class="subtitulo">
-          Realiza un ejercicio que te añada los datos de un campo text a un
-          array pulsando en un botón y te los muestre debajo
-        </p>
-        <label for="input_e4">Cadenas aqui:</label>
-        <input class="inputBonito" name="input_e4" id="input_e4" type="text" />
-        <button class="botonBonito" id="e4_boton">Añade</button>
-        <div class="salidaBonita" id="e4_salida"></div>
-        <script>
-          //Pillamos el boton
-          let boton_e4 = document.getElementById("e4_boton");
-          //Esto es un string
-          let input_e4 = document.getElementsByName("input_e4")[0].value;
-          let salida_e4 = document.getElementById("e4_salida");
-          //Ahora creamos un evento
-          //Convertimos el string como un array
-          let array_e4 = input_e4.split(" ");
-        </script>
-      </div>
-      <div class="cajaBonita">
-        <h2 class="titulo">Ejercicio 5</h2>
-        <p class="subtitulo">
-          Realiza un ejercicio que te añada los datos de un campo text a un
-          array pulsando en un botón y te los muestre debajo
-        </p>
-        <label for="input_e5">Cadenas aqui:</label>
-        <input
-          class="inputBonito"
-          id="input_e5"
-          type="text"
-          value="Hola, Como, Estas, Lola"
-        />
-        <button class="botonBonito" onclick="arrayTexto()">Añade</button>
-        <div class="salidaBonita" id="e5_salida"></div>
-        <script>
-          //La salida
-          let salida_e5 = document.getElementById("salida_e5");
-          //Input valores
-          let input_e5 = document.getElementById("input_e5").values;
-
-          function arrayTexto() {
-            //Nos devuelve una cadena de palabras separadas por ,
-            array = split(",", input_e5);
-            //devolvemos el array
-            salida_e5.innerHTML = "<ol><li>";
-            array.forEach((element) => {
-              salida_e5.innerHTML += element.join("<li>");
-            });
-            salida_e5.innerHTML += "</ol>";
-          }
-        </script>
-      </div>
-      <div class="cajaBonita">
-        <h2 class="titulo">Ejercicio 6</h2>
-        <p class="subtitulo">
-          Realiza un ejercicio que te añada los datos de un campo text a un
-          array pulsando en un botón y te los muestre debajo
-        </p>
-        <label for="input_e4">Cadenas aqui:</label>
-        <input class="inputBonito" id="input_e5" type="text" />
-        <button class="botonBonito" id="e5_boton">Añade</button>
-        <div class="salidaBonita" id="e5_salida"></div>
-        <script>
-          //Ahora debe pillar los datos de forma numerica, deben ser introducidos con ,
-          //Y luego se debe hacer la media
-        </script>
-      </div>
+    <div class="cajaBonita">
+      <h2 class="titulo">Ejercicio 1</h2>
+      <p class="subtitulo">
+        Array con 50 números random, calcula mayor, menor y media.
+      </p>
+      <button class="botonBonito" id="e1_boton">Iniciar</button>
+      <div class="salidaBonita" id="e1_salida"></div>
     </div>
-  </body>
+
+    <div class="cajaBonita">
+      <h2 class="titulo">Ejercicio 2</h2>
+      <p class="subtitulo">
+        Array 50 números (1-10), ordenar mayor a menor, moda y mediana.
+      </p>
+      <button class="botonBonito" id="e2_boton">Iniciar</button>
+      <div class="salidaBonita" id="e2_salida"></div>
+    </div>
+
+    <div class="cajaBonita">
+      <h2 class="titulo">Ejercicio 4</h2>
+      <p class="subtitulo">
+        Añadir datos de campo texto a un array (separados por espacios).
+      </p>
+      <label>Cadenas aquí:</label>
+      <input class="inputBonito" id="input_e4" type="text" placeholder="palabra1 palabra2" />
+      <button class="botonBonito" id="e4_boton">Añade</button>
+      <div class="salidaBonita" id="e4_salida"></div>
+    </div>
+
+    <div class="cajaBonita">
+      <h2 class="titulo">Ejercicio 5</h2>
+      <p class="subtitulo">
+        Añadir datos separados por comas y mostrar en lista.
+      </p>
+      <label>Cadenas aquí:</label>
+      <input class="inputBonito" id="input_e5" type="text" value="Hola,Como,Estás,Lola" />
+      <button class="botonBonito" id="e5_boton">Añade</button>
+      <div class="salidaBonita" id="e5_salida"></div>
+    </div>
+
+    <div class="cajaBonita">
+      <h2 class="titulo">Ejercicio 6</h2>
+      <p class="subtitulo">
+        Datos numéricos por comas y calcular la media.
+      </p>
+      <label>Números aquí:</label>
+      <input class="inputBonito" id="input_e6" type="text" value="10,20,30" />
+      <button class="botonBonito" id="e6_boton">Calcula Media</button>
+      <div class="salidaBonita" id="e6_salida"></div>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("e1_boton").addEventListener("click", function () {
+      let array = [];
+      let suma = 0;
+
+      for (let index = 0; index < 50; index++) {
+        let numeroAleatorio = Math.floor(Math.random() * 101);
+        array.push(numeroAleatorio);
+        suma += numeroAleatorio;
+      }
+
+      array.sort((a, b) => a - b);
+
+      let menor = array[0];
+      let mayor = array[array.length - 1];
+      let media = suma / array.length;
+
+      document.getElementById("e1_salida").innerHTML = `
+            <strong>Array:</strong> ${array.join(", ")} <br><br>
+            <strong>Menor:</strong> ${menor} <br>
+            <strong>Mayor:</strong> ${mayor} <br>
+            <strong>Media:</strong> ${media.toFixed(2)}
+        `;
+    });
+
+    document.getElementById("e2_boton").addEventListener("click", function () {
+      let array = [];
+      for (let i = 0; i < 50; i++) {
+        array.push(Math.floor(Math.random() * 10) + 1);
+      }
+
+      array.sort((a, b) => b - a);
+
+      let mapaFrecuencia = {};
+      let moda = -1;
+      let maxRepeticiones = 0;
+
+      for (let num of array) {
+        mapaFrecuencia[num] = (mapaFrecuencia[num] || 0) + 1;
+        if (mapaFrecuencia[num] > maxRepeticiones) {
+          maxRepeticiones = mapaFrecuencia[num];
+          moda = num;
+        }
+      }
+
+      let mitad = Math.floor(array.length / 2);
+      let mediana;
+      if (array.length % 2 === 0) {
+        mediana = (array[mitad - 1] + array[mitad]) / 2;
+      } else {
+        mediana = array[mitad];
+      }
+
+      document.getElementById("e2_salida").innerHTML = `
+            <strong>Array Ordenado (Desc):</strong> ${array.join(", ")} <br><br>
+            <strong>Moda:</strong> ${moda} (se repite ${maxRepeticiones} veces)<br>
+            <strong>Mediana:</strong> ${mediana}
+        `;
+    });
+
+    document.getElementById("e4_boton").addEventListener("click", function () {
+      let texto = document.getElementById("input_e4").value;
+
+      if (texto.trim() === "") {
+        document.getElementById("e4_salida").innerHTML = "Por favor escribe algo.";
+        return;
+      }
+
+      let arrayPalabras = texto.split(" ");
+
+      document.getElementById("e4_salida").innerHTML = `
+            <strong>Array generado:</strong> [${arrayPalabras}] <br>
+            <strong>Elementos:</strong> ${arrayPalabras.length}
+        `;
+    });
+
+    document.getElementById("e5_boton").addEventListener("click", function () {
+      let inputVal = document.getElementById("input_e5").value;
+      let salida = document.getElementById("e5_salida");
+
+      let array = inputVal.split(",");
+
+      let listaHTML = "<ol>";
+      array.forEach((elemento) => {
+        listaHTML += `<li>${elemento.trim()}</li>`;
+      });
+      listaHTML += "</ol>";
+
+      salida.innerHTML = listaHTML;
+    });
+
+    document.getElementById("e6_boton").addEventListener("click", function () {
+      let inputVal = document.getElementById("input_e6").value;
+      let salida = document.getElementById("e6_salida");
+
+      if (!inputVal) return;
+
+      let arrayStrings = inputVal.split(",");
+      let suma = 0;
+      let contador = 0;
+
+      for (let str of arrayStrings) {
+        let numero = parseFloat(str);
+        if (!isNaN(numero)) {
+          suma += numero;
+          contador++;
+        }
+      }
+
+      let media = contador > 0 ? (suma / contador) : 0;
+
+      salida.innerHTML = `
+            <strong>Datos:</strong> ${inputVal} <br>
+            <strong>Suma:</strong> ${suma} <br>
+            <strong>Media:</strong> ${media.toFixed(2)}
+        `;
+    });
+  </script>
+</body>
+
 </html>

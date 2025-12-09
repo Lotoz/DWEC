@@ -1,34 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funciones</title>
+    <title>Práctica Funciones JS</title>
     <link href="./style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
+
     <div class="cajaBonita">
         <h2 class="titulos">Ejercicio 1</h2>
-        <p class="consigna">Crea una función Ej1Trigonometica que se le pase dos parametros  y calcule su trigonometria</p>
-        <label for="numeroGrados"> Grados :</label>
-        <input type="text" name="numeroGrados" id="numeroGrados">
-        <br>
-        <label for="funcionTrigo"> Funcion:</label>
-        <input type="text" name="funcionTrigo" id="funcionTrigo">
-        <button class="botones" onclick="Ej1Trigonometica()">Ejercicio 1</button>
+        <p class="consigna">Crea una función Ej1Trigonometica que se le pase dos parametros y calcule su trigonometria
+        </p>
+
+        <label for="e1_grados">Grados:</label>
+        <input type="text" id="e1_grados">
+        <br><br>
+        <label for="e1_funcion">Función:</label>
+        <input type="text" id="e1_funcion" placeholder="sen, cos, tan">
+
+        <button class="botones" onclick="ejecutarEj1()">Ejercicio 1</button>
         <div class="resultado" id="e1_resultado"></div>
     </div>
+
     <div class="cajaBonita">
         <h2 class="titulos">Ejercicio 2</h2>
-        <p class="consigna">Crea una función Ej2JS  que le pases una lista de valores y un id y te cree una lista ordenada con ellos escrita en el el id </p>
-        <label for="valores"> Valores :</label>
-        <input type="text" name="valores" id="valores">
-        <br>
-        <label for="identificador"> ID :</label>
-        <input type="text" name="identificador" id="identificador" value="e2_resultado">
-        <button class="botones" onclick="Ej2Js()">Ejercicio 2</button>
+        <p class="consigna">Crea una función Ej2JS que le pases una lista de valores y un id y te cree una lista
+            ordenada</p>
+
+        <label for="e2_valores">Valores:</label>
+        <input type="text" id="e2_valores" placeholder="hola,adios,sol">
+        <br><br>
+        <label for="e2_id">ID Destino:</label>
+        <input type="text" id="e2_id" value="e2_resultado">
+
+        <button class="botones" onclick="ejecutarEj2()">Ejercicio 2</button>
         <div class="resultado" id="e2_resultado"></div>
     </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 3</h2>
+        <p class="consigna">Igual que el anterior pero usando parámetros REST (...args)</p>
+
+        <label for="e3_valores">Valores:</label>
+        <input type="text" id="e3_valores" placeholder="uno,dos,tres">
+
+        <button class="botones" onclick="ejecutarEj3()">Ejercicio 3</button>
+        <div class="resultado" id="e3_resultado"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicios 4, 5, 6, 7</h2>
+        <p class="consigna">Funciones anónimas y flecha (Resultados en consola y abajo)</p>
+
+        <button class="botones" onclick="ejecutarEj4y5()">Probar Ej 4 y 5</button>
+        <button class="botones" onclick="ejecutarEj7()">Probar Ej 7 (Map)</button>
+        <div class="resultado" id="e7_resultado"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 8</h2>
+        <p class="consigna">Genera 20 números al azar (0-9) en una tabla 4x5</p>
+
+        <button class="botones" onclick="ejecutarEj8()">Generar Tabla</button>
+        <div class="resultado" id="e8_resultado"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 9</h2>
+        <p class="consigna">Crea un función que te dibuje el cuadrado mágico 3x3 con entrada 'i'</p>
+
+        <label for="e9_input">Valor i:</label>
+        <input type="number" id="e9_input" value="5">
+
+        <button class="botones" onclick="ejecutarEj9()">Dibujar Cuadrado</button>
+        <div class="resultado" id="e9_resultado"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 10</h2>
+        <p class="consigna">Haz una función que se le pase un id y un color y cambie su color de texto</p>
+
+        <label>ID a cambiar:</label>
+        <input type="text" id="e10_id_target" value="texto_cambiante">
+        <br><br>
+        <label>Color:</label>
+        <select id="e10_color">
+            <option value="red">Rojo</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="orange">Naranja</option>
+        </select>
+
+        <button class="botones" onclick="ejecutarEj10()">Cambiar Color</button>
+        <br><br>
+        <p class="consigna" id="texto_cambiante" style="font-weight: bold;">Este texto cambiará de color.</p>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 12</h2>
+        <p class="consigna">Calcula el factorial de un numero de manera recursiva</p>
+
+        <label for="e12_numero">Número:</label>
+        <input type="number" id="e12_numero" value="5">
+
+        <button class="botones" onclick="ejecutarEj12()">Calcular Factorial</button>
+        <div class="resultado" id="e12_resultado"></div>
+    </div>
+
     <script src="./codigo.js"></script>
 </body>
+
 </html>

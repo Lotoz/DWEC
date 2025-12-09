@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica JS: Objeto Set</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicios 1 y 2: Crear e Imprimir</h2>
+        <p class="consigna">Crea el Set con 5 personajes de "El Señor de los Anillos" e imprímelos.</p>
+        <button class="botones" onclick="ejecutarEj1y2()">Inicializar Set</button>
+        <div class="resultado" id="res_lista"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 3: Verificar Existencia</h2>
+        <p class="consigna">Comprueba si un personaje existe en el conjunto (usa has).</p>
+        <label>Personaje:</label>
+        <input type="text" id="in_verificar" placeholder="Ej: Gandalf">
+        <button class="botones" onclick="ejecutarEj3()">Verificar</button>
+        <div class="resultado" id="res_verificar"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 4: Contar Personajes</h2>
+        <p class="consigna">Obtén el número total de personajes (usa size).</p>
+        <button class="botones" onclick="ejecutarEj4()">Contar</button>
+        <div class="resultado" id="res_contar"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 5: Agregar Único</h2>
+        <p class="consigna">Añade un personaje solo si no existe previamente.</p>
+        <label>Nuevo Personaje:</label>
+        <input type="text" id="in_agregar" placeholder="Ej: Legolas">
+        <button class="botones" onclick="ejecutarEj5()">Agregar</button>
+        <div class="resultado" id="res_agregar"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 6: Eliminar Personaje</h2>
+        <p class="consigna">Elimina un personaje del conjunto.</p>
+        <label>Personaje a borrar:</label>
+        <input type="text" id="in_borrar" placeholder="Ej: Frodo">
+        <button class="botones" onclick="ejecutarEj6()">Eliminar</button>
+        <div class="resultado" id="res_borrar"></div>
+    </div>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Ejercicio 7: Combinar Sets</h2>
+        <p class="consigna">Combina dos sets diferentes en uno solo sin duplicados.</p>
+        <button class="botones" onclick="ejecutarEj7()">Combinar Sets</button>
+        <div class="resultado" id="res_combinar"></div>
+    </div>
+
+    <script src="./codigo.js"></script>
+</body>
+
+</html>

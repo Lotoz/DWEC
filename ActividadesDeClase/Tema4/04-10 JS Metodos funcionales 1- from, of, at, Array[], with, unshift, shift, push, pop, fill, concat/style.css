@@ -6,9 +6,13 @@ body {
   margin: auto;
   background-color: rgb(191, 133, 245);
   border: 2px solid rgb(170, 80, 255);
-  padding: 2px;
+  padding: 10px;
   width: 650px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+h1 {
+  color: rgb(118, 31, 199);
 }
 .titulos {
   font-family: "Courier New", Courier, monospace;
@@ -16,41 +20,43 @@ body {
   font-weight: bolder;
   color: rgb(164, 66, 255);
   font-size: 26px;
+  margin-top: 5px;
 }
 .consigna {
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
-  color: rgb(118, 31, 199);
+  color: rgb(75, 0, 130);
+  padding: 0 15px;
 }
 .cajaBonita input {
   border: 2px solid rgb(170, 80, 255);
+  padding: 5px;
+  border-radius: 5px;
 }
 .cajaBonita label {
-  color: rgb(99, 33, 162);
+  color: rgb(75, 0, 130);
   font-weight: bolder;
 }
 .botones {
-  color: goldenrod;
-  font-weight: 400;
+  background-color: rgb(138, 43, 226);
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+.botones:hover {
+  background-color: rgb(114, 15, 206);
 }
 .resultado {
   background-color: antiquewhite;
-  padding: 10px;
-  margin-top: 10px;
-}
-.error {
-  color: red;
-  background-color: purple;
-  padding: 5px;
-  display: block;
-}
-
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-td {
-  border: 1px solid rgb(170, 80, 255);
-  padding: 5px;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  text-align: left;
+  font-family: monospace;
+  white-space: pre-wrap;
 }
