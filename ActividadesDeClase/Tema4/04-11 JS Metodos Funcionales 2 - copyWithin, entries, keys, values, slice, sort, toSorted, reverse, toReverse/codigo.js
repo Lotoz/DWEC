@@ -55,6 +55,7 @@ function ejecutarEj6() {
 
 function ejecutarEj7() {
     let configuraciones = ["pantalla completa", "sonido activado", "modo oscuro"];
+    //Buscar para que sirven luego
     let claves = configuraciones.keys();
     let valores = configuraciones.values();
     let texto = "";
