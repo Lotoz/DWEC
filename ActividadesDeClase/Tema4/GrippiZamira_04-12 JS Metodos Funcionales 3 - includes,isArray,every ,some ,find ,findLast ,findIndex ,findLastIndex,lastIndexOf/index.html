@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos Funcionales 3 - includes,isArray,every ,some ,find ,findLast ,findIndex ,findLastIndex,lastIndexOf
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Práctica 04-12: Metodos funcionales</h1>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Verificación de productos en un inventario</h2>
+        <p class="consigna"> Tienes un inventario de productos y quieres verificar si un producto específico está en
+            stock usando <code>Array.includes()</code>.</p>
+        <button class="botones" onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="res_e1"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Verificar si una variable es un array</h2>
+        <p class="consigna">Estás procesando datos y necesitas asegurarte de que ciertas variables sean arrays.
+            con <code>Array.isArray</code>. </p>
+        <button class="botones" onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="res_e2"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Validación de formularios</h2>
+        <p class="consigna">Estás validando un formulario en el que se espera que todos los campos estén
+            completados.
+            con <code>Array.every()</code>.</p>
+        <button class="botones" onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="res_e3"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Verificación de permisos de usuarios</h2>
+        <p class="consigna">Estás verificando si al menos uno de los usuarios tiene permiso para realizar una acción
+            con <code>Array.some()</code>.</p>
+        <button class="botones" onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="res_e4"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Encontrar el primer producto con stock bajo</h2>
+        <p class="consigna">Tienes un inventario de productos con sus cantidades y necesitas encontrar el primer
+            producto con un stock menor a 10 unidades
+            con <code>Array.find()</code>.</p>
+        <button class="botones" onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="res_e5"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Encontrar el último pedido urgente</h2>
+        <p class="consigna">Estás gestionando pedidos y necesitas encontrar el último pedido con prioridad alta
+            con <code>Array.findLast()</code>.</p>
+        <button class="botones" onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="res_e6"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Encontrar el índice del primer producto en oferta</h2>
+        <p class="consigna">En una tienda en línea, necesitas encontrar el índice del primer producto que está en
+            oferta con <code>Array.findIndex()</code>.</p>
+        <button class="botones" onclick="ejercicio7()">Ejecutar</button>
+        <div class="resultado" id="res_e7"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Encontrar el índice del último cliente VIP</h2>
+        <p class="consigna">Tienes una lista de clientes y necesitas encontrar el índice del último cliente VIP con
+            <code>Array.findLastIndex()</code>.
+        </p>
+        <button class="botones" onclick="ejercicio8()">Ejecutar</button>
+        <div class="resultado" id="res_e8"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Búsqueda del índice de un producto específico</h2>
+        <p class="consigna">Tienes una lista de productos y necesitas encontrar la posición de uno específico con
+            <code>Array.indexOf() y Array.lastIndexOf()</code>.
+        </p>
+        <button class="botones" onclick="ejercicio9()">Ejecutar</button>
+        <div class="resultado" id="res_e9"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Validación de usuarios con un tipo específico</h2>
+        <p class="consigna">Estás verificando si en una lista de usuarios hay un tipo de usuario específico (por
+            ejemplo, "administrador"). con <code>Array.includes() y Array.some()</code>.</p>
+        <button class="botones" onclick="ejercicio10()">Ejecutar</button>
+        <div class="resultado" id="res_e10"></div>
+    </div>
+
+    <script src="codigo.js"></script>
+</body>
+
+</html>

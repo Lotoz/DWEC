@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos Funcionales 3 - includes,isArray,every ,some ,find ,findLast ,findIndex ,findLastIndex,lastIndexOf
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Práctica 04-13: Programación funcional</h1>
+
+    <div class="cajaBonita">
+        <h2 class="titulos">Filtrar productos con precios menores a un valor</h2>
+        <p class="consigna"> Tienes un catálogo de productos con sus precios y necesitas mostrar aquellos productos
+            que estén en oferta (precio menor a 50) <code>Array.filter()</code>.</p>
+        <button class="botones" onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="res_e1"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Desanidar listas de comentarios en un foro</h2>
+        <p class="consigna">Tienes una lista de comentarios en un foro, pero algunos comentarios son respuestas a
+            otros (anidados) y deseas obtener una lista plana de todos los comentarios.
+            con <code>Array.flat()</code>. </p>
+        <button class="botones" onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="res_e2"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Procesamiento de datos de usuarios y asignación de etiquetas</h2>
+        <p class="consigna">Tienes una lista de usuarios y quieres asignarles etiquetas dependiendo de su estatus y,
+            al mismo tiempo, crear un array plano con los estatus.
+            con <code>Array.flatMap()</code>.</p>
+        <button class="botones" onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="res_e3"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Imprimir una lista de tareas pendientes</h2>
+        <p class="consigna">Tienes una lista de tareas y quieres imprimirlas una por una en la consola.
+            con <code>Array.forEach()</code>.</p>
+        <button class="botones" onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="res_e4"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Generar una lista de precios con IVA aplicado</h2>
+        <p class="consigna">Tienes una lista de precios de productos y quieres generar una nueva lista en la que
+            apliques el 21% de IVA (Impuesto sobre el Valor Añadido).
+            con <code>Array.map()</code>.</p>
+        <button class="botones" onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="res_e5"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Filtrar usuarios activos en un sistema</h2>
+        <p class="consigna">Tienes una lista de usuarios y quieres filtrar aquellos que están activos.
+            con <code>Array.filter()</code>.</p>
+        <button class="botones" onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="res_e6"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Simplificación de listas de categorías de productos</h2>
+        <p class="consigna">Tienes una lista con categorías de productos, algunas de las cuales están anidadas, y
+            necesitas obtener una lista plana con todas las categorías. con <code>Array.flat()</code>.</p>
+        <button class="botones" onclick="ejercicio7()">Ejecutar</button>
+        <div class="resultado" id="res_e7"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Crear una lista de nombres en mayúsculas</h2>
+        <p class="consigna">Tienes una lista de nombres y quieres convertirlos todos a mayúsculas para mostrarlos
+            en un informe.
+            <code>Array.map()</code>.
+        </p>
+        <button class="botones" onclick="ejercicio8()">Ejecutar</button>
+        <div class="resultado" id="res_e8"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Imprimir las cantidades de productos vendidos</h2>
+        <p class="consigna">Tienes una lista con las cantidades de productos vendidos y necesitas imprimirlas en la
+            consola para llevar un control.
+            <code>Array.forEach()</code>.
+        </p>
+        <button class="botones" onclick="ejercicio9()">Ejecutar</button>
+        <div class="resultado" id="res_e9"></div>
+    </div>
+    <div class="cajaBonita">
+        <h2 class="titulos">Calcular el precio total de productos con descuento</h2>
+        <p class="consigna">Tienes una lista de precios de productos y necesitas calcular el precio con un descuento
+            aplicado del 10%. con <code>Array.map()</code>.</p>
+        <button class="botones" onclick="ejercicio10()">Ejecutar</button>
+        <div class="resultado" id="res_e10"></div>
+    </div>
+
+    <script src="codigo.js"></script>
+</body>
+
+</html>
