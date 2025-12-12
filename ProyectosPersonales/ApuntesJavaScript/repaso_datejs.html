@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso: Date.js Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Librería Date.js</h2>
+        <span class="category-title">Funcionalidades</span>
+        <ul>
+            <li><a href="#ej1">1. Creación Fluent</a></li>
+            <li><a href="#ej2">2. Lenguaje Natural</a></li>
+            <li><a href="#ej3">3. Aritmética</a></li>
+            <li><a href="#ej4">4. Comparación</a></li>
+        </ul>
+
+        <span class="category-title">Navegación Suite</span>
+        <ul>
+            <li><a href="index.html">🏠 Apuntes Arrays</a></li>
+            <li><a href="ejercicios.html">📝 Ejercicios Arrays</a></li>
+            <li><a href="repaso_general.html">📚 Repaso General</a></li>
+            <li><a href="repaso_profundo.html">🚀 Repaso Avanzado</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Ejercicios con Date.js</h1>
+            <p>Date.js facilita la manipulación de fechas con sintaxis encadenada y lenguaje natural. <br>
+                <small><em>Asegúrate de que el archivo <code>date.js</code> esté en la misma carpeta.</em></small>
+            </p>
+        </header>
+
+        <article class="method-card" id="ej1">
+            <div class="method-header">
+                <span class="method-name">1. Sintaxis Fluida (Fluent API)</span>
+                <span class="badge immutable">Date.today()</span>
+            </div>
+            <p class="description">
+                Date.js permite crear fechas semánticas como <code>Date.today()</code> y encadenar métodos.
+                Vamos a obtener la fecha de hoy, configurarla a las 09:30 y formatearla.
+            </p>
+            <button class="btn-run-advanced" onclick="ejercicioFluent()">Ejecutar Fluent API</button>
+            <div id="res-fluent" class="result-box-advanced"></div>
+        </article>
+
+        <article class="method-card" id="ej2">
+            <div class="method-header">
+                <span class="method-name">2. Parsing Lenguaje Natural</span>
+                <span class="badge mutates">Date.parse()</span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="inputNatural" placeholder="Ej: next friday, +3 days, tomorrow"
+                    style="width: 250px;">
+            </div>
+            <p class="description">
+                Date.js sobrescribe el <code>Date.parse()</code> nativo para entender inglés. Prueba escribir "next
+                friday", "last monday", o "today + 5 days".
+            </p>
+            <button class="btn-run-advanced" onclick="ejercicioNatural()">Interpretar Texto</button>
+            <div id="res-natural" class="result-box-advanced"></div>
+        </article>
+
+        <article class="method-card" id="ej3">
+            <div class="method-header">
+                <span class="method-name">3. Suma y Resta de Fechas</span>
+                <span class="badge mutates">.add() / .subtract()</span>
+            </div>
+            <p class="description">
+                Calcula qué fecha será si a "Hoy" le sumamos <strong>1 mes</strong>, <strong>5 días</strong> y le
+                restamos <strong>2 horas</strong> usando encadenamiento.
+            </p>
+            <button class="btn-run-advanced" onclick="ejercicioAritmetica()">Calcular Futuro</button>
+            <div id="res-aritmetica" class="result-box-advanced"></div>
+        </article>
+
+        <article class="method-card" id="ej4">
+            <div class="method-header">
+                <span class="method-name">4. Lógica de Fechas</span>
+                <span class="badge immutable">.isAfter() / .between()</span>
+            </div>
+            <p class="description">
+                Determina si hoy es fin de semana (<code>isWeekend()</code>) y si la fecha actual está entre el 1 de
+                Enero y el 1 de Julio.
+            </p>
+            <button class="btn-run-advanced" onclick="ejercicioLogica()">Verificar Fechas</button>
+            <div id="res-logica" class="result-box-advanced"></div>
+        </article>
+
+    </main>
+
+    <script src="date.js"></script>
+    <script src="logica_datejs.js"></script>
+</body>
+
+</html>

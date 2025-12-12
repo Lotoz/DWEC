@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Arrays Cheatsheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>JS Funcional</h2>
+
+        <span class="category-title">Transformación</span>
+        <ul>
+            <li><a href="#map">map()</a></li>
+            <li><a href="#filter">filter()</a></li>
+            <li><a href="#flat">flat() / flatMap()</a></li>
+        </ul>
+
+        <span class="category-title">Búsqueda & Check</span>
+        <ul>
+            <li><a href="#find">find() / findLast()</a></li>
+            <li><a href="#findIndex">findIndex()</a></li>
+            <li><a href="#some-every">some() / every()</a></li>
+            <li><a href="#includes">includes()</a></li>
+        </ul>
+
+        <span class="category-title">Acumulación</span>
+        <ul>
+            <li><a href="#reduce">reduce()</a></li>
+            <li><a href="#join">join()</a></li>
+        </ul>
+
+        <span class="category-title">Orden & Mutación</span>
+        <ul>
+            <li><a href="#sort">sort() vs toSorted()</a></li>
+            <li><a href="#reverse">reverse()</a></li>
+            <li><a href="#copyWithin">copyWithin()</a></li>
+        </ul>
+
+        <span class="category-title">Estructuras</span>
+        <ul>
+            <li><a href="#set">Set (Conjuntos)</a></li>
+        </ul>
+
+        <span class="category-title">Navegación</span>
+        <ul>
+            <li><a href="ejercicios.html">📝 Ejercicios Arrays</a></li>
+            <li><a href="repaso_general.html">📚 Repaso General</a></li>
+            <li><a href="repaso_profundo.html">🚀 Repaso Avanzado</a></li>
+            <li><a href="repaso_datejs.html">⏱️ Repaso DateJS</a></li>
+            <li><a href="examen_simulacro.html">☠️Examen Simulacro☠️</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Apuntes: Métodos Funcionales de Arrays</h1>
+            <p>Guía rápida basada en la documentación del curso. Referencia de inmutabilidad y sintaxis.</p>
+        </header>
+
+        <section id="transformacion">
+            <h2 class="section-title">Transformación (Crean nuevos Arrays)</h2>
+
+            <article class="method-card" id="map">
+                <div class="method-header">
+                    <span class="method-name">.map()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Nuevo Array</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.map((valor, index) => nuevoValor)</code>
+                <p class="description">
+                    Crea un <strong>nuevo array</strong> con los resultados de la llamada a la función indicada
+                    aplicados a cada uno de sus elementos. Es ideal para transformar datos (ej: precios con IVA).
+                </p>
+                <pre><code><span class="keyword">const</span> numeros = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>];
+<span class="comment">// Multiplicar por 2 cada elemento</span>
+<span class="keyword">const</span> dobles = numeros.<span class="function">map</span>(x => x * <span class="number">2</span>); 
+<span class="comment">// Resultado: [2, 10, 20]</span></code></pre>
+            </article>
+
+            <article class="method-card" id="filter">
+                <div class="method-header">
+                    <span class="method-name">.filter()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Nuevo Array</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.filter((valor, index) => boolean)</code>
+                <p class="description">
+                    Crea un nuevo array con todos los elementos que cumplan la condición implementada por la función
+                    dada. Si devuelve <code>true</code> se queda, si es <code>false</code> se descarta.
+                </p>
+                <pre><code><span class="keyword">const</span> precios = [<span class="number">100</span>, <span class="number">45</span>, <span class="number">30</span>, <span class="number">70</span>];
+<span class="keyword">const</span> oferta = precios.<span class="function">filter</span>(p => p < <span class="number">50</span>);
+<span class="comment">// Resultado: [45, 30]</span></code></pre>
+            </article>
+
+            <article class="method-card" id="flat">
+                <div class="method-header">
+                    <span class="method-name">.flat() / .flatMap()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Nuevo Array</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.flat(profundidad)</code>
+                <p class="description">
+                    <strong>flat():</strong> Crea un nuevo array con todos los elementos de sub-array concatenados
+                    recursivamente hasta la profundidad especificada.<br>
+                    <strong>flatMap():</strong> Primero mapea cada elemento y luego aplana el resultado en un nuevo
+                    array.
+                </p>
+                <pre><code><span class="keyword">const</span> arr = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>]];
+arr.<span class="function">flat</span>(); <span class="comment">// [1, 2, 3]</span>
+
+<span class="keyword">const</span> frases = [<span class="string">"Hola mundo"</span>, <span class="string">"Adiós"</span>];
+frases.<span class="function">flatMap</span>(x => x.split(<span class="string">" "</span>));
+<span class="comment">// ["Hola", "mundo", "Adiós"]</span></code></pre>
+            </article>
+        </section>
+
+        <section id="busqueda">
+            <h2 class="section-title">Búsqueda y Verificación</h2>
+
+            <article class="method-card" id="find">
+                <div class="method-header">
+                    <span class="method-name">.find() / .findLast()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Retorna Elemento</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.find(callback)</code>
+                <p class="description">
+                    Devuelve el <strong>valor</strong> del primer elemento del array que cumple la función de prueba
+                    proporcionada. <code>findLast</code> hace lo mismo pero empezando desde el final.
+                </p>
+                <pre><code><span class="keyword">const</span> stock = [<span class="number">15</span>, <span class="number">7</span>, <span class="number">25</span>];
+<span class="keyword">const</span> bajo = stock.<span class="function">find</span>(s => s < <span class="number">10</span>);
+<span class="comment">// Resultado: 7</span></code></pre>
+            </article>
+
+            <article class="method-card" id="includes">
+                <div class="method-header">
+                    <span class="method-name">.includes()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Retorna Boolean</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.includes(elemento, desdeIndice)</code>
+                <p class="description">
+                    Determina si un array incluye un determinado elemento, devuelve <code>true</code> o
+                    <code>false</code>.
+                </p>
+                <pre><code><span class="keyword">const</span> frutas = [<span class="string">"manzana"</span>, <span class="string">"pera"</span>];
+frutas.<span class="function">includes</span>(<span class="string">"manzana"</span>); <span class="comment">// true</span></code></pre>
+            </article>
+
+            <article class="method-card" id="some-every">
+                <div class="method-header">
+                    <span class="method-name">.some() / .every()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Retorna Boolean</span>
+                    </div>
+                </div>
+                <p class="description">
+                    <strong>some():</strong> Comprueba si <em>al menos un</em> elemento cumple la condición.<br>
+                    <strong>every():</strong> Comprueba si <em>todos</em> los elementos cumplen la condición.
+                </p>
+                <pre><code><span class="keyword">const</span> campos = [<span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>];
+campos.<span class="function">every</span>(c => c); <span class="comment">// false (no todos son true)</span>
+campos.<span class="function">some</span>(c => c); <span class="comment">// true (hay al menos un true)</span></code></pre>
+            </article>
+        </section>
+
+        <section id="acumulacion">
+            <h2 class="section-title">Acumulación (Reducción)</h2>
+
+            <article class="method-card" id="reduce">
+                <div class="method-header">
+                    <span class="method-name">.reduce()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Retorna Valor Único</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.reduce((acumulador, actual) => ..., valorInicial)</code>
+                <p class="description">
+                    Ejecuta una función reductora sobre cada elemento, devolviendo un único valor resultante.
+                </p>
+                <pre><code><span class="keyword">const</span> ventas = [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>];
+<span class="keyword">const</span> total = ventas.<span class="function">reduce</span>((acc, val) => acc + val, <span class="number">0</span>);
+<span class="comment">// Resultado: 600</span></code></pre>
+            </article>
+        </section>
+
+        <section id="orden">
+            <h2 class="section-title">Ordenamiento y Mutación</h2>
+            <p style="margin-bottom: 20px; color: #64748b;">¡Atención! Algunos de estos métodos modifican el array
+                original.</p>
+
+            <article class="method-card" id="sort">
+                <div class="method-header">
+                    <span class="method-name">.sort() / .toSorted()</span>
+                    <div class="badges">
+                        <span class="badge mutates">Sort: Muta</span>
+                        <span class="badge immutable">toSorted: Copia</span>
+                    </div>
+                </div>
+                <p class="description">
+                    Ordena los elementos de un array. <strong>sort()</strong> ordena <em>in situ</em> (modifica el
+                    original). <strong>toSorted()</strong> devuelve una copia ordenada sin tocar el original.
+                </p>
+                <pre><code><span class="keyword">const</span> numeros = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>];
+numeros.<span class="function">sort</span>(); 
+<span class="comment">// numeros ahora es [1, 2, 3]</span></code></pre>
+            </article>
+
+            <article class="method-card" id="copyWithin">
+                <div class="method-header">
+                    <span class="method-name">.copyWithin()</span>
+                    <div class="badges">
+                        <span class="badge mutates">Muta Original</span>
+                    </div>
+                </div>
+                <code class="syntax">arr.copyWithin(target, start, end)</code>
+                <p class="description">
+                    Copia una secuencia de elementos del array dentro del propio array. Modifica el array sin cambiar su
+                    longitud.
+                </p>
+                <pre><code><span class="keyword">const</span> array = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>];
+<span class="comment">// Copiar a indice 0 los elementos desde indice 3 al 4</span>
+array.<span class="function">copyWithin</span>(<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>);
+<span class="comment">// Resultado: ["d", "b", "c", "d", "e"]</span></code></pre>
+            </article>
+        </section>
+
+        <section id="set">
+            <h2 class="section-title">Objeto Set (Conjuntos)</h2>
+
+            <article class="method-card">
+                <div class="method-header">
+                    <span class="method-name">new Set()</span>
+                    <div class="badges">
+                        <span class="badge immutable">Colección Única</span>
+                    </div>
+                </div>
+                <p class="description">
+                    Permite almacenar valores únicos de cualquier tipo. Un valor en un Set solo puede ocurrir una vez.
+                </p>
+                <ul>
+                    <li><code>.add(valor)</code>: Añade un valor.</li>
+                    <li><code>.has(valor)</code>: Comprueba si existe.</li>
+                    <li><code>.delete(valor)</code>: Elimina un valor.</li>
+                    <li><code>.size</code>: Devuelve la cantidad de elementos.</li>
+                </ul>
+                <pre><code><span class="keyword">const</span> miSet = <span class="keyword">new</span> <span class="function">Set</span>();
+miSet.<span class="function">add</span>(<span class="number">1</span>);
+miSet.<span class="function">add</span>(<span class="number">5</span>);
+miSet.<span class="function">add</span>(<span class="number">1</span>); <span class="comment">// Ignorado, ya existe</span>
+<span class="comment">// miSet tiene: {1, 5}</span></code></pre>
+            </article>
+        </section>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS Funcional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Ejercicios</h2>
+        <span class="category-title">Práctica</span>
+        <ul>
+            <li><a href="#ej1">1. Fibonacci</a></li>
+            <li><a href="#ej2">2. Usuarios Activos</a></li>
+            <li><a href="#ej3">3. Aplanar Comentarios</a></li>
+            <li><a href="#ej4">4. Stock Crítico</a></li>
+            <li><a href="#ej5">5. Limpiar Duplicados</a></li>
+        </ul>
+        <span class="category-title">Navegación</span>
+        <ul>
+            <li><a href="index.html">🏠 Apuntes Arrays</a></li>
+            <li><a href="repaso_general.html">📚 Repaso General</a></li>
+            <li><a href="repaso_profundo.html">🚀 Repaso Avanzado</a></li>
+            <li><a href="repaso_datejs.html">⏱️ Repaso DateJS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Ejercicios Prácticos</h1>
+            <p>Abre la consola del navegador si quieres ver los logs detallados.</p>
+        </header>
+
+        <article class="method-card" id="ej1">
+            <div class="method-header">
+                <span class="method-name">1. Secuencia Fibonacci</span>
+                <span class="badge immutable">REDUCE</span>
+            </div>
+            <p class="description">
+                Genera los primeros 10 números de la secuencia Fibonacci (0, 1, 1, 2, 3...) utilizando
+                <strong>únicamente</strong> el método <code>reduce</code>.
+                <br><em>Pista: El acumulador puede ser un array.</em>
+            </p>
+            <button class="btn-run" onclick="ejercicioFibonacci()">Ejecutar Código</button>
+            <div id="res-1" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej2">
+            <div class="method-header">
+                <span class="method-name">2. Nombres de Usuarios Activos</span>
+                <span class="badge immutable">FILTER + MAP</span>
+            </div>
+            <div class="data-preview">Datos: [{nombre: "Ana", activo: true}, {nombre: "Luis", activo: false}, ...]</div>
+            <p class="description">
+                Obtén un array de strings que contenga solo los <strong>nombres</strong> de los usuarios que tengan la
+                propiedad <code>activo: true</code>.
+            </p>
+            <button class="btn-run" onclick="ejercicioUsuarios()">Ejecutar Código</button>
+            <div id="res-2" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej3">
+            <div class="method-header">
+                <span class="method-name">3. Aplanar Hilo de Comentarios</span>
+                <span class="badge immutable">FLAT</span>
+            </div>
+            <div class="data-preview">Datos: ["Primer post", ["Respuesta 1", "Respuesta 2"], "Cierre"]</div>
+            <p class="description">
+                Tienes un array que contiene respuestas anidadas. Aplánalo para tener una lista única de mensajes.
+            </p>
+            <button class="btn-run" onclick="ejercicioComentarios()">Ejecutar Código</button>
+            <div id="res-3" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej4">
+            <div class="method-header">
+                <span class="method-name">4. Encontrar Stock Crítico</span>
+                <span class="badge immutable">FIND</span>
+            </div>
+            <div class="data-preview">Datos: [{id: 1, stock: 10}, {id: 2, stock: 2}, {id: 3, stock: 5}]</div>
+            <p class="description">
+                Encuentra el <strong>primer producto</strong> que tenga un stock menor a 5 unidades.
+            </p>
+            <button class="btn-run" onclick="ejercicioStock()">Ejecutar Código</button>
+            <div id="res-4" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej5">
+            <div class="method-header">
+                <span class="method-name">5. Eliminar Duplicados</span>
+                <span class="badge immutable">SET</span>
+            </div>
+            <div class="data-preview">Datos: [1, 2, 2, 3, 1, 4, 5, 5]</div>
+            <p class="description">
+                Usa el objeto <code>Set</code> para limpiar el array de números repetidos y devuélvelo como un Array
+                limpio.
+            </p>
+            <button class="btn-run" onclick="ejercicioDuplicados()">Ejecutar Código</button>
+            <div id="res-5" class="result-box"></div>
+        </article>
+
+    </main>
+
+    <script src="Resuelto.js"></script>
+</body>
+
+</html>

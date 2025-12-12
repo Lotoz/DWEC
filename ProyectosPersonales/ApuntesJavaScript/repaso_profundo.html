@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso JS: Profundo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Repaso Parte 2</h2>
+        <span class="category-title">Estructuras de Datos</span>
+        <ul>
+            <li><a href="#ej5">1. Set (Únicos)</a></li>
+            <li><a href="#ej6">2. Map (Diccionarios)</a></li>
+        </ul>
+        <span class="category-title">POO & Funciones</span>
+        <ul>
+            <li><a href="#ej7">3. Clases ES6</a></li>
+            <li><a href="#ej8">4. Closures (Privado)</a></li>
+            <li><a href="#ej9">5. Inmutabilidad</a></li>
+        </ul>
+        <span class="category-title">Navegación</span>
+        <ul>
+            <li><a href="index.html">🏠 Apuntes Arrays</a></li>
+            <li><a href="ejercicios.html">📝 Ejercicios Arrays</a></li>
+            <li><a href="repaso_general.html">🔙 Repaso General</a></li>
+            <li><a href="repaso_datejs.html">⏱️ Repaso DateJS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Repaso: Estructuras y POO</h1>
+            <p>Ejercicios basados en los temas 4, 5, 6 y 7 del PDF.</p>
+        </header>
+
+        <article class="method-card" id="ej5">
+            <div class="method-header">
+                <span class="method-name">1. Limpiador de Emails</span>
+                <span class="badge immutable">Set</span>
+            </div>
+            <p class="description">
+                Tienes una lista de correos con duplicados. [cite_start]Usa <code>new Set()</code> para limpiarla y
+                devuelve un array ordenado [cite: 991-995].
+            </p>
+            <button class="btn-run" onclick="ejercicioSet()">Limpiar Duplicados</button>
+            <div id="res-set" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej6">
+            <div class="method-header">
+                <span class="method-name">2. Contador de Palabras</span>
+                <span class="badge immutable">Map</span>
+            </div>
+            <p class="description">
+                Dado un texto, usa un <code>Map</code> para contar cuántas veces aparece cada palabra. [cite_start]El
+                Map permite usar claves que no sean solo strings, aunque aquí usaremos strings [cite: 996-1013].
+            </p>
+            <button class="btn-run" onclick="ejercicioMap()">Contar Palabras</button>
+            <div id="res-map" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej7">
+            <div class="method-header">
+                <span class="method-name">3. Sistema de Vehículos</span>
+                <span class="badge mutates">Class / Extends</span>
+            </div>
+            <p class="description">
+                Crea una clase <code>Vehiculo</code> y una subclase <code>Coche</code> que use <code>super()</code>.
+                [cite_start]Instancia un coche y llama a sus métodos [cite: 1446-1508].
+            </p>
+            <button class="btn-run" onclick="ejercicioClases()">Probar Clases</button>
+            <div id="res-clases" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej8">
+            <div class="method-header">
+                <span class="method-name">4. Contador Privado</span>
+                <span class="badge immutable">Closure</span>
+            </div>
+            <p class="description">
+                Implementa una función que devuelva otra función. [cite_start]La variable del contador debe ser privada
+                y mantenerse entre llamadas [cite: 1213-1222].
+            </p>
+            <button class="btn-run" onclick="ejercicioClosure()">Incrementar Contador</button>
+            <div id="res-closure" class="result-box"></div>
+        </article>
+
+        <article class="method-card" id="ej9">
+            <div class="method-header">
+                <span class="method-name">5. Congelar Objeto</span>
+                <span class="badge immutable">Object.freeze</span>
+            </div>
+            <p class="description">
+                [cite_start]Intenta modificar un objeto congelado con <code>Object.freeze()</code> y demuestra que sus
+                propiedades no cambian[cite: 1537, 1543].
+            </p>
+            <button class="btn-run" onclick="ejercicioFreeze()">Intentar Hackear</button>
+            <div id="res-freeze" class="result-box"></div>
+        </article>
+
+    </main>
+    <script src="logica_repaso.js"></script>
+</body>
+
+</html>

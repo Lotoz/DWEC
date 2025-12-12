@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulacro de Examen JS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para el examen */
+        .exam-area {
+            background-color: #1e1e1e;
+            /* Fondo oscuro estilo editor */
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            margin-top: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .output-box {
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff;
+            border: 1px dashed #cbd5e1;
+            color: #334155;
+            min-height: 40px;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Examen Simulacro</h2>
+        <span class="category-title">Básicos</span>
+        <ul>
+            <li><a href="#ej1">1. Arrays Básicos</a></li>
+            <li><a href="#ej2">2. String & Math</a></li>
+            <li><a href="#ej3">3. Fechas</a></li>
+        </ul>
+        <span class="category-title">Intermedios</span>
+        <ul>
+            <li><a href="#ej4">4. Filter & Map</a></li>
+            <li><a href="#ej5">5. Reduce</a></li>
+            <li><a href="#ej6">6. DOM Dinámico</a></li>
+        </ul>
+        <span class="category-title">Avanzados</span>
+        <ul>
+            <li><a href="#ej7">7. Sets y Únicos</a></li>
+            <li><a href="#ej8">8. Clases y Herencia</a></li>
+            <li><a href="#ej9">9. Closures</a></li>
+            <li><a href="#ej10">10. Algoritmia Final</a></li>
+        </ul>
+        <span class="category-title">Navegación</span>
+        <ul>
+            <li><a href="index.html">← Volver a Apuntes</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Simulacro de Examen: JavaScript</h1>
+            <p>Completa el código dentro de las etiquetas <code>&lt;script&gt;</code> de cada ejercicio. <br>
+                <strong>Abre la consola (F12)</strong> para verificar tus resultados.
+            </p>
+        </header>
+
+        <article class="method-card" id="ej1">
+            <div class="method-header"><span class="method-name">Ej 1: Manipulación Básica de Arrays</span></div>
+            <p class="description">
+                1. Crea un array llamado <code>frutas</code> con: "Manzana", "Banana", "Pera".<br>
+                2. Añade "Uva" al final.<br>
+                3. Elimina el primer elemento.<br>
+                4. Muestra el resultado en consola.
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 1 ---");
+                    // TODO: Escribe tu código aquí abajo
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej2">
+            <div class="method-header"><span class="method-name">Ej 2: Strings y Math</span></div>
+            <p class="description">
+                Dada la variable <code>precio = "15.899€"</code>:<br>
+                1. Límpiala para obtener solo el número (quita el '€').<br>
+                2. Redondea el número al entero más cercano (Math.round).<br>
+                3. Imprime: "El precio redondeado es: X".
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 2 ---");
+                    let precioString = "15.899€";
+                    // TODO: Tu código aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej3">
+            <div class="method-header"><span class="method-name">Ej 3: Cálculo de Fechas</span></div>
+            <p class="description">
+                Calcula cuántos **años completos** han pasado desde el lanzamiento de JavaScript (4 de Diciembre de
+                1995) hasta hoy.<br>
+                Usa el objeto <code>Date</code> nativo.
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 3 ---");
+                    const nacimientoJS = new Date(1995, 11, 4); // Recuerda: Mes 11 es Diciembre
+                    // TODO: Tu código aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej4">
+            <div class="method-header"><span class="method-name">Ej 4: Transformación (Map y Filter)</span></div>
+            <p class="description">
+                Dado el array de <code>empleados</code>:<br>
+                1. Filtra los empleados del departamento "IT".<br>
+                2. Crea un nuevo array que contenga solo sus nombres en mayúsculas.<br>
+                3. Muestra el array resultante.
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 4 ---");
+                    const empleados = [
+                        { nombre: "Ana", depto: "Ventas" },
+                        { nombre: "Luis", depto: "IT" },
+                        { nombre: "Dani", depto: "IT" },
+                        { nombre: "Sofía", depto: "RRHH" }
+                    ];
+
+                    // TODO: Tu código aquí
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej5">
+            <div class="method-header"><span class="method-name">Ej 5: Acumulación (Reduce)</span></div>
+            <p class="description">
+                Calcula la suma total de los números pares del array usando <code>reduce()</code>.<br>
+                Array: <code>[1, 2, 3, 4, 5, 6]</code>. (Resultado esperado: 12)
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 5 ---");
+                    const numeros = [1, 2, 3, 4, 5, 6];
+
+                    // TODO: Tu código aquí
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej6">
+            <div class="method-header"><span class="method-name">Ej 6: DOM Dinámico</span></div>
+            <p class="description">
+                1. Captura el botón con ID <code>btn-examen</code>.<br>
+                2. Añade un evento 'click'.<br>
+                3. Al hacer click, lee el valor del input y añádelo como un párrafo <code>&lt;p&gt;</code> dentro del
+                div <code>resultado-examen</code>.
+            </p>
+
+            <div style="background: white; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                <input type="text" id="input-examen" placeholder="Escribe algo...">
+                <button id="btn-examen"
+                    style="background:#2563eb; color:white; border:none; padding:5px 10px; cursor:pointer;">Agregar</button>
+                <div id="resultado-examen" class="output-box"></div>
+            </div>
+
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 6 ---");
+                    // TODO: Tu código DOM aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej7">
+            <div class="method-header"><span class="method-name">Ej 7: Estructuras (Set)</span></div>
+            <p class="description">
+                Tienes dos arrays de IDs de usuarios. Encuentra los IDs únicos combinando ambos arrays (sin duplicados)
+                y muéstralos ordenados de menor a mayor.<br>
+                A: <code>[1, 5, 2]</code>, B: <code>[5, 2, 10]</code>.
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 7 ---");
+                    const grupoA = [1, 5, 2];
+                    const grupoB = [5, 2, 10];
+
+                    // TODO: Tu código aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej8">
+            <div class="method-header"><span class="method-name">Ej 8: Clases (POO)</span></div>
+            <p class="description">
+                1. Crea una clase <code>Producto</code> con propiedad <code>nombre</code> y <code>precio</code>.<br>
+                2. Añade un método <code>iva()</code> que devuelva el precio * 1.21.<br>
+                3. Instancia un producto y muestra su precio con IVA en consola.
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 8 ---");
+                    // TODO: Tu código aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej9">
+            <div class="method-header"><span class="method-name">Ej 9: Funciones Avanzadas (Closures)</span></div>
+            <p class="description">
+                Crea una función <code>crearPrefijo(prefijo)</code>. <br>
+                Debe devolver una nueva función que acepte una palabra y la devuelva con el prefijo pegado.<br>
+                Ej: <code>const re = crearPrefijo("re"); re("hacer") -> "rehacer"</code>.
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 9 ---");
+                    // TODO: Tu código aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+        <article class="method-card" id="ej10">
+            <div class="method-header"><span class="method-name">Ej 10: Reto Final</span></div>
+            <p class="description">
+                Dado un texto largo. Usa <code>Map</code> para contar la frecuencia de cada letra (ignora espacios).<br>
+                Texto: "banana". Resultado esperado: Map(3) { 'b' => 1, 'a' => 3, 'n' => 2 }
+            </p>
+            <div class="exam-area">
+                &lt;script&gt;
+                <script>
+                    console.log("--- Ejercicio 10 ---");
+                    const texto = "banana";
+                    // TODO: Tu código aquí
+
+
+
+                </script>
+                &lt;/script&gt;
+            </div>
+        </article>
+
+    </main>
+</body>
+
+</html>
