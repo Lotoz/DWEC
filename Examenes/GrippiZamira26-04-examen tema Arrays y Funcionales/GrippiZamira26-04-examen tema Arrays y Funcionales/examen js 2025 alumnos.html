@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+
+    <style>
+        @font-face {
+            font-family: 'Lobster';
+            font-style: normal;
+            font-weight: 400;
+            src: url(lobster.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        .cajabonita {
+            font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+            color: #006;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            background: #ccccff;
+            overflow: hidden;
+            padding: 20px;
+            width: 500px;
+            margin: 40px auto;
+            border-radius: 35px 0px 35px 0px;
+            -moz-border-radius: 35px 0px 35px 0px;
+            -webkit-border-radius: 35px 0px 35px 0px;
+            border: 2px solid #0000ff;
+        }
+
+        h1,
+        h2 {
+            color: #0000DD;
+            font-family: 'Georgia';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cajabonita">
+        <h1> Nombre: Zamira Grippi </h1>
+
+    </div>
+    <div style="margin: auto;width:800px">
+        <img src="notas.jpg">
+    </div>
+    <div class="cajabonita">
+        <h2>Ejercicio 1 Arrays</h2>
+        1. Crea una funcion que reciba un numero indeterminado de Arrays de tamaños distintos crea una funcion function
+        ej1Mezclar(array1, array2 ) que los mezcle y los muestre en la web.
+
+        let array1 = [1,2,4,5] ; let array2 = [6,7,1]; let array3 = [100]; let array4 = [6,7,1]
+        ej1Mezclar( array1, array2) // [1,6,2,7,4,1,5]
+        ej1Mezclar( array1, array2,array3) // [1,6,100,2,7,4,1,5]
+
+        <div id="ej11"><strong> Mostrar aqui resultado </strong></div>
+
+        <h4> Muestra los datos aqui </h4>
+        <div id="info1"></div>
+
+        <script>
+            let salida_e1 = document.getElementById('info1');
+            function ej1Mezclar(...arrays) {
+                let arrayUnido = [];
+                arrays.forEach(arrayE => {
+                    arrayE.forEach(element => {
+                        arrayUnido.push(element);
+                    })
+                })
+                return arrayUnido;
+            }
+
+            let array1 = [1, 2, 4, 5]
+            let array2 = [6, 7, 1]
+            //ej1Mezclar(array1, array2)
+
+            //array1 = [1, 2, 4, 5, 3]
+            //array2 = [6]
+            let array3 = [10, 11]
+            let array4 = [26, 27, 28]
+            let unido = ej1Mezclar(array1, array2, array3, array4);
+            //Para mostrar por mas comodo por pantalla
+            function mostrarArray(array) {
+                array.forEach(element => {
+                    salida_e1.innerHTML += element + " ";
+                });
+            }
+            mostrarArray(unido);
+
+            // ej1Mezclar(array1, array2, array3, array4)// [1,6,10,26,2,11,27,4,28,1,5,3]
+
+        </script>
+
+    </div>
+
+
+    <div class="cajabonita">
+        <h2>Ejercicio 2 Funciones</h2>
+        <label>Año</label>
+        <input type="text" id="year"><br>
+        <label>Mes</label>
+        <input type="text" id="mes"><br>
+        <label>Dia</label>
+        <input type="text" id="dia"><br><br>
+        <button onclick="calcularDias()">Escribe la fecha Funcion Tradicional</button>
+        <p id="fechaIntroducida">Fecha: </p>
+        <button onclick="calcularDiasAnonima()">Escribe la fecha Funcion Anonima</button>
+        <p id="fechaIntroducidaanonima">Fecha: </p>
+        <button onclick="calcularDiasLambda()">Escribe la fecha funcion flechas</button>
+        <p id="fechaIntroducidaflechas">Fecha: </p>
+        <button onclick="calcularDiasLambdaparametros('#444','negrita')">Escribe funcion flechas parametros </button>
+        <p id="fechaIntroducidaflechasL">Fecha:</p>
+        <script>
+            /* Define calculardias de manera tracional*/
+            /* Define calculardias  de manera anonima*/
+            /* Define calculardias  de manera anonima con flechas*/
+            /* Define calculardias  de manera anonima con flechas*/
+            // calcularDiasLambdaparametros('#444','negrita')
+            let dia = document.getElementById('dia').value;
+            let mes = document.getElementById('mes').value;
+            let year = document.getElementById('year').value;
+
+            let introducida = new Date(year, mes, dia);
+            const fechaGenerada = Date.now();
+            let diferencia = fechaGenerada - introducida;
+
+            function calcularDias() {
+                let salida = document.getElementById('fechaIntroducidaanonima');
+                salida.innerHTML = "Dias de esa fecha: " + Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            }
+            let salida2 = document.getElementById('fechaIntroducida');
+            let calcularDiasAnonima = function () { salida2.innerHTML = "Dias de esa fecha: " + Math.floor(diferencia / (1000 * 60 * 60 * 24)) };
+
+            let salida3 = document.getElementById('fechaIntroducidaflechas');
+            let calcularDiasLambda = () => (salida3.innerHTML = `<p>Dias de esa fecha:   ${Math.floor(diferencia / (1000 * 60 * 60 * 24))}</p>`);
+            let salida4 = document.getElementById('fechaIntroducidaflechasL');
+            let calcularDiasLambdaparametros = (color, style) => (salida4.innerHTML = `<p style="color:${color}; font-weight:bolder;">Dias de esa fecha:  ${Math.floor(diferencia / (1000 * 60 * 60 * 24))}</p>`);
+
+        </script>
+
+    </div>
+
+
+    <div class="cajabonita">
+        <h2>Ejercicio 3 Conjuntos</h2>
+        <br> 1. Crea una función crearConjunto que dado un numero indeterminado de parametros, nos devuelva un array que
+        con
+        solo los que NO estan repetidos.
+        <br> CrearConjunto(7,2,3,4,555,5,5,5,5,5,5,5,5,5,3,3,3,1,1,1) debe devolver [7,2,3,4,5,1]
+        <br>
+        <br> 2. Añade una funcion unirConjuntos(c1,c2) que una ambos conjuntos eliminando los repetidos
+        <br> unirConjuntos( [7,2,3,6,5,1] ,[7,2,3,4,5,1,10,9] ) debe devolver [7,2,3,4,5,1]
+        <br>
+        <br> 3. Añade una funcion disjuntosConjuntos(c1,c2) que una ambos conjuntos eliminando los que estan en ambos
+        <br> disjuntosConjuntos( [7,2,3,6,5,1] ,[7,2,3,4,5,1,10,9] ) debe devolver [6,10,9]
+        <br>
+        <br> 4. Añade una funcion MostrarConjunto() muestre como un string el array
+        <br> Se valorara el uso de las funciones propias de los conjuntos
+        <h4> Muestra los datos aqui </h4>
+
+        <div id="info3"></div>
+        <script>
+            //Pantalla
+            let salida_e3 = document.getElementById('info3');
+            // aqui debe ir el codigo del objeto
+
+            function crearConjunto(...n) {
+                let conjunto = new Set();
+                n.forEach(element => {
+                    conjunto.add(element);
+                });
+                return conjunto;
+            }
+            function disjuntosConjuntos(conjunto1, conjunto2) {
+                let nuevo = new Set();
+                conjunto1.forEach(num => {
+                    if (!conjunto2.has(num)) {
+                        nuevo.add(num);
+                    }
+                });
+                conjunto2.forEach(num => {
+                    if (!conjunto1.has(num)) {
+                        nuevo.add(num);
+                    }
+                });
+                return nuevo;
+            }
+            function unirConjuntos(conjunto1, conjunto2) {
+                return new Set(conjunto1, conjunto2);
+            }
+            function MostrarConjunto(conjunto) {
+
+                for (let numero of conjunto) {
+                    salida_e3.innerHTML += numero + " ";
+                }
+                salida_e3.innerHTML += '<br>';
+            }
+
+            let ej3a = crearConjunto(1, 4, 1, 4, 1, 2, 1, 7, 7, 7, 9, 21);
+            let ej3a2 = crearConjunto(1, 4, 24, 12, 17, 1, 7, 9, 21);
+            let ej3a3 = crearConjunto(1, 4, 5, 3, 4, 1);
+            let ej3b = unirConjuntos(ej3a, ej3a2)
+            let ej3c = disjuntosConjuntos(ej3a, ej3a2)
+
+
+            // Mostrar a,b,c en info
+            MostrarConjunto(ej3a)
+            MostrarConjunto(ej3a2)
+            MostrarConjunto(ej3a3)
+            MostrarConjunto(ej3b)
+            MostrarConjunto(ej3c)
+
+        </script>
+    </div>
+
+
+
+    <div class="cajabonita">
+        <h2>4. Metodos Funcionales 1 </h2>
+        (los ejercicio de esto punto deben hacerse con metodos funcionales si no no vale)
+
+        ◦ Crea una función tresMitad(array) que recorra un array de cadenas y nos devuelva <br>
+        la cadena de tres que aparecen en la mitad y los dos laterales. <br>
+        <br> Si tiene menos de 3 se devuelve todo.
+        <br> Si tiene pares para mitad se escoge mitad-1.
+        <br> tresMitad(['pepes','Lopez','c','javascript','java']) // 'epe','ope','c','asc','jav',
+
+        <script>
+            // aqui debe ir el codigo
+            // tresMitad(['pepes','Lopez','c','javascript','java']) //  'epe','ope','c','asc','jav',
+            // mostrar array
+        </script>
+        <h4> Muestra los datos aqui </h4>
+        <div id="info4"></div>
+    </div>
+
+    <div class="cajabonita">
+        <h2>5. Metodos Funcionales 2 </h2>
+        <br> ◦ Crea una función sumarPotencias2Indices que nos devuelva el resultado de multiplicar
+        <br> cada numero por su posicion elevado a 2 y sumarlos
+        <br> Por ejemplo
+        <br>
+        sumarPotencias2Indices([1,3,4,2,1])
+        <br>// [1*1 + 3*2 + 2*4 + 2*8 + 1*16] = 1+6 + 8 + 16 + 16 = 47
+        <h4> Muestra los datos aqui </h4>
+        <div id="info5"></div>
+        <script>
+            // aqui debe ir el codigo
+            // sumarPotencias2Indices([1,3,4,2,1])
+            //  [1*1 + 3*2 + 2*4 + 2*8 + 1*16] = 1+6 +  8 + 16 + 16 = 47
+            // mostrar array
+            function sumarPotencias2Indices(arrayNumerico) {
+                return arrayNumerico.reduce((ac, e) => ac * e, 1 + 1);
+            }
+            arrayNum = [1, 3, 4, 2, 1];
+            let resultado = sumarPotencias2Indices(arrayNum);
+            let salida_5 = document.getElementById('info5');
+            salida_5.innerHTML = resultado;
+        </script>
+
+    </div>
+
+    <div class="cajabonita">
+
+        <h2>6. Metodos Funcionales 3 </h2>
+        ◦ Crea una función ordenTamaño que tenga por entrada un array de strings
+        <br> y nos lo devuelva ordenados por su tamaño y si son iguales por
+        <br>el orden alfabetico de la primera letra
+        <br>ordenTamaño ([“hola”, “mv”, “adios”, “xz” , “ b”])
+        <br> => [“ b”, “mv”, “xz” , “hola”,“adios”]
+        <script>
+            // aqui debe ir el codigo
+            //ordenTamaño ([“hola”, “mv”, “adios”, “xz” , “ b”])
+            //  [“ b”, “mv”,  “xz” , “hola”,“adios”]
+            // mostrar array
+        </script>
+        <h4> Muestra los datos aqui </h4>
+        <div id="info6"></div>
+    </div>
+
+    <div class="cajabonita">
+        <h2>7. Metodos Funcionales 4 </h2>
+        ◦ Crea una función sumasLetras(ArrayDoble) que sume todos los elementos de un array de arrays . Puede haber
+        letras con los valores Hexadecimales A = 10 B=11 … F= 15 … si sale algo mas que F es un error
+        sumasLetras ([ 1,2], [“B”,1, 1], [1,3,”A”] ]) => 1+2+11+1+1+1+3+10 = 30
+
+        <script>
+            // aqui debe ir el codigo
+            // mostrar array
+        </script>
+        <h4> Muestra los datos aqui </h4>
+        <div id="info7"></div>
+    </div>
+
+    <div class="cajabonita">
+        <h2>8. Metodos Funcionales 5 </h2>
+        <br> • Crea una función contarCadenas(array) que Dado un array con palabras repetidas,
+        <br>debes agruparlas y contar cuántas veces aparece cada una, usando únicamente reduce.. <br>
+        <br> const palabras = [ "js", "html", "css", "js", "css", "js", "react" ];
+        <br> Debes usar reduce para genera un array de arrays donde Cada sub-array tenga el formato:
+        <br> ["palabra", cantidad]
+        <br> • contarCadenas(palabras) // [ ["js", 3], ["html", 1], ["css", 2], ["react", 1] ]
+        <br> • Ordena el resultado de mayor a menor cantidad:
+        [ ["js", 3], ["css", 2], ["html", 1], ["react", 1] ]
+
+
+        <script>
+            // aqui debe ir el codigo
+            // mostrar array
+
+            const palabras = ["js", "html", "css", "js", "css", "js", "react"];
+            //     contarCadenas(palabras)  // [    ["js", 3],    ["html", 1],    ["css", 2],   ["react", 1]  ]
+
+            //     contarCadenas(palabras)  // [    ["js", 3],    ["html", 1],    ["css", 2],   ["react", 1]  ]
+            function contarCadenas(palabras) {
+                const contador = new Map();
+
+                palabras.forEach(palabra => {
+
+                    const cantidadActual = contador.get(palabra) || 0;
+
+                    contador.set(palabra, cantidadActual + 1);
+                });
+                return contador;
+            }
+
+            console.log(IcontarCadenas(palabras))
+        </script>
+        <h4> Muestra los datos aqui </h4>
+        <div id="info8"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="cajabonita">
+        <h2>Ejercicio 9. Arrays Multidimensional</h2>
+        <br>Dado un valor num. haz un array del triangulo de pascal y muestralo por pantalla
+        <br> Para hacer el triangulo solo debes ver que <br><br>
+        <br> Cada celda es la suma de las dos anterior superiores
+        <br> <strong> triangulo[i][1] = (triangulo[i][0] + triangulo[i-1][0]) </strong><br><br>
+        si el valor esta definido en ese parametro si no 0. Por ejemplo para n=6
+        <br> <img src="./pascal.png.jpg" width="500" />
+        <script>
+            function pascal(num) {
+                //Es un array bidimensional
+                let triangulo = [];
+                return triangulo;
+            }
+            //pascal(5);
+
+        </script>
+        <h4> Muestra los datos aqui </h4>
+
+        <div id="info9"></div>
+    </div>
+    <div class="cajabonita">
+        <h2>Ejercicio 10. Arrays Multidimensional fibonaci </h2>
+        <br><br> Calcula un termino de la secuencia de fibonaci usando el triangulo de pascal
+        <br><br> sabiendo que se calcula con las diagonales de este triangulo
+
+        <br> fib(n) = triangulo[n][0] +triangulo[n-1][1] + … + triangulo[0][n]
+
+        <img src="./fibopascal2.jpg" width="500" />
+        <h4> Muestra los datos aqui </h4>
+
+        <div id="info10"></div>
+        <script>
+            function fib(num) {
+                const fibonacci = [...Array(num)].reduce((acc) => {
+                    const ultimo = acc[acc.length - 1];
+                    const penultimo = acc[acc.length - 2];
+                    acc.push(ultimo + penultimo);
+                    return acc;
+                }, [0, 1]);
+                //Para pillar el ultimo elemento del array
+                return fibonacci[fibonacci.length - 1];
+            }
+            document.getElementById('info10').innerHTML = fib(5);
+        </script>
+
+
+</body>
+
+</html>

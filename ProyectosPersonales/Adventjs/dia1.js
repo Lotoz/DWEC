@@ -8,7 +8,6 @@ Un regalo es defectuoso si su nombre contiene el carácter #.
 Ayuda a Santa escribiendo una función que reciba una lista de nombres de regalos y 
 devuelva una nueva lista que solo contenga los regalos sin defectos.
 */
-const gifts1 = ['#broken', '#rusty']; //Array a limpiar, se deben limpiar 2
 
 function filterGifts(gifts) {
     let giftsRepair = [];
@@ -20,6 +19,19 @@ function filterGifts(gifts) {
     return giftsRepair;
 }
 
-let giftsReparados = filterGifts(gifts1);
+const gifts1 = ['car', 'doll#arm', 'ball', '#train']
+const good1 = filterGifts(gifts1)
+console.log(good1)
+// ['car', 'ball']
 
-console.log(giftsReparados);
+const gifts2 = ['#broken', '#rusty']
+const good2 = filterGifts(gifts2)
+console.log(good2)
+// []
+
+const gifts3 = []
+const good3 = filterGifts(gifts3)
+console.log(good3)
+const gifts4 = [,]
+const good4 = filterGifts(gifts4)
+console.log(good4)

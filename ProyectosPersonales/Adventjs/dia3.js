@@ -27,11 +27,39 @@ console.log(g1)
  *\ 
  */
 function drawGift(size, symbol) {
-    //SIZE DEBE SER SIEMPRE ENTERO
-    try {
-        size = parseInt(size); //Si es decimal, se redondea, si no, f por el becario
-
-    } catch (error) {
-        return 'Peque becario, haz pasado un valor no entero. Debe ser valores enteros.';
+    let gift = "";
+    if (size < 2) {
+        return "";
     }
+    for (let i = 0; i < size; i++) {
+        if (i == 0) {
+            gift += symbol.repeat(size) + "\n";
+        } else if (i == size-1) {
+            gift += symbol.repeat(size);
+        } else {
+            gift += symbol + " ".repeat(size-2) + symbol + "\n";
+        }
+    }
+    return gift;  
 }
+const g1 = drawGift(4, '*')
+console.log(g1)
+
+const g2 = drawGift(3, '#')
+console.log(g2)
+/*
+###
+# #
+###
+*/
+
+const g3 = drawGift(2, '-')
+console.log(g3)
+/*
+--
+--
+*/
+
+const g4 = drawGift(1, '+')
+console.log(g4)
+// ""  pobre becario…

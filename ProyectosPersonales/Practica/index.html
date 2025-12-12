@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica</title>
 </head>
+
 <body>
     <h2>Número mayor</h2>
     <h3>Pide tres números al usuario y muestra cuál es el mayor.</h3>
@@ -13,7 +15,7 @@
     <script>
         const boton1 = document.getElementById('boton1');
         const salida = document.getElementById('salida');
-        
+
         boton1.addEventListener("click", () => {
             let e_1number = prompt("Dame el primer numero.");
             let e_2number = prompt("Dame el segundo numero.");
@@ -21,39 +23,40 @@
 
             if (e_1number == e_2number && e_3number == e_2number) {
                 salida.textContent = "Todos los numeros son iguales.";
-            } else if (e_1number >= e_2number && e_1number >= e_3number){
+            } else if (e_1number >= e_2number && e_1number >= e_3number) {
                 salida.textContent = `El numero ${e_1number} es el mas grande.`;
-            } else if(e_2number >= e_1number && e_2number >= e_3number){
-                 salida.textContent = `El numero ${e_2number} es el mas grande.`;
-            }  else if(e_3number >= e_1number && e_3number >= e_2number){
-                 salida.textContent = `El numero ${e_3number} es el mas grande.`;
+            } else if (e_2number >= e_1number && e_2number >= e_3number) {
+                salida.textContent = `El numero ${e_2number} es el mas grande.`;
+            } else if (e_3number >= e_1number && e_3number >= e_2number) {
+                salida.textContent = `El numero ${e_3number} es el mas grande.`;
             }
-        });
+        })
     </script>
     <h2>2. Contador de vocales</h2>
     <h3>Solicita una palabra y muestra cuántas vocales tiene.</h3>
     <button id="boton2">Iniciar</button>
     <p id="salida2"></p>
     <script>
-         const boton2 = document.getElementById('boton2');
-    const salida2 = document.getElementById('salida2');
+        const boton2 = document.getElementById('boton2');
+        const salida2 = document.getElementById('salida2');
 
-    boton2.addEventListener("click", () => {
-        let e2_palabra = prompt("Dame una palabra:");
-        if (!e2_palabra) return; // Si cancela o no escribe nada
+        boton2.addEventListener("click", () => {
+            let e2_palabra = prompt("Dame una palabra:");
+            if (!e2_palabra) return; // Si cancela o no escribe nada
 
-        const e2_vocales = ["a", "e", "i", "o", "u"];
-        let contadorCoincidencias = 0;
-        e2_palabra = e2_palabra.toLowerCase();
+            const e2_vocales = ["a", "e", "i", "o", "u"];
+            let contadorCoincidencias = 0;
+            e2_palabra = e2_palabra.toLowerCase();
 
-        for (const letra of e2_palabra) {
-            if (e2_vocales.includes(letra)) {
-                contadorCoincidencias++;
+            for (const letra of e2_palabra) {
+                if (e2_vocales.includes(letra)) {
+                    contadorCoincidencias++;
+                }
             }
-        }
 
-        salida2.textContent = `Tiene ${contadorCoincidencias} vocal(es).`;
-    });
+            salida2.textContent = `Tiene ${contadorCoincidencias} vocal(es).`;
+        });
     </script>
 </body>
+
 </html>
